@@ -1,0 +1,543 @@
+2026-03-11 08:47:40 [INFO    ] IVS.detection.Main – Detection process started  PID=3324
+2026-03-11 08:47:49 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:47:49 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3243 MB exceeds limit 1500 MB
+2026-03-11 08:47:49 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 08:47:58 [INFO    ] IVS.detection.Main – Detection process started  PID=2108
+2026-03-11 08:48:02 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:48:02 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 08:48:02 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 08:48:16 [INFO    ] IVS.detection.Main – Detection process started  PID=24004
+2026-03-11 08:48:20 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:48:20 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 08:48:20 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 08:48:52 [INFO    ] IVS.detection.Main – Detection process started  PID=13552
+2026-03-11 08:48:57 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:48:57 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 08:48:57 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 08:50:02 [INFO    ] IVS.detection.Main – Detection process started  PID=26376
+2026-03-11 08:50:06 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:50:06 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3240 MB exceeds limit 1500 MB
+2026-03-11 08:50:06 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 08:52:08 [INFO    ] IVS.detection.Main – Detection process started  PID=26620
+2026-03-11 08:52:12 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:52:12 [INFO    ] IVS.detection.Main – Reloading zone config
+2026-03-11 08:52:12 [INFO    ] IVS.detection.ConfigLoader – Loaded config: 4 cameras
+2026-03-11 08:52:12 [INFO    ] IVS.detection.Main – Zone config reloaded
+2026-03-11 08:52:12 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 08:52:12 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 08:54:14 [INFO    ] IVS.detection.Main – Detection process started  PID=25104
+2026-03-11 08:54:20 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:54:20 [INFO    ] IVS.detection.Main – Reloading zone config
+2026-03-11 08:54:21 [INFO    ] IVS.detection.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 08:54:21 [INFO    ] IVS.detection.Main – Zone config reloaded
+2026-03-11 08:54:21 [INFO    ] IVS.detection.Main – Reloading zone config
+2026-03-11 08:54:21 [INFO    ] IVS.detection.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 08:54:21 [INFO    ] IVS.detection.Main – Zone config reloaded
+2026-03-11 08:54:21 [INFO    ] IVS.detection.Main – Reloading zone config
+2026-03-11 08:54:21 [INFO    ] IVS.detection.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 08:54:21 [INFO    ] IVS.detection.Main – Zone config reloaded
+2026-03-11 08:54:21 [INFO    ] IVS.detection.Main – Reloading zone config
+2026-03-11 08:54:21 [INFO    ] IVS.detection.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 08:54:21 [INFO    ] IVS.detection.Main – Zone config reloaded
+2026-03-11 08:54:21 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3243 MB exceeds limit 1500 MB
+2026-03-11 08:54:21 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 08:56:24 [INFO    ] IVS.detection.Main – Detection process started  PID=25264
+2026-03-11 08:56:28 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:56:28 [INFO    ] IVS.detection.Main – Reloading zone config
+2026-03-11 08:56:28 [INFO    ] IVS.detection.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 08:56:28 [INFO    ] IVS.detection.Main – Zone config reloaded
+2026-03-11 08:56:28 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 08:56:28 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 08:58:33 [INFO    ] IVS.detection.Main – Detection process started  PID=23620
+2026-03-11 08:58:38 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 08:58:38 [INFO    ] IVS.detection.Main – Reloading zone config
+2026-03-11 08:58:38 [INFO    ] IVS.detection.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 08:58:38 [INFO    ] IVS.detection.Main – Zone config reloaded
+2026-03-11 08:58:38 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 08:58:38 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:06:10 [INFO    ] IVS.detection.Main – Detection process started  PID=864
+2026-03-11 09:06:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:06:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:06:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:06:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:06:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:06:14 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3240 MB exceeds limit 1500 MB
+2026-03-11 09:06:14 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:07:12 [INFO    ] IVS.detection.Main – Detection process started  PID=24816
+2026-03-11 09:07:17 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:07:17 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:07:17 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:07:17 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:07:17 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:07:17 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 09:07:17 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:07:27 [INFO    ] IVS.detection.Main – Detection process started  PID=20752
+2026-03-11 09:07:31 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:07:31 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:07:31 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:07:31 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:07:31 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:07:31 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 09:07:31 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:07:48 [INFO    ] IVS.detection.Main – Detection process started  PID=26236
+2026-03-11 09:07:52 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:07:52 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:07:52 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:07:52 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:07:52 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:07:52 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 09:07:52 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:08:24 [INFO    ] IVS.detection.Main – Detection process started  PID=25064
+2026-03-11 09:08:28 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:08:28 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:08:28 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:08:28 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:08:28 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:08:28 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 09:08:28 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:09:30 [INFO    ] IVS.detection.Main – Detection process started  PID=3404
+2026-03-11 09:09:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:09:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:09:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:09:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:09:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:09:34 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 09:09:34 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:11:37 [INFO    ] IVS.detection.Main – Detection process started  PID=3152
+2026-03-11 09:11:44 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:11:44 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:11:44 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:11:44 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:11:46 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:11:46 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 09:11:46 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:13:49 [INFO    ] IVS.detection.Main – Detection process started  PID=13104
+2026-03-11 09:13:53 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:13:53 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:13:53 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:13:53 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:13:53 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:13:53 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 09:13:53 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:15:56 [INFO    ] IVS.detection.Main – Detection process started  PID=5080
+2026-03-11 09:16:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:16:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:16:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:16:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:16:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:16:00 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3242 MB exceeds limit 1500 MB
+2026-03-11 09:16:00 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:18:02 [INFO    ] IVS.detection.Main – Detection process started  PID=26568
+2026-03-11 09:18:06 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:18:06 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:18:06 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:18:06 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:18:06 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:18:06 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 09:18:06 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:20:09 [INFO    ] IVS.detection.Main – Detection process started  PID=6612
+2026-03-11 09:20:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:20:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:20:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:20:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:20:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:20:13 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 09:20:13 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:22:15 [INFO    ] IVS.detection.Main – Detection process started  PID=23772
+2026-03-11 09:22:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:22:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:22:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:22:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:22:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:22:19 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 09:22:19 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:24:21 [INFO    ] IVS.detection.Main – Detection process started  PID=680
+2026-03-11 09:24:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:24:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:24:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:24:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:24:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:24:25 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 09:24:25 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:26:28 [INFO    ] IVS.detection.Main – Detection process started  PID=21476
+2026-03-11 09:26:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:26:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:26:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:26:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:26:34 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:26:34 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 09:26:34 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:28:37 [INFO    ] IVS.detection.Main – Detection process started  PID=6828
+2026-03-11 09:28:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:28:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:28:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:28:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:28:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:28:41 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3241 MB exceeds limit 1500 MB
+2026-03-11 09:28:41 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:30:46 [INFO    ] IVS.detection.Main – Detection process started  PID=19044
+2026-03-11 09:30:50 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:30:50 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:30:50 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:30:50 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:30:50 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:30:50 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 09:30:50 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:32:53 [INFO    ] IVS.detection.Main – Detection process started  PID=24976
+2026-03-11 09:32:57 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:32:57 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:32:57 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:32:57 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:32:57 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:32:57 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 09:32:57 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:34:59 [INFO    ] IVS.detection.Main – Detection process started  PID=22032
+2026-03-11 09:35:03 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:35:03 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:35:03 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:35:03 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:35:03 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:35:03 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 09:35:03 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:37:06 [INFO    ] IVS.detection.Main – Detection process started  PID=1576
+2026-03-11 09:37:10 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:37:10 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:37:10 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:37:10 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:37:10 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:37:10 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 09:37:10 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:39:12 [INFO    ] IVS.detection.Main – Detection process started  PID=25044
+2026-03-11 09:39:16 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:39:16 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:39:16 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:39:16 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:39:16 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:39:16 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 09:39:16 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:41:18 [INFO    ] IVS.detection.Main – Detection process started  PID=14068
+2026-03-11 09:41:22 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:41:22 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:41:22 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:41:22 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:41:22 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:41:22 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 09:41:22 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:43:25 [INFO    ] IVS.detection.Main – Detection process started  PID=16128
+2026-03-11 09:43:29 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:43:29 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:43:29 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:43:29 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:43:29 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:43:29 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 09:43:29 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:45:31 [INFO    ] IVS.detection.Main – Detection process started  PID=5832
+2026-03-11 09:45:35 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:45:35 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:45:35 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:45:35 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:45:35 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:45:35 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 09:45:35 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:47:37 [INFO    ] IVS.detection.Main – Detection process started  PID=16032
+2026-03-11 09:47:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:47:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:47:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:47:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:47:41 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:47:41 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 09:47:41 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:49:44 [INFO    ] IVS.detection.Main – Detection process started  PID=10256
+2026-03-11 09:49:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:49:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:49:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:49:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:49:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:49:48 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 09:49:48 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:51:50 [INFO    ] IVS.detection.Main – Detection process started  PID=25228
+2026-03-11 09:51:54 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:51:54 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:51:54 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:51:54 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:51:54 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:51:54 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 09:51:54 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:53:56 [INFO    ] IVS.detection.Main – Detection process started  PID=524
+2026-03-11 09:54:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:54:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:54:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:54:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:54:00 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:54:00 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3240 MB exceeds limit 1500 MB
+2026-03-11 09:54:00 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:56:03 [INFO    ] IVS.detection.Main – Detection process started  PID=14452
+2026-03-11 09:56:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:56:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:56:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:56:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:56:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:56:07 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 09:56:07 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 09:58:09 [INFO    ] IVS.detection.Main – Detection process started  PID=8852
+2026-03-11 09:58:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 09:58:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 09:58:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 09:58:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 09:58:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 09:58:13 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 09:58:13 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 10:00:15 [INFO    ] IVS.detection.Main – Detection process started  PID=25552
+2026-03-11 10:00:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 10:00:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 10:00:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 10:00:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 10:00:19 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 10:00:19 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 10:00:19 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 10:02:22 [INFO    ] IVS.detection.Main – Detection process started  PID=688
+2026-03-11 10:02:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 10:02:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 10:02:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 10:02:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 10:02:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 10:02:26 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3240 MB exceeds limit 1500 MB
+2026-03-11 10:02:26 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 10:04:28 [INFO    ] IVS.detection.Main – Detection process started  PID=22328
+2026-03-11 10:04:32 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 10:04:32 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 10:04:32 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 10:04:32 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 10:04:32 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 10:04:32 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 10:04:32 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 10:06:34 [INFO    ] IVS.detection.Main – Detection process started  PID=11672
+2026-03-11 10:06:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 10:06:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 10:06:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 10:06:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 10:06:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 10:06:39 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 10:06:39 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 10:08:41 [INFO    ] IVS.detection.Main – Detection process started  PID=13292
+2026-03-11 12:10:47 [INFO    ] IVS.detection.Main – Detection process started  PID=3804
+2026-03-11 12:10:51 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 12:10:51 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 12:10:51 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 12:10:51 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 12:10:51 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 12:10:51 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 12:10:51 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 12:12:56 [INFO    ] IVS.detection.Main – Detection process started  PID=5608
+2026-03-11 12:13:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 12:13:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 12:13:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 12:13:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 12:13:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 12:13:01 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 12:13:01 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 12:15:03 [INFO    ] IVS.detection.Main – Detection process started  PID=25672
+2026-03-11 12:15:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 12:15:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 12:15:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 12:15:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 12:15:07 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 12:15:07 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 12:15:07 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 12:17:09 [INFO    ] IVS.detection.Main – Detection process started  PID=23908
+2026-03-11 12:17:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 12:17:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 12:17:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 12:17:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 12:17:13 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 12:17:13 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 12:17:13 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 12:19:16 [INFO    ] IVS.detection.Main – Detection process started  PID=8996
+2026-03-11 12:19:20 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 12:19:20 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 12:19:20 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 12:19:20 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 12:19:20 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 12:19:20 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 12:19:20 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 12:21:22 [INFO    ] IVS.detection.Main – Detection process started  PID=25536
+2026-03-11 12:21:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 12:21:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 12:21:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 12:21:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 12:21:26 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 12:21:26 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3240 MB exceeds limit 1500 MB
+2026-03-11 12:21:26 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 12:23:29 [INFO    ] IVS.detection.Main – Detection process started  PID=26532
+2026-03-11 12:23:33 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 12:23:33 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 12:23:33 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 12:23:33 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 12:23:33 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 12:23:33 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 12:23:33 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 12:25:35 [INFO    ] IVS.detection.Main – Detection process started  PID=23956
+2026-03-11 12:25:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 12:25:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 12:25:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 12:25:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 12:25:39 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 12:25:39 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 12:25:39 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:30:32 [INFO    ] IVS.detection.Main – Detection process started  PID=26000
+2026-03-11 13:30:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:30:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:30:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:30:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:30:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:30:36 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 13:30:36 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:32:42 [INFO    ] IVS.detection.Main – Detection process started  PID=25092
+2026-03-11 13:32:46 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:32:46 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:32:46 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:32:46 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:32:46 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:32:46 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:32:46 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:34:51 [INFO    ] IVS.detection.Main – Detection process started  PID=4568
+2026-03-11 13:34:55 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:34:55 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:34:55 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:34:55 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:34:55 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:34:55 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 13:34:55 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:36:57 [INFO    ] IVS.detection.Main – Detection process started  PID=15628
+2026-03-11 13:37:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:37:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:37:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:37:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:37:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:37:01 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:37:01 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:39:04 [INFO    ] IVS.detection.Main – Detection process started  PID=25892
+2026-03-11 13:39:08 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:39:08 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:39:08 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:39:08 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:39:08 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:39:08 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:39:08 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:41:10 [INFO    ] IVS.detection.Main – Detection process started  PID=15468
+2026-03-11 13:41:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:41:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:41:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:41:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:41:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:41:14 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:41:14 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:43:18 [INFO    ] IVS.detection.Main – Detection process started  PID=15336
+2026-03-11 13:43:24 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:43:24 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:43:24 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:43:24 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:43:24 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:43:24 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3240 MB exceeds limit 1500 MB
+2026-03-11 13:43:24 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:45:30 [INFO    ] IVS.detection.Main – Detection process started  PID=8052
+2026-03-11 13:45:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:45:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:45:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:45:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:45:36 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:45:36 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:45:36 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:47:42 [INFO    ] IVS.detection.Main – Detection process started  PID=24320
+2026-03-11 13:47:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:47:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:47:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:47:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:47:48 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:47:48 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3238 MB exceeds limit 1500 MB
+2026-03-11 13:47:48 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:49:55 [INFO    ] IVS.detection.Main – Detection process started  PID=18400
+2026-03-11 13:50:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:50:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:50:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:50:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:50:01 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:50:01 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:50:01 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:52:07 [INFO    ] IVS.detection.Main – Detection process started  PID=22176
+2026-03-11 13:52:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:52:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:52:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:52:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:52:14 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:52:14 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:52:14 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:54:20 [INFO    ] IVS.detection.Main – Detection process started  PID=2840
+2026-03-11 13:54:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:54:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:54:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:54:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:54:25 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:54:25 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:54:25 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:56:32 [INFO    ] IVS.detection.Main – Detection process started  PID=4840
+2026-03-11 13:56:38 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 1
+2026-03-11 13:56:38 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 2
+2026-03-11 13:56:38 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 3
+2026-03-11 13:56:38 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 4
+2026-03-11 13:56:38 [INFO    ] IVS.detection.Main – Attached to shared memory for camera 5
+2026-03-11 13:56:38 [ERROR   ] IVS.detection.Main – Resource limit: RAM 3239 MB exceeds limit 1500 MB
+2026-03-11 13:56:38 [INFO    ] IVS.detection.Main – Detection process exiting
+2026-03-11 13:58:45 [INFO    ] IVS.detection.Main – Detection process started  PID=25388
+2026-03-11 16:33:53 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=20816
+2026-03-11 16:34:05 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-11 16:34:05 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-03-11 16:34:05 [INFO    ] IVS.detection.Main – Attached SHM for camera 3
+2026-03-11 16:34:05 [INFO    ] IVS.detection.Main – Attached SHM for camera 4
+2026-03-11 16:34:05 [INFO    ] IVS.detection.Main – Attached SHM for camera 5
+2026-03-11 16:36:38 [INFO    ] IVS.detection.Main – Detection worker 0 exiting
+2026-03-11 16:37:14 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=28140
+2026-03-11 16:37:25 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-11 16:38:37 [INFO    ] IVS.detection.Main – Zone config update received – reloading
+2026-03-11 16:38:37 [INFO    ] IVS.detection.ConfigLoader – Config loaded: 2 cameras, 4 zones
+2026-03-11 16:38:37 [INFO    ] IVS.detection.Main – Zones hot-reloaded from disk
+2026-03-11 16:38:56 [INFO    ] IVS.detection.Main – Zone config update received – reloading
+2026-03-11 16:38:56 [INFO    ] IVS.detection.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-11 16:38:56 [INFO    ] IVS.detection.Main – Zones hot-reloaded from disk
+2026-03-11 16:39:08 [INFO    ] IVS.detection.Main – Zone config update received – reloading
+2026-03-11 16:39:08 [INFO    ] IVS.detection.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-11 16:39:08 [INFO    ] IVS.detection.Main – Zones hot-reloaded from disk
+2026-03-11 16:47:57 [INFO    ] IVS.detection.Main – Settings reload received
+2026-03-11 16:47:58 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json
+2026-03-11 16:48:04 [INFO    ] IVS.detection.Main – Settings reload received
+2026-03-11 16:48:04 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json
+2026-03-11 16:48:13 [INFO    ] IVS.detection.Main – Settings reload received
+2026-03-11 16:48:13 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json
+2026-03-11 16:48:58 [INFO    ] IVS.detection.Main – Zone config update received – reloading
+2026-03-11 16:48:58 [INFO    ] IVS.detection.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-11 16:48:58 [INFO    ] IVS.detection.Main – Zones hot-reloaded from disk
+2026-03-11 16:49:41 [INFO    ] IVS.detection.Main – Detection worker 0 exiting
+2026-03-12 06:48:00 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=1032
+2026-03-12 06:48:07 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-12 06:48:07 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-03-12 06:53:28 [INFO    ] IVS.detection.Main – Detection worker 0 exiting
+2026-03-12 06:54:38 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=20904
+2026-03-12 06:54:42 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-12 06:54:42 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-03-12 06:54:54 [INFO    ] IVS.detection.Main – Detection worker 0 exiting
+2026-03-12 06:57:42 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=18044
+2026-03-12 06:57:46 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-12 06:57:46 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-03-12 06:58:03 [INFO    ] IVS.detection.Main – Detection worker 0 exiting
+2026-03-12 11:58:57 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=6992
+2026-03-12 11:59:01 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-12 11:59:01 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-03-12 11:59:31 [INFO    ] IVS.detection.Main – CTRL_CAMERA_RESTARTED cam=2 – reattaching SHM
+2026-03-12 11:59:31 [INFO    ] IVS.detection.Main – Camera 2 SHM reattached
+2026-03-12 12:00:00 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 2 SHM handles
+2026-03-12 12:00:26 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=28436
+2026-03-12 12:00:30 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-12 12:01:19 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 1 SHM handles
+2026-03-12 13:18:38 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=24024
+2026-03-12 13:18:43 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-12 13:19:18 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 1 SHM handles

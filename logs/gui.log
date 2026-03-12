@@ -1,0 +1,536 @@
+2026-03-11 08:47:40 [INFO    ] IVS.gui.Main – GUI process started  PID=13948
+2026-03-11 08:47:41 [INFO    ] IVS.gui.ConfigLoader – No app_settings.json found – using defaults
+2026-03-11 08:47:41 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added to config
+2026-03-11 08:47:41 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 08:47:41 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:47:41 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 08:49:00 [INFO    ] IVS.gui.ConfigLoader – Camera 2 added to config
+2026-03-11 08:49:00 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 08:49:12 [INFO    ] IVS.gui.ConfigLoader – Camera 3 added to config
+2026-03-11 08:49:12 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-11 08:49:23 [INFO    ] IVS.gui.ConfigLoader – Camera 4 added to config
+2026-03-11 08:49:23 [INFO    ] IVS.gui.TeachingPage – Camera panel 4 added
+2026-03-11 08:49:31 [INFO    ] IVS.gui.ConfigLoader – Added zone 1 to camera 2, relay 1
+2026-03-11 08:49:39 [INFO    ] IVS.gui.ConfigLoader – Added zone 2 to camera 1, relay 1
+2026-03-11 08:49:56 [INFO    ] IVS.gui.ConfigLoader – Added zone 3 to camera 1, relay 1
+2026-03-11 08:50:07 [INFO    ] IVS.gui.ConfigLoader – Added zone 4 to camera 3, relay 1
+2026-03-11 08:50:15 [INFO    ] IVS.gui.ConfigLoader – Added zone 5 to camera 4, relay 1
+2026-03-11 08:50:39 [INFO    ] IVS.gui.ConfigLoader – Added zone 6 to camera 1, relay 1
+2026-03-11 08:50:49 [INFO    ] IVS.gui.ConfigLoader – Added zone 7 to camera 3, relay 1
+2026-03-11 08:50:57 [INFO    ] IVS.gui.ConfigLoader – Added zone 8 to camera 2, relay 1
+2026-03-11 08:51:03 [INFO    ] IVS.gui.ConfigLoader – Added zone 9 to camera 4, relay 1
+2026-03-11 08:51:06 [INFO    ] IVS.gui.ConfigLoader – Config saved to human_boundaries.json
+2026-03-11 08:51:11 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:51:23 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 08:51:42 [INFO    ] IVS.gui.ConfigLoader – Saved settings to app_settings.json
+2026-03-11 08:51:42 [INFO    ] IVS.gui.SettingsPage – Settings saved via UI
+2026-03-11 08:51:44 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:52:01 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 08:52:36 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:52:37 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:52:39 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:52:40 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:52:41 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:52:48 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 08:52:52 [INFO    ] IVS.gui.ConfigLoader – Config saved to human_boundaries.json
+2026-03-11 08:53:19 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 08:53:19 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 08:53:29 [INFO    ] IVS.gui.Main – GUI process started  PID=22352
+2026-03-11 08:53:29 [INFO    ] IVS.gui.ConfigLoader – Loaded settings from app_settings.json
+2026-03-11 08:53:29 [INFO    ] IVS.gui.ConfigLoader – Loaded config: 4 cameras
+2026-03-11 08:53:29 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 08:53:29 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:53:29 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 08:53:39 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:53:43 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:53:52 [INFO    ] IVS.gui.ConfigLoader – Camera 5 added to config
+2026-03-11 08:53:52 [INFO    ] IVS.gui.TeachingPage – Camera panel 5 added
+2026-03-11 08:53:59 [INFO    ] IVS.gui.ConfigLoader – Added zone 10 to camera 5, relay 1
+2026-03-11 08:54:02 [INFO    ] IVS.gui.ConfigLoader – Config saved to human_boundaries.json
+2026-03-11 08:54:06 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:54:25 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:54:28 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:54:29 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:54:31 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 08:54:34 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:56:36 [INFO    ] IVS.gui.ConfigLoader – Config saved to human_boundaries.json
+2026-03-11 08:56:40 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 08:56:40 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 08:56:48 [INFO    ] IVS.gui.Main – GUI process started  PID=2332
+2026-03-11 08:56:48 [INFO    ] IVS.gui.ConfigLoader – Loaded settings from app_settings.json
+2026-03-11 08:56:48 [INFO    ] IVS.gui.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 08:56:48 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 08:56:48 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:56:48 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 08:57:06 [INFO    ] IVS.gui.ConfigLoader – Camera 6 added to config
+2026-03-11 08:57:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 6 added
+2026-03-11 08:57:15 [INFO    ] IVS.gui.ConfigLoader – Added zone 11 to camera 6, relay 1
+2026-03-11 08:57:29 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 08:57:29 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 08:57:39 [INFO    ] IVS.gui.Main – GUI process started  PID=8104
+2026-03-11 08:57:39 [INFO    ] IVS.gui.ConfigLoader – Loaded settings from app_settings.json
+2026-03-11 08:57:39 [INFO    ] IVS.gui.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 08:57:39 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 08:57:39 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 08:57:39 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 08:57:55 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 08:57:55 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 09:06:10 [INFO    ] IVS.gui.Main – GUI process started  PID=1700
+2026-03-11 09:06:10 [INFO    ] IVS.gui.ConfigLoader – Loaded settings from app_settings.json
+2026-03-11 09:06:10 [INFO    ] IVS.gui.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 09:06:10 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 09:06:10 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 09:06:10 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-11 09:06:10 [INFO    ] IVS.gui.TeachingPage – Camera panel 4 added
+2026-03-11 09:06:10 [INFO    ] IVS.gui.TeachingPage – Camera panel 5 added
+2026-03-11 09:06:10 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 09:06:10 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 09:07:12 [INFO    ] IVS.gui.Main – GUI process started  PID=22180
+2026-03-11 09:07:12 [INFO    ] IVS.gui.ConfigLoader – Loaded settings from app_settings.json
+2026-03-11 09:07:12 [INFO    ] IVS.gui.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 09:07:12 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 09:07:12 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 09:07:12 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-11 09:07:12 [INFO    ] IVS.gui.TeachingPage – Camera panel 4 added
+2026-03-11 09:07:12 [INFO    ] IVS.gui.TeachingPage – Camera panel 5 added
+2026-03-11 09:07:12 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 09:07:12 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 09:07:17 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 09:07:21 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 09:10:15 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 09:10:23 [INFO    ] IVS.gui.ConfigLoader – Saved settings to app_settings.json
+2026-03-11 09:10:23 [INFO    ] IVS.gui.ConfigLoader – Resolution updated (1280, 720) → (960, 540), zones rescaled
+2026-03-11 09:10:23 [INFO    ] IVS.gui.ConfigLoader – Config saved to human_boundaries.json
+2026-03-11 09:10:23 [INFO    ] IVS.gui.SettingsPage – Settings saved via UI
+2026-03-11 09:10:32 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 09:10:32 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 09:10:43 [INFO    ] IVS.gui.Main – GUI process started  PID=4812
+2026-03-11 09:10:43 [INFO    ] IVS.gui.ConfigLoader – Loaded settings from app_settings.json
+2026-03-11 09:10:43 [INFO    ] IVS.gui.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 09:10:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 09:10:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 09:10:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-11 09:10:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 4 added
+2026-03-11 09:10:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 5 added
+2026-03-11 09:10:43 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 09:10:43 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 13:57:27 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 13:57:27 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 13:57:39 [INFO    ] IVS.gui.Main – GUI process started  PID=1860
+2026-03-11 13:57:41 [INFO    ] IVS.gui.ConfigLoader – Loaded settings from app_settings.json
+2026-03-11 13:57:41 [INFO    ] IVS.gui.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 13:57:41 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 13:57:41 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 13:57:41 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-11 13:57:41 [INFO    ] IVS.gui.TeachingPage – Camera panel 4 added
+2026-03-11 13:57:41 [INFO    ] IVS.gui.TeachingPage – Camera panel 5 added
+2026-03-11 13:57:42 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 13:57:43 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 13:57:54 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 13:57:54 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 13:58:06 [INFO    ] IVS.gui.Main – GUI process started  PID=12556
+2026-03-11 13:58:06 [INFO    ] IVS.gui.ConfigLoader – Loaded settings from app_settings.json
+2026-03-11 13:58:06 [INFO    ] IVS.gui.ConfigLoader – Loaded config: 5 cameras
+2026-03-11 13:58:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 13:58:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 13:58:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-11 13:58:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 4 added
+2026-03-11 13:58:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 5 added
+2026-03-11 13:58:06 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 13:58:06 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 13:58:13 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 13:58:13 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 16:33:53 [INFO    ] IVS.gui.Main – GUI process started  PID=13980
+2026-03-11 16:33:53 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-11 16:33:53 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 5 cameras, 5 zones
+2026-03-11 16:33:53 [DEBUG   ] IVS.gui.ConfigLoader – Camera 1 already in config – not duplicating
+2026-03-11 16:33:53 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 16:33:53 [DEBUG   ] IVS.gui.ConfigLoader – Camera 2 already in config – not duplicating
+2026-03-11 16:33:53 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 16:33:53 [DEBUG   ] IVS.gui.ConfigLoader – Camera 3 already in config – not duplicating
+2026-03-11 16:33:53 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-11 16:33:53 [DEBUG   ] IVS.gui.ConfigLoader – Camera 4 already in config – not duplicating
+2026-03-11 16:33:53 [INFO    ] IVS.gui.TeachingPage – Camera panel 4 added
+2026-03-11 16:33:53 [DEBUG   ] IVS.gui.ConfigLoader – Camera 5 already in config – not duplicating
+2026-03-11 16:33:53 [INFO    ] IVS.gui.TeachingPage – Camera panel 5 added
+2026-03-11 16:33:53 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:33:53 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 16:34:06 [INFO    ] IVS.gui.ConfigLoader – Camera 1 removed (zones freed, relay channels released)
+2026-03-11 16:34:06 [INFO    ] IVS.gui.ConfigLoader – Config saved atomically (human_boundaries.json)
+2026-03-11 16:34:10 [INFO    ] IVS.gui.ConfigLoader – Camera 2 removed (zones freed, relay channels released)
+2026-03-11 16:34:10 [INFO    ] IVS.gui.ConfigLoader – Config saved atomically (human_boundaries.json)
+2026-03-11 16:34:13 [INFO    ] IVS.gui.ConfigLoader – Camera 3 removed (zones freed, relay channels released)
+2026-03-11 16:34:13 [INFO    ] IVS.gui.ConfigLoader – Config saved atomically (human_boundaries.json)
+2026-03-11 16:34:16 [INFO    ] IVS.gui.ConfigLoader – Camera 4 removed (zones freed, relay channels released)
+2026-03-11 16:34:16 [INFO    ] IVS.gui.ConfigLoader – Config saved atomically (human_boundaries.json)
+2026-03-11 16:34:20 [INFO    ] IVS.gui.ConfigLoader – Camera 5 removed (zones freed, relay channels released)
+2026-03-11 16:34:20 [INFO    ] IVS.gui.ConfigLoader – Config saved atomically (human_boundaries.json)
+2026-03-11 16:35:06 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-11 16:35:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 16:35:24 [INFO    ] IVS.gui.ConfigLoader – Zone 11 → camera 1 relay_id=1
+2026-03-11 16:35:34 [INFO    ] IVS.gui.ConfigLoader – Zone 11 removed from camera 1; freed relay channel(s): [1]
+2026-03-11 16:35:35 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 16:35:35 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 16:35:49 [INFO    ] IVS.gui.Main – GUI process started  PID=3464
+2026-03-11 16:35:49 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-11 16:35:49 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-11 16:35:49 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.ConfigLoader – Camera 2 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.ConfigLoader – Camera 3 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.ConfigLoader – Camera 4 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.TeachingPage – Camera panel 4 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.ConfigLoader – Camera 5 added
+2026-03-11 16:35:49 [INFO    ] IVS.gui.TeachingPage – Camera panel 5 added
+2026-03-11 16:35:49 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:35:49 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 16:36:34 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 16:36:34 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 16:37:14 [INFO    ] IVS.gui.Main – GUI process started  PID=26508
+2026-03-11 16:37:14 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-11 16:37:14 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-11 16:37:14 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-11 16:37:14 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 16:37:14 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:37:14 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 16:37:26 [INFO    ] IVS.gui.ConfigLoader – Zone 1 → camera 1 relay_id=1
+2026-03-11 16:37:34 [INFO    ] IVS.gui.ConfigLoader – Zone 2 → camera 1 relay_id=2
+2026-03-11 16:37:43 [INFO    ] IVS.gui.ConfigLoader – Zone 3 → camera 1 relay_id=3
+2026-03-11 16:37:56 [INFO    ] IVS.gui.ConfigLoader – Camera 2 added
+2026-03-11 16:37:56 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-11 16:38:10 [INFO    ] IVS.gui.ConfigLoader – Zone 4 → camera 2 relay_id=4
+2026-03-11 16:38:17 [INFO    ] IVS.gui.ConfigLoader – Zone 3 removed from camera 1; freed relay channel(s): [3]
+2026-03-11 16:38:26 [INFO    ] IVS.gui.ConfigLoader – Zone 5 → camera 2 relay_id=3
+2026-03-11 16:38:37 [INFO    ] IVS.gui.ConfigLoader – Config saved atomically (human_boundaries.json)
+2026-03-11 16:38:51 [INFO    ] IVS.gui.ConfigLoader – Zone 6 → camera 1 relay_id=1
+2026-03-11 16:38:56 [INFO    ] IVS.gui.ConfigLoader – Config saved atomically (human_boundaries.json)
+2026-03-11 16:39:00 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:39:17 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 16:39:17 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 16:39:29 [INFO    ] IVS.gui.Main – GUI process started  PID=29616
+2026-03-11 16:39:30 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-11 16:39:30 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-11 16:39:30 [DEBUG   ] IVS.gui.ConfigLoader – Camera 1 already in config – not duplicating
+2026-03-11 16:39:30 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 16:39:30 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:39:30 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 16:39:33 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:39:35 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:39:40 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:39:42 [INFO    ] IVS.gui.MainWindow – GUI window closing
+2026-03-11 16:39:42 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-11 16:39:53 [INFO    ] IVS.gui.Main – GUI process started  PID=18748
+2026-03-11 16:39:53 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-11 16:39:53 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-11 16:39:53 [DEBUG   ] IVS.gui.ConfigLoader – Camera 1 already in config – not duplicating
+2026-03-11 16:39:53 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-11 16:39:53 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:39:53 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-11 16:40:41 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:42:39 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 16:47:43 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:47:44 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:47:45 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:47:45 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 16:47:55 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-11 16:47:55 [INFO    ] IVS.gui.SettingsPage – MSG_SETTINGS_SAVED emitted to supervisor
+2026-03-11 16:47:55 [INFO    ] IVS.gui.SettingsPage – Settings saved via UI
+2026-03-11 16:48:03 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-11 16:48:03 [INFO    ] IVS.gui.SettingsPage – MSG_SETTINGS_SAVED emitted to supervisor
+2026-03-11 16:48:03 [INFO    ] IVS.gui.SettingsPage – Settings saved via UI
+2026-03-11 16:48:11 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-11 16:48:11 [INFO    ] IVS.gui.SettingsPage – MSG_SETTINGS_SAVED emitted to supervisor
+2026-03-11 16:48:11 [INFO    ] IVS.gui.SettingsPage – Settings saved via UI
+2026-03-11 16:48:12 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:48:36 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 16:48:37 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:48:38 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 16:48:39 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-11 16:48:39 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:48:41 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 2
+2026-03-11 16:48:42 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 0
+2026-03-11 16:48:45 [DEBUG   ] IVS.gui.MainWindow – Tab changed to 1
+2026-03-12 06:48:00 [INFO    ] IVS.gui.Main – GUI process started  PID=29712
+2026-03-12 06:48:00 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:48:00 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:48:00 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:48:00 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:48:10 [INFO    ] IVS.gui.Main – GUI process started  PID=1392
+2026-03-12 06:48:10 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:48:10 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:48:10 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:48:10 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:48:26 [INFO    ] IVS.gui.Main – GUI process started  PID=26604
+2026-03-12 06:48:26 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:48:26 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:48:26 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:48:26 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:48:59 [INFO    ] IVS.gui.Main – GUI process started  PID=1920
+2026-03-12 06:48:59 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:48:59 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:48:59 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:48:59 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:50:02 [INFO    ] IVS.gui.Main – GUI process started  PID=20076
+2026-03-12 06:50:02 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:50:02 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:50:02 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:50:02 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:52:05 [INFO    ] IVS.gui.Main – GUI process started  PID=28984
+2026-03-12 06:52:05 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:52:05 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:52:05 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:52:05 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:54:38 [INFO    ] IVS.gui.Main – GUI process started  PID=20020
+2026-03-12 06:54:38 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:54:38 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:54:38 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:54:38 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:54:49 [INFO    ] IVS.gui.Main – GUI process started  PID=22500
+2026-03-12 06:54:49 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:54:49 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:54:49 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:54:49 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:57:42 [INFO    ] IVS.gui.Main – GUI process started  PID=2424
+2026-03-12 06:57:42 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:57:42 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:57:42 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:57:42 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 06:57:53 [INFO    ] IVS.gui.Main – GUI process started  PID=16336
+2026-03-12 06:57:53 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 06:57:53 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 06:57:53 [ERROR   ] IVS.gui.Main – GUI process fatal: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+Traceback (most recent call last):
+  File "d:\New folder\pc 3\industrial_vision\processes\gui_process.py", line 65, in run_gui_process
+    window = MainWindow(
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 66, in __init__
+    self._setup_pages()
+  File "d:\New folder\pc 3\industrial_vision\ui\main_window.py", line 82, in _setup_pages
+    self.teaching_page = TeachingPage(
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 51, in __init__
+    self._load_initial_cameras()    # FIX #1: merged load
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 109, in _load_initial_cameras
+    self._add_camera_panel(cid, r)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 185, in _add_camera_panel
+    self._load_zones_for_camera(camera_id)
+  File "d:\New folder\pc 3\industrial_vision\ui\teaching_page.py", line 200, in _load_zones_for_camera
+    editor.add_zone(zone.id, zone.points)
+TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
+2026-03-12 06:57:53 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 11:58:57 [INFO    ] IVS.gui.Main – GUI process started  PID=3428
+2026-03-12 11:58:57 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 11:58:57 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 11:58:57 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-12 11:58:57 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-12 11:58:57 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-12 11:58:57 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-12 11:59:11 [INFO    ] IVS.gui.Main – GUI process started  PID=24944
+2026-03-12 11:59:11 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 11:59:11 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 11:59:11 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-12 11:59:11 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-12 11:59:11 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-12 11:59:11 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-12 11:59:29 [INFO    ] IVS.gui.Main – GUI process started  PID=7392
+2026-03-12 11:59:29 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 11:59:29 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-12 11:59:29 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-12 11:59:29 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-12 11:59:29 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-12 11:59:29 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-12 12:00:26 [INFO    ] IVS.gui.Main – GUI process started  PID=11672
+2026-03-12 12:00:26 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 12:00:26 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-12 12:00:26 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-12 12:00:26 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-12 12:00:26 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-12 12:00:27 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-12 12:00:37 [INFO    ] IVS.gui.Main – GUI process started  PID=2472
+2026-03-12 12:00:37 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 12:00:37 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-12 12:00:37 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-12 12:00:37 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-12 12:00:37 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-12 12:00:37 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-12 12:00:55 [INFO    ] IVS.gui.Main – GUI process started  PID=20780
+2026-03-12 12:00:55 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 12:00:55 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-12 12:00:55 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-12 12:00:55 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-12 12:00:55 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-12 12:00:55 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-12 13:18:38 [INFO    ] IVS.gui.Main – GUI process started  PID=19452
+2026-03-12 13:18:39 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 13:18:39 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-12 13:18:39 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-12 13:18:39 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-12 13:18:39 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-12 13:18:39 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-12 13:18:39 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-12 13:18:40 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-12 13:18:40 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-12 13:19:04 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-03-12 13:19:04 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-12 13:19:04 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-03-12 13:19:04 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-03-12 13:19:04 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-12 13:19:13 [INFO    ] IVS.gui.Main – GUI process started  PID=14020
+2026-03-12 13:19:13 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-12 13:19:13 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-12 13:19:13 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-12 13:19:13 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-12 13:19:13 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-12 13:19:14 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-12 13:19:14 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-12 13:19:14 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-12 13:19:14 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-12 13:19:16 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-03-12 13:19:17 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-12 13:19:17 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-03-12 13:19:17 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-03-12 13:19:17 [INFO    ] IVS.gui.Main – GUI process exiting

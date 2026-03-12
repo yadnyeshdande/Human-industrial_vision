@@ -1,0 +1,110 @@
+# =============================================================================
+# config.yaml  –  Industrial Vision Safety System Configuration
+# =============================================================================
+# Edit this file to configure cameras, models, and system behaviour.
+# All settings can also be changed via the GUI Settings tab.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# CAMERAS
+# ---------------------------------------------------------------------------
+# Define 1–3 RTSP cameras.
+# camera_id must match IDs used in human_boundaries.json.
+cameras:
+  - id: 1
+    rtsp_url: "rtsp://admin:Pass_123@192.168.1.64:554/stream"
+
+  # Uncomment to add more cameras:
+  # - id: 2
+  #   rtsp_url: "rtsp://admin:Pass_123@192.168.1.65:554/stream"
+  # - id: 3
+  #   rtsp_url: "rtsp://admin:Pass_123@192.168.1.66:554/stream"
+
+# ---------------------------------------------------------------------------
+# DETECTION
+# ---------------------------------------------------------------------------
+detection:
+  # YOLO model – place .pt file in models/ directory
+  # Options: yolov8n.pt  yolov8s.pt  yolov8m.pt  yolov8l.pt  yolov8x.pt
+  model: "yolov8n.pt"
+
+  # Detection confidence threshold (0.0–1.0)
+  confidence: 0.5
+
+  # Violation trigger mode:
+  #   center  – person's centre point must enter zone (fewer false positives)
+  #   overlap – person's bounding box must overlap zone (more sensitive)
+  violation_mode: "center"
+
+  # Target capture framerate per camera (10–15 recommended)
+  target_fps: 12
+
+# ---------------------------------------------------------------------------
+# PROCESSING RESOLUTION
+# ---------------------------------------------------------------------------
+# Lower = faster, less accurate  |  Higher = slower, more accurate
+# Options: [640,360]  [960,540]  [1280,720]  [1920,1080]
+processing_resolution: [1280, 720]
+
+# ---------------------------------------------------------------------------
+# RELAY HARDWARE
+# ---------------------------------------------------------------------------
+relay:
+  # Set to true to use real USB relay hardware (pyhid_usb_relay)
+  # Set to false for software simulation (testing)
+  use_usb_relay: false
+
+  # Number of relay channels on your USB relay board
+  num_channels: 8
+
+  # Optional: serial number to identify a specific device
+  serial: null
+
+  # How long each relay stays activated (seconds)
+  activation_duration: 1.0
+
+  # Minimum time between re-triggering the same relay (seconds)
+  cooldown: 5.0
+
+# ---------------------------------------------------------------------------
+# RESOURCE GUARDRAILS  (MB)
+# ---------------------------------------------------------------------------
+# Each process self-monitors and exits + is restarted by supervisor if exceeded.
+resource_limits:
+  camera_ram_mb:     400
+  detection_ram_mb:  1500
+  relay_ram_mb:      300
+  gui_ram_mb:        700
+  gpu_vram_mb:       5200
+
+# ---------------------------------------------------------------------------
+# SUPERVISOR  /  RELIABILITY
+# ---------------------------------------------------------------------------
+supervisor:
+  # How many seconds of silence before a process is considered hung
+  heartbeat_timeout: 30
+
+  # Hours between scheduled soft-restart of camera + detection processes
+  # (prevents CUDA fragmentation and decoder leaks)
+  soft_restart_hours: 24
+
+  # Maximum restart attempts per process before extending backoff
+  max_restarts: 20
+
+# ---------------------------------------------------------------------------
+# LOGGING
+# ---------------------------------------------------------------------------
+logging:
+  # log files are written to logs/<process_name>.log
+  # max 10 MB per file, 5 rotating backups
+  level: "INFO"    # DEBUG | INFO | WARNING | ERROR
+
+# ---------------------------------------------------------------------------
+# SNAPSHOTS
+# ---------------------------------------------------------------------------
+snapshots:
+  # Directory to save violation snapshots
+  directory: "snapshots"
+
+  # Maximum number of snapshots to keep (oldest deleted first)
+  max_count: 10000
