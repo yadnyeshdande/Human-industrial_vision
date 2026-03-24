@@ -16,20 +16,18 @@ import time
 import signal
 import multiprocessing
 from multiprocessing import Process, Queue
-from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 _ROOT = os.path.dirname(os.path.abspath(__file__))
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
 from utils.logger import setup_process_logger, get_logger
-from utils.time_utils import uptime_str, now_ts
+from utils.time_utils import uptime_str
 from ipc.messages import (
-    MSG_HEARTBEAT, MSG_ERROR, MSG_STATUS, MSG_SETTINGS_SAVED,
-    make_control, make_heartbeat, make_system_health,
-    make_camera_restarted,
-    CTRL_SHUTDOWN, CTRL_RELOAD_CFG, CTRL_SOFT_RESET, CTRL_RELOAD_SETTINGS,
+    MSG_HEARTBEAT, MSG_ERROR, MSG_SETTINGS_SAVED,
+    make_control, make_camera_restarted,
+    CTRL_SHUTDOWN, CTRL_SOFT_RESET, CTRL_RELOAD_SETTINGS,
 )
 
 # ── tunables ────────────────────────────────────────────────────────────────
@@ -58,7 +56,7 @@ def _load_yaml(path: str = CONFIG_FILE) -> Dict[str, Any]:
         return {}
 
 
-def _build_camera_configs(cfg: Dict) -> List[Dict]:
+def _build_camera_configs(cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
     from config.loader import ConfigManager, SETTINGS
     SETTINGS.load()
 
@@ -79,6 +77,11 @@ def _build_camera_configs(cfg: Dict) -> List[Dict]:
 
     boundary_ids = {c.id for c in app_cfg.cameras}
     for cam_id, cam_data in yaml_cams.items():
+        try:
+            cam_id = int(cam_id)
+        except (ValueError, TypeError):
+            logger.warning(f"Invalid camera ID '{cam_id}' in config, skipping")
+            continue
         if cam_id not in boundary_ids:
             entry = {
                 "id":         cam_id,
@@ -97,7 +100,10 @@ def _build_camera_configs(cfg: Dict) -> List[Dict]:
             "resolution": tuple(SETTINGS.processing_resolution),
             "zones":      [],
         })
+    if out:
         mgr.add_camera(1, out[0]["rtsp_url"])
+    else:
+        logger.error("No camera configurations available, cannot start camera manager")
 
     return out
 
@@ -107,7 +113,7 @@ def _build_camera_configs(cfg: Dict) -> List[Dict]:
 # =============================================================================
 
 class ProcessEntry:
-    def __init__(self, name: str, target, args: tuple,
+    def __init__(self, name: str, target: Callable[..., Any], args: tuple[Any, ...],
                  is_optional: bool = False):
         self.name        = name
         self.target      = target
@@ -157,21 +163,21 @@ class Supervisor:
         self._last_soft_restart = time.monotonic()
 
         # IPC queues
-        self.heartbeat_q    = Queue(maxsize=500)
-        self.relay_q        = Queue(maxsize=200)
-        self.relay_status_q = Queue(maxsize=200)
-        self.gui_control_q  = Queue(maxsize=50)
+        self.heartbeat_q    = Queue(maxsize=500)  # type: ignore
+        self.relay_q        = Queue(maxsize=200)  # type: ignore
+        self.relay_status_q = Queue(maxsize=200)  # type: ignore
+        self.gui_control_q  = Queue(maxsize=50)   # type: ignore
 
         # FIX #9: one control queue per detection worker
-        self.det_control_qs: List[Queue] = [
+        self.det_control_qs: List[Queue[Dict[str, Any]]] = [
             Queue(maxsize=50) for _ in range(DETECTION_WORKERS)
         ]
 
         # result_q is shared by all detection workers → GUI
-        self.result_q = Queue(maxsize=200)
+        self.result_q = Queue(maxsize=200)  # type: ignore
 
         # Per-camera control queues
-        self.cam_control_qs: Dict[int, Queue] = {}
+        self.cam_control_qs: Dict[int, Queue[Dict[str, Any]]] = {}
 
         self.camera_configs = _build_camera_configs(cfg)
         self.entries: Dict[str, ProcessEntry] = {}
@@ -187,7 +193,12 @@ class Supervisor:
             cam_ids  = [c["id"] for c in self.camera_configs]
             res      = self.camera_configs[0]["resolution"] if self.camera_configs \
                        else (1280, 720)
-            cleanup_orphan_shm(cam_ids, res[0], res[1])
+            if isinstance(res, (list, tuple)) and len(res) >= 2:
+                w, h = int(res[0]), int(res[1])
+            else:
+                self.log.warning(f"Invalid resolution format: {res}, using default 1280x720")
+                w, h = 1280, 720
+            cleanup_orphan_shm(cam_ids, w, h)
         except Exception as e:
             self.log.warning(f"SHM orphan cleanup error: {e}")
 

@@ -541,3 +541,6 @@
 2026-03-12 13:18:38 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=24024
 2026-03-12 13:18:43 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
 2026-03-12 13:19:18 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 1 SHM handles
+2026-03-16 11:28:37 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=30796
+2026-03-16 11:28:41 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-16 11:31:19 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 1 SHM handles

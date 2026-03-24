@@ -81,7 +81,10 @@ class AppSettings:
             self.frame_queue_size     = data.get("frame_queue_size",      self.frame_queue_size)
             self.ui_update_fps        = data.get("ui_update_fps",         self.ui_update_fps)
             # FIX #9
-            self.last_page_index      = int(data.get("last_page_index",   self.last_page_index))
+            try:
+                self.last_page_index = int(data.get("last_page_index", self.last_page_index))
+            except (ValueError, TypeError):
+                logger.warning(f"Invalid last_page_index in {path}, using default: {self.last_page_index}")
             logger.info(f"Settings loaded from {path}")
         except Exception as e:
             logger.error(f"Settings load failed: {e} – using defaults")

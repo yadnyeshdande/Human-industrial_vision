@@ -5106,3 +5106,84 @@
 2026-03-12 13:19:18 [INFO    ] IVS.supervisor.Supervisor – Supervisor shutting down all processes …
 2026-03-12 13:19:20 [INFO    ] IVS.supervisor.Supervisor –   Terminating [camera_1]
 2026-03-12 13:19:20 [INFO    ] IVS.supervisor.Supervisor – Supervisor shutdown complete
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.ConfigLoader – Settings loaded from app_settings.json
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.ConfigLoader – Camera 1 added
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor – ========================================================================
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor –   INDUSTRIAL VISION SAFETY SYSTEM  –  SUPERVISOR  v2
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor – ========================================================================
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor –   Cameras         : 1
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor –   Detection workers: 1
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor –   Config          : config.yaml
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor – ========================================================================
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor – Spawned  [camera_1]  PID=27548
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor – Spawned  [detection]  PID=30796
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor – Spawned  [relay]  PID=10392
+2026-03-16 11:28:34 [INFO    ] IVS.supervisor.Supervisor – Spawned  [gui]  PID=11828
+2026-03-16 11:28:34 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:00  alive=4/4  pending_restarts=0
+2026-03-16 11:28:37 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:03  alive=4/4  pending_restarts=0
+2026-03-16 11:28:40 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:06  alive=4/4  pending_restarts=0
+2026-03-16 11:28:43 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:09  alive=4/4  pending_restarts=0
+2026-03-16 11:28:46 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:12  alive=4/4  pending_restarts=0
+2026-03-16 11:28:49 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:15  alive=4/4  pending_restarts=0
+2026-03-16 11:28:52 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:18  alive=4/4  pending_restarts=0
+2026-03-16 11:28:55 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:21  alive=4/4  pending_restarts=0
+2026-03-16 11:28:58 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:24  alive=4/4  pending_restarts=0
+2026-03-16 11:29:01 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:27  alive=4/4  pending_restarts=0
+2026-03-16 11:29:04 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:30  alive=4/4  pending_restarts=0
+2026-03-16 11:29:07 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:33  alive=4/4  pending_restarts=0
+2026-03-16 11:29:10 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:36  alive=4/4  pending_restarts=0
+2026-03-16 11:29:13 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:39  alive=4/4  pending_restarts=0
+2026-03-16 11:29:16 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:42  alive=4/4  pending_restarts=0
+2026-03-16 11:29:19 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:45  alive=4/4  pending_restarts=0
+2026-03-16 11:29:22 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:48  alive=4/4  pending_restarts=0
+2026-03-16 11:29:25 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:51  alive=4/4  pending_restarts=0
+2026-03-16 11:29:28 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:54  alive=4/4  pending_restarts=0
+2026-03-16 11:29:31 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:57  alive=4/4  pending_restarts=0
+2026-03-16 11:29:34 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:00  alive=4/4  pending_restarts=0
+2026-03-16 11:29:37 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:03  alive=4/4  pending_restarts=0
+2026-03-16 11:29:40 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:06  alive=4/4  pending_restarts=0
+2026-03-16 11:29:43 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:09  alive=4/4  pending_restarts=0
+2026-03-16 11:29:46 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:12  alive=4/4  pending_restarts=0
+2026-03-16 11:29:49 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:15  alive=4/4  pending_restarts=0
+2026-03-16 11:29:52 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:18  alive=4/4  pending_restarts=0
+2026-03-16 11:29:55 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:21  alive=4/4  pending_restarts=0
+2026-03-16 11:29:58 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:24  alive=4/4  pending_restarts=0
+2026-03-16 11:30:01 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:27  alive=4/4  pending_restarts=0
+2026-03-16 11:30:04 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:30  alive=4/4  pending_restarts=0
+2026-03-16 11:30:07 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:33  alive=4/4  pending_restarts=0
+2026-03-16 11:30:10 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:36  alive=4/4  pending_restarts=0
+2026-03-16 11:30:13 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:39  alive=4/4  pending_restarts=0
+2026-03-16 11:30:16 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:42  alive=4/4  pending_restarts=0
+2026-03-16 11:30:19 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:45  alive=4/4  pending_restarts=0
+2026-03-16 11:30:22 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:48  alive=4/4  pending_restarts=0
+2026-03-16 11:30:25 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:51  alive=4/4  pending_restarts=0
+2026-03-16 11:30:28 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:54  alive=4/4  pending_restarts=0
+2026-03-16 11:30:31 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:57  alive=4/4  pending_restarts=0
+2026-03-16 11:30:34 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:00  alive=4/4  pending_restarts=0
+2026-03-16 11:30:37 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:03  alive=4/4  pending_restarts=0
+2026-03-16 11:30:40 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:06  alive=4/4  pending_restarts=0
+2026-03-16 11:30:43 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:09  alive=4/4  pending_restarts=0
+2026-03-16 11:30:46 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:12  alive=4/4  pending_restarts=0
+2026-03-16 11:30:49 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:15  alive=4/4  pending_restarts=0
+2026-03-16 11:30:52 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:18  alive=4/4  pending_restarts=0
+2026-03-16 11:30:55 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:21  alive=4/4  pending_restarts=0
+2026-03-16 11:30:58 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:24  alive=4/4  pending_restarts=0
+2026-03-16 11:31:01 [WARNING ] IVS.supervisor.Supervisor – [gui] dead (exit=0) – scheduling restart (total=0)
+2026-03-16 11:31:01 [INFO    ] IVS.supervisor.Supervisor – [gui] restart in 5s (attempt 1)
+2026-03-16 11:31:01 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:27  alive=3/4  pending_restarts=1
+2026-03-16 11:31:04 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:30  alive=3/4  pending_restarts=1
+2026-03-16 11:31:07 [INFO    ] IVS.supervisor.Supervisor – [gui] restarting now
+2026-03-16 11:31:07 [INFO    ] IVS.supervisor.Supervisor – Spawned  [gui]  PID=10676
+2026-03-16 11:31:07 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:33  alive=4/4  pending_restarts=0
+2026-03-16 11:31:10 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:36  alive=4/4  pending_restarts=0
+2026-03-16 11:31:13 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:39  alive=4/4  pending_restarts=0
+2026-03-16 11:31:16 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:42  alive=4/4  pending_restarts=0
+2026-03-16 11:31:19 [WARNING ] IVS.supervisor.Supervisor – [gui] dead (exit=0) – scheduling restart (total=1)
+2026-03-16 11:31:19 [INFO    ] IVS.supervisor.Supervisor – [gui] restart in 5s (attempt 2)
+2026-03-16 11:31:19 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:45  alive=3/4  pending_restarts=1
+2026-03-16 11:31:19 [INFO    ] IVS.supervisor.Supervisor – Signal 2 – initiating shutdown
+2026-03-16 11:31:22 [INFO    ] IVS.supervisor.Supervisor – Signal 2 – initiating shutdown
+2026-03-16 11:31:22 [INFO    ] IVS.supervisor.Supervisor – Supervisor shutting down all processes …
+2026-03-16 11:31:24 [INFO    ] IVS.supervisor.Supervisor –   Terminating [camera_1]
+2026-03-16 11:31:24 [INFO    ] IVS.supervisor.Supervisor – Supervisor shutdown complete

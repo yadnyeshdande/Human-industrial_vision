@@ -28,7 +28,7 @@ PyYAML>=6.0
 # pyhid-usb-relay>=0.0.2
 
 # GPU monitoring (optional – improves VRAM reporting)
-# pynvml>=11.0.0
+pynvml>=11.0.0
 
 # PyTorch – install separately with CUDA support:
 # pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121

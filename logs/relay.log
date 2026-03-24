@@ -299,3 +299,6 @@
 2026-03-12 13:18:38 [INFO    ] IVS.relay.Main – Relay process started  PID=28836
 2026-03-12 13:18:38 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
 2026-03-12 13:19:18 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-03-16 11:28:37 [INFO    ] IVS.relay.Main – Relay process started  PID=10392
+2026-03-16 11:28:37 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-03-16 11:31:19 [INFO    ] IVS.relay.Main – Relay process exiting
