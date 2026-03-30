@@ -565,3 +565,300 @@ TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
 2026-03-16 11:31:18 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
 2026-03-16 11:31:18 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
 2026-03-16 11:31:18 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-30 13:06:23 [INFO    ] IVS.gui.Main – GUI process started  PID=10892
+2026-03-30 13:06:24 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:06:24 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-30 13:06:24 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-30 13:06:24 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:06:24 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-30 13:06:24 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:06:24 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:06:24 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:06:24 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:06:29 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-03-30 13:06:29 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:06:29 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-03-30 13:06:29 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-03-30 13:06:29 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-30 13:07:20 [INFO    ] IVS.gui.Main – GUI process started  PID=12104
+2026-03-30 13:07:20 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:07:20 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-30 13:07:20 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-30 13:07:20 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:07:20 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-30 13:07:20 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:07:20 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:07:20 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:07:20 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:07:43 [INFO    ] IVS.gui.ConfigLoader – Camera 2 added
+2026-03-30 13:07:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:07:49 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:07:52 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:08:02 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:08:13 [INFO    ] IVS.gui.ConfigLoader – Zone 1 → camera 1 relay_id=1
+2026-03-30 13:08:25 [INFO    ] IVS.gui.ConfigLoader – Zone 2 → camera 2 relay_id=2
+2026-03-30 13:08:28 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:08:32 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:12:06 [INFO    ] IVS.gui.Main – GUI process started  PID=9688
+2026-03-30 13:12:06 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:12:06 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-03-30 13:12:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:12:06 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:12:06 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 13:12:06 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:12:06 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:12:06 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:12:06 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:12:14 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:12:17 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:12:37 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:12:40 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:12:47 [INFO    ] IVS.gui.ConfigLoader – Camera 1 removed
+2026-03-30 13:12:47 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:13:00 [INFO    ] IVS.gui.ConfigLoader – Camera 3 added
+2026-03-30 13:13:00 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-30 13:13:08 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:13:11 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:13:14 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:14:54 [INFO    ] IVS.gui.Main – GUI process started  PID=14568
+2026-03-30 13:14:54 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:14:54 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 1 cameras, 1 zones
+2026-03-30 13:14:54 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:14:54 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-30 13:14:54 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:14:54 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 13:14:54 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:14:54 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:14:54 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:14:54 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:15:56 [INFO    ] IVS.gui.ConfigLoader – Camera 3 added
+2026-03-30 13:15:56 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-30 13:16:00 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:16:02 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:16:03 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:16:05 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:16:07 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-03-30 13:16:07 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:16:07 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-03-30 13:16:07 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-03-30 13:16:07 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-30 13:16:20 [INFO    ] IVS.gui.Main – GUI process started  PID=14524
+2026-03-30 13:16:20 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:16:20 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 1 cameras, 1 zones
+2026-03-30 13:16:20 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:16:20 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-30 13:16:20 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:16:20 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 13:16:20 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:16:20 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:16:20 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:16:20 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:16:33 [INFO    ] IVS.gui.ConfigLoader – Camera 2 removed
+2026-03-30 13:16:33 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:16:37 [INFO    ] IVS.gui.ConfigLoader – Camera 1 removed
+2026-03-30 13:16:37 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:16:39 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:19:01 [INFO    ] IVS.gui.Main – GUI process started  PID=1136
+2026-03-30 13:19:01 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:19:01 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-30 13:19:01 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-30 13:19:01 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:19:01 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-30 13:19:02 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:19:02 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:19:02 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:19:02 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:19:04 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-03-30 13:19:04 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:19:04 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-03-30 13:19:04 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-03-30 13:19:04 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-30 13:19:13 [INFO    ] IVS.gui.Main – GUI process started  PID=14492
+2026-03-30 13:19:13 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:19:13 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-30 13:19:13 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-30 13:19:13 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:19:13 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-30 13:19:13 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:19:13 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:19:13 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:19:13 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:20:16 [INFO    ] IVS.gui.Main – GUI process started  PID=8812
+2026-03-30 13:20:16 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:20:16 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-30 13:20:16 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-30 13:20:16 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:20:16 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-30 13:20:16 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:20:16 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:20:16 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:20:16 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:20:33 [INFO    ] IVS.gui.ConfigLoader – Camera 2 added
+2026-03-30 13:20:33 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:20:35 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:20:56 [INFO    ] IVS.gui.Main – GUI process started  PID=14504
+2026-03-30 13:20:56 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:20:56 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 0 zones
+2026-03-30 13:20:56 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:20:56 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:20:56 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 13:20:56 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:20:56 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:20:56 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:20:56 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:21:27 [INFO    ] IVS.gui.ConfigLoader – Zone 1 → camera 1 relay_id=1
+2026-03-30 13:21:38 [INFO    ] IVS.gui.ConfigLoader – Zone 2 → camera 2 relay_id=2
+2026-03-30 13:21:55 [INFO    ] IVS.gui.ConfigLoader – Camera 3 added
+2026-03-30 13:21:55 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-30 13:22:08 [INFO    ] IVS.gui.ConfigLoader – Zone 3 → camera 3 relay_id=3
+2026-03-30 13:22:33 [INFO    ] IVS.gui.ConfigLoader – Zone 4 → camera 3 relay_id=3
+2026-03-30 13:22:38 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:22:42 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-03-30 13:22:42 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:22:42 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-03-30 13:22:42 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-03-30 13:22:42 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-03-30 13:22:58 [INFO    ] IVS.gui.Main – GUI process started  PID=14524
+2026-03-30 13:22:58 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:22:58 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 3 cameras, 3 zones
+2026-03-30 13:22:58 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:22:58 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:22:58 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-30 13:22:58 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 3 cameras: [1, 2, 3]
+2026-03-30 13:22:58 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:22:58 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:22:58 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:22:58 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:24:28 [INFO    ] IVS.gui.Main – GUI process started  PID=14420
+2026-03-30 13:24:29 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:24:29 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 3 cameras, 3 zones
+2026-03-30 13:24:29 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:24:29 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:24:29 [INFO    ] IVS.gui.TeachingPage – Camera panel 3 added
+2026-03-30 13:24:29 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 3 cameras: [1, 2, 3]
+2026-03-30 13:24:29 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:24:29 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:24:29 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:24:29 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:24:55 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:24:58 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:25:01 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 3
+2026-03-30 13:25:05 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:25:06 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:26:43 [INFO    ] IVS.gui.Main – GUI process started  PID=15480
+2026-03-30 13:26:43 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:26:43 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 0 cameras, 0 zones
+2026-03-30 13:26:43 [INFO    ] IVS.gui.ConfigLoader – Camera 1 added
+2026-03-30 13:26:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:26:43 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 1 cameras: [1]
+2026-03-30 13:26:43 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:26:43 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:26:43 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:26:43 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:27:16 [INFO    ] IVS.gui.ConfigLoader – Zone 1 → camera 1 relay_id=1
+2026-03-30 13:27:28 [INFO    ] IVS.gui.ConfigLoader – Camera 2 added
+2026-03-30 13:27:28 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:28:13 [INFO    ] IVS.gui.ConfigLoader – Camera 2 removed
+2026-03-30 13:28:13 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:28:23 [INFO    ] IVS.gui.ConfigLoader – Camera 2 added
+2026-03-30 13:28:23 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:28:27 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:28:40 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:28:43 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-03-30 13:29:13 [INFO    ] IVS.gui.Main – GUI process started  PID=11956
+2026-03-30 13:29:13 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:29:13 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 1 zones
+2026-03-30 13:29:13 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:29:13 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:29:13 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 13:29:13 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:29:13 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:29:13 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:29:13 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:29:38 [INFO    ] IVS.gui.ConfigLoader – Zone 2 → camera 2 relay_id=2
+2026-03-30 13:30:02 [INFO    ] IVS.gui.ConfigLoader – Zone 3 → camera 2 relay_id=2
+2026-03-30 13:30:06 [INFO    ] IVS.gui.ConfigLoader – Config saved (human_boundaries.json)
+2026-03-30 13:30:10 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:30:13 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:30:22 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:30:23 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:31:47 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:32:40 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-03-30 13:32:46 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:32:46 [INFO    ] IVS.gui.SettingsPage – Settings saved
+2026-03-30 13:32:55 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:33:01 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-03-30 13:33:06 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:33:06 [INFO    ] IVS.gui.SettingsPage – Settings saved
+2026-03-30 13:33:07 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:33:07 [INFO    ] IVS.gui.SettingsPage – Settings saved
+2026-03-30 13:33:09 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:34:05 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-03-30 13:34:10 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:34:10 [INFO    ] IVS.gui.SettingsPage – Settings saved
+2026-03-30 13:34:11 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:34:42 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-03-30 13:34:46 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 13:34:46 [INFO    ] IVS.gui.SettingsPage – Settings saved
+2026-03-30 13:35:28 [INFO    ] IVS.gui.Main – GUI process started  PID=7148
+2026-03-30 13:35:28 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 13:35:28 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-03-30 13:35:28 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 13:35:28 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 13:35:28 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 13:35:28 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 13:35:28 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:35:28 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 13:35:28 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 13:35:34 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 13:36:14 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:36:16 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:36:20 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:36:22 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:36:30 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 13:36:48 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 13:37:34 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-03-30 14:12:07 [INFO    ] IVS.gui.Main – GUI process started  PID=13156
+2026-03-30 14:12:07 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 14:12:07 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-03-30 14:12:07 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 14:12:07 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 14:12:07 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 14:12:07 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 14:12:07 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 14:12:07 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 14:12:07 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 14:12:17 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 14:13:08 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 14:15:17 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 14:15:21 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 14:15:29 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 14:20:14 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 14:27:45 [INFO    ] IVS.gui.Main – GUI process started  PID=10120
+2026-03-30 14:27:45 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 14:27:45 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-03-30 14:27:45 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 14:27:45 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 14:27:45 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 14:27:45 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 14:27:45 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 14:27:45 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 14:27:45 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 14:27:50 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 15:10:56 [INFO    ] IVS.gui.Main – GUI process started  PID=4024
+2026-03-30 15:10:57 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 15:10:57 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-03-30 15:10:57 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-03-30 15:10:57 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-03-30 15:10:57 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-03-30 15:10:57 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-03-30 15:10:57 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-03-30 15:10:57 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-03-30 15:10:57 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-03-30 15:11:01 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-03-30 15:11:09 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-03-30 15:11:21 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-03-30 15:11:21 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-03-30 15:11:21 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-03-30 15:11:21 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-03-30 15:11:21 [INFO    ] IVS.gui.Main – GUI process exiting

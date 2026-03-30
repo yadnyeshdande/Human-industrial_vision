@@ -98,3 +98,6 @@
 2026-03-11 16:36:34 [WARNING ] IVS.camera_3.Main – Camera 3 reader thread stalled (infs) – restarting
 2026-03-11 16:36:37 [WARNING ] IVS.camera_3.Main – Camera 3 reader thread stalled (infs) – restarting
 2026-03-11 16:36:40 [INFO    ] IVS.camera_3.Main – Camera process 3 exiting
+2026-03-30 13:22:58 [INFO    ] IVS.camera_3.Main – Camera process 3 started  PID=3948
+2026-03-30 13:24:29 [INFO    ] IVS.camera_3.Main – Camera process 3 started  PID=14388
+2026-03-30 13:25:04 [INFO    ] IVS.camera_3.Main – Camera process 3 started  PID=15084

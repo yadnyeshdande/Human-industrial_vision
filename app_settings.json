@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-03-16T11:31:18",
+  "timestamp": "2026-03-30T15:11:21",
   "processing_resolution": [
     960,
     540
   ],
-  "yolo_model": "yolov8l.pt",
+  "yolo_model": "yolov8n.pt",
   "detection_confidence": 0.5,
-  "violation_mode": "center",
+  "violation_mode": "overlap",
   "relay_cooldown": 5.0,
   "relay_duration": 1.0,
   "use_usb_relay": true,
@@ -14,5 +14,5 @@
   "usb_serial": null,
   "frame_queue_size": 30,
   "ui_update_fps": 30,
-  "last_page_index": 0
+  "last_page_index": 1
 }

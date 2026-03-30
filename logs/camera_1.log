@@ -524,3 +524,48 @@
 2026-03-16 11:30:29 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
 2026-03-16 11:30:53 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
 2026-03-16 11:31:16 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:06:23 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=9860
+2026-03-30 13:07:20 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=6228
+2026-03-30 13:07:40 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:08:03 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:08:26 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:08:49 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:09:12 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:09:35 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:09:58 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:10:21 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:10:45 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:11:08 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:11:31 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:11:34 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-03-30 13:12:06 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=13292
+2026-03-30 13:12:26 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:12:49 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:13:12 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:14:54 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=2148
+2026-03-30 13:15:14 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:15:31 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=264
+2026-03-30 13:15:51 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:16:20 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=14160
+2026-03-30 13:16:40 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:19:01 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=7496
+2026-03-30 13:20:16 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=2164
+2026-03-30 13:20:36 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:20:56 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=4472
+2026-03-30 13:21:16 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:21:39 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:22:02 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:22:25 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:22:58 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=14508
+2026-03-30 13:23:18 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:24:28 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=3508
+2026-03-30 13:24:48 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:25:12 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
+2026-03-30 13:26:43 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=15180
+2026-03-30 13:29:13 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=12108
+2026-03-30 13:35:28 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=10420
+2026-03-30 14:12:07 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=8300
+2026-03-30 14:20:55 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-03-30 14:27:45 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=15776
+2026-03-30 14:28:16 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-03-30 15:10:56 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=4148

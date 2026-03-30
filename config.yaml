@@ -12,11 +12,11 @@
 # camera_id must match IDs used in human_boundaries.json.
 cameras:
   - id: 1
-    rtsp_url: "rtsp://admin:Pass_123@192.168.1.64:554/stream"
+    rtsp_url: "rtsp://admin:Pass_123@192.168.1.248:554/"
 
   # Uncomment to add more cameras:
   # - id: 2
-  #   rtsp_url: "rtsp://admin:Pass_123@192.168.1.65:554/stream"
+    # rtsp_url: "rtsp://admin:Pass_123@192.168.1.65:554/stream"
   # - id: 3
   #   rtsp_url: "rtsp://admin:Pass_123@192.168.1.66:554/stream"
 
