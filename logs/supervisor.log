@@ -6308,4 +6308,113 @@
 2026-03-30 15:11:25 [INFO    ] IVS.supervisor.Supervisor – Signal 2 – initiating shutdown
 2026-03-30 15:11:25 [INFO    ] IVS.supervisor.Supervisor – Signal 2 – initiating shutdown
 2026-03-30 15:11:26 [INFO    ] IVS.supervisor.Supervisor – Signal 2 – initiating shutdown
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                2026-03-30 19:12:31 [INFO    ] IVS.supervisor.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor – ========================================================================
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor –   INDUSTRIAL VISION SAFETY SYSTEM  –  SUPERVISOR  v2
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor – ========================================================================
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor –   Cameras         : 2
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor –   Detection workers: 1
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor –   Config          : config.yaml
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor – ========================================================================
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor – Spawned  [camera_1]  PID=3840
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor – Spawned  [camera_2]  PID=1312
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor – Spawned  [detection]  PID=4328
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor – Spawned  [relay]  PID=4836
+2026-03-30 19:12:31 [INFO    ] IVS.supervisor.Supervisor – Spawned  [gui]  PID=3496
+2026-03-30 19:12:31 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:00  alive=5/5  pending_restarts=0
+2026-03-30 19:12:34 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:03  alive=5/5  pending_restarts=0
+2026-03-30 19:12:37 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:06  alive=5/5  pending_restarts=0
+2026-03-30 19:12:40 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:09  alive=5/5  pending_restarts=0
+2026-03-30 19:12:43 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:12  alive=5/5  pending_restarts=0
+2026-03-30 19:12:46 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:15  alive=5/5  pending_restarts=0
+2026-03-30 19:12:49 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:18  alive=5/5  pending_restarts=0
+2026-03-30 19:12:52 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:21  alive=5/5  pending_restarts=0
+2026-03-30 19:12:55 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:24  alive=5/5  pending_restarts=0
+2026-03-30 19:12:58 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:27  alive=5/5  pending_restarts=0
+2026-03-30 19:13:01 [WARNING ] IVS.supervisor.Supervisor – [camera_2] heartbeat timeout (30s) – killing
+2026-03-30 19:13:01 [INFO    ] IVS.supervisor.Supervisor – [camera_2] restart in 5s (attempt 1)
+2026-03-30 19:13:01 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:30  alive=4/5  pending_restarts=1
+2026-03-30 19:13:04 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:33  alive=4/5  pending_restarts=1
+2026-03-30 19:13:07 [INFO    ] IVS.supervisor.Supervisor – [camera_2] restarting now
+2026-03-30 19:13:07 [INFO    ] IVS.supervisor.Supervisor – [camera_2] SHM segment cleaned before restart
+2026-03-30 19:13:07 [INFO    ] IVS.supervisor.Supervisor – [camera_2] CTRL_CAMERA_RESTARTED sent to 1 detection worker(s)
+2026-03-30 19:13:07 [INFO    ] IVS.supervisor.Supervisor – Spawned  [camera_2]  PID=5356
+2026-03-30 19:13:07 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:36  alive=5/5  pending_restarts=0
+2026-03-30 19:13:11 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:39  alive=5/5  pending_restarts=0
+2026-03-30 19:13:14 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:42  alive=5/5  pending_restarts=0
+2026-03-30 19:13:17 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:45  alive=5/5  pending_restarts=0
+2026-03-30 19:13:20 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:48  alive=5/5  pending_restarts=0
+2026-03-30 19:13:23 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:51  alive=5/5  pending_restarts=0
+2026-03-30 19:13:26 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:54  alive=5/5  pending_restarts=0
+2026-03-30 19:13:29 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:00:57  alive=5/5  pending_restarts=0
+2026-03-30 19:13:32 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:00  alive=5/5  pending_restarts=0
+2026-03-30 19:13:35 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:03  alive=5/5  pending_restarts=0
+2026-03-30 19:13:38 [WARNING ] IVS.supervisor.Supervisor – [camera_2] heartbeat timeout (30s) – killing
+2026-03-30 19:13:38 [INFO    ] IVS.supervisor.Supervisor – [camera_2] restart in 10s (attempt 2)
+2026-03-30 19:13:38 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:06  alive=4/5  pending_restarts=1
+2026-03-30 19:13:41 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:09  alive=4/5  pending_restarts=1
+2026-03-30 19:13:44 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:12  alive=4/5  pending_restarts=1
+2026-03-30 19:13:47 [INFO    ] IVS.supervisor.Supervisor – Settings saved – broadcasting CTRL_RELOAD_SETTINGS
+2026-03-30 19:13:47 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:15  alive=4/5  pending_restarts=1
+2026-03-30 19:13:50 [INFO    ] IVS.supervisor.Supervisor – [camera_2] restarting now
+2026-03-30 19:13:50 [INFO    ] IVS.supervisor.Supervisor – [camera_2] SHM segment cleaned before restart
+2026-03-30 19:13:50 [INFO    ] IVS.supervisor.Supervisor – [camera_2] CTRL_CAMERA_RESTARTED sent to 1 detection worker(s)
+2026-03-30 19:13:50 [INFO    ] IVS.supervisor.Supervisor – Spawned  [camera_2]  PID=8180
+2026-03-30 19:13:50 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:18  alive=5/5  pending_restarts=0
+2026-03-30 19:13:53 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:21  alive=5/5  pending_restarts=0
+2026-03-30 19:13:56 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:24  alive=5/5  pending_restarts=0
+2026-03-30 19:13:59 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:27  alive=5/5  pending_restarts=0
+2026-03-30 19:14:02 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:30  alive=5/5  pending_restarts=0
+2026-03-30 19:14:05 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:33  alive=5/5  pending_restarts=0
+2026-03-30 19:14:08 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:36  alive=5/5  pending_restarts=0
+2026-03-30 19:14:11 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:39  alive=5/5  pending_restarts=0
+2026-03-30 19:14:14 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:42  alive=5/5  pending_restarts=0
+2026-03-30 19:14:17 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:45  alive=5/5  pending_restarts=0
+2026-03-30 19:14:20 [WARNING ] IVS.supervisor.Supervisor – [camera_2] heartbeat timeout (30s) – killing
+2026-03-30 19:14:20 [INFO    ] IVS.supervisor.Supervisor – [camera_2] restart in 30s (attempt 3)
+2026-03-30 19:14:20 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:48  alive=4/5  pending_restarts=1
+2026-03-30 19:14:23 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:51  alive=4/5  pending_restarts=1
+2026-03-30 19:14:26 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:54  alive=4/5  pending_restarts=1
+2026-03-30 19:14:29 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:01:57  alive=4/5  pending_restarts=1
+2026-03-30 19:14:32 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:00  alive=4/5  pending_restarts=1
+2026-03-30 19:14:35 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:03  alive=4/5  pending_restarts=1
+2026-03-30 19:14:38 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:06  alive=4/5  pending_restarts=1
+2026-03-30 19:14:41 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:09  alive=4/5  pending_restarts=1
+2026-03-30 19:14:44 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:12  alive=4/5  pending_restarts=1
+2026-03-30 19:14:47 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:15  alive=4/5  pending_restarts=1
+2026-03-30 19:14:50 [INFO    ] IVS.supervisor.Supervisor – [camera_2] restarting now
+2026-03-30 19:14:50 [INFO    ] IVS.supervisor.Supervisor – [camera_2] SHM segment cleaned before restart
+2026-03-30 19:14:50 [INFO    ] IVS.supervisor.Supervisor – [camera_2] CTRL_CAMERA_RESTARTED sent to 1 detection worker(s)
+2026-03-30 19:14:50 [INFO    ] IVS.supervisor.Supervisor – Spawned  [camera_2]  PID=896
+2026-03-30 19:14:50 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:18  alive=5/5  pending_restarts=0
+2026-03-30 19:14:53 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:21  alive=5/5  pending_restarts=0
+2026-03-30 19:14:56 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:24  alive=5/5  pending_restarts=0
+2026-03-30 19:14:59 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:27  alive=5/5  pending_restarts=0
+2026-03-30 19:15:02 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:30  alive=5/5  pending_restarts=0
+2026-03-30 19:15:05 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:33  alive=5/5  pending_restarts=0
+2026-03-30 19:15:08 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:36  alive=5/5  pending_restarts=0
+2026-03-30 19:15:11 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:39  alive=5/5  pending_restarts=0
+2026-03-30 19:15:14 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:42  alive=5/5  pending_restarts=0
+2026-03-30 19:15:17 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:45  alive=5/5  pending_restarts=0
+2026-03-30 19:15:20 [WARNING ] IVS.supervisor.Supervisor – [camera_2] heartbeat timeout (30s) – killing
+2026-03-30 19:15:20 [INFO    ] IVS.supervisor.Supervisor – [camera_2] restart in 60s (attempt 4)
+2026-03-30 19:15:20 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:48  alive=4/5  pending_restarts=1
+2026-03-30 19:15:23 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:51  alive=4/5  pending_restarts=1
+2026-03-30 19:15:26 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:54  alive=4/5  pending_restarts=1
+2026-03-30 19:15:29 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:02:57  alive=4/5  pending_restarts=1
+2026-03-30 19:15:32 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:00  alive=4/5  pending_restarts=1
+2026-03-30 19:15:35 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:03  alive=4/5  pending_restarts=1
+2026-03-30 19:15:38 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:06  alive=4/5  pending_restarts=1
+2026-03-30 19:15:41 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:09  alive=4/5  pending_restarts=1
+2026-03-30 19:15:44 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:12  alive=4/5  pending_restarts=1
+2026-03-30 19:15:47 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:15  alive=4/5  pending_restarts=1
+2026-03-30 19:15:50 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:18  alive=4/5  pending_restarts=1
+2026-03-30 19:15:53 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:22  alive=4/5  pending_restarts=1
+2026-03-30 19:15:56 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:25  alive=4/5  pending_restarts=1
+2026-03-30 19:15:59 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:28  alive=4/5  pending_restarts=1
+2026-03-30 19:16:02 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:31  alive=4/5  pending_restarts=1
+2026-03-30 19:16:05 [DEBUG   ] IVS.supervisor.Supervisor – Status: up=00:03:34  alive=4/5  pending_restarts=1
+2026-03-30 19:16:07 [INFO    ] IVS.supervisor.Supervisor – Signal 2 – initiating shutdown
+2026-03-30 19:16:08 [INFO    ] IVS.supervisor.Supervisor – Supervisor shutting down all processes …
+2026-03-30 19:16:10 [INFO    ] IVS.supervisor.Supervisor – Supervisor shutdown complete

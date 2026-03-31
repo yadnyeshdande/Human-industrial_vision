@@ -519,3 +519,57 @@
 2026-03-30 15:11:23 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
 2026-03-30 15:11:23 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
 2026-03-30 15:11:24 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-03-30 19:12:33 [INFO    ] IVS.relay.Main – Relay process started  PID=4836
+2026-03-30 19:12:33 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-03-30 19:12:38 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:12:55 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:00 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:16 [INFO    ] IVS.relay.Main – Relay 2 OK cam=2 zone=2
+2026-03-30 19:13:16 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:17 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:17 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:18 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:19 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:20 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:21 [INFO    ] IVS.relay.Main – Relay 2 OK cam=2 zone=2
+2026-03-30 19:13:23 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:29 [INFO    ] IVS.relay.Main – Relay 2 OK cam=2 zone=2
+2026-03-30 19:13:32 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:35 [INFO    ] IVS.relay.Main – Relay 2 OK cam=2 zone=2
+2026-03-30 19:13:35 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:37 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:37 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:38 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:47 [INFO    ] IVS.relay.Main – Reloading settings
+2026-03-30 19:13:47 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 19:13:47 [INFO    ] IVS.relay.Main – Relay updated: cooldown=1.0s duration=1.0s
+2026-03-30 19:13:54 [INFO    ] IVS.relay.Main – Relay 2 OK cam=2 zone=2
+2026-03-30 19:13:54 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:13:58 [INFO    ] IVS.relay.Main – Relay 2 OK cam=2 zone=2
+2026-03-30 19:14:02 [INFO    ] IVS.relay.Main – Relay 2 OK cam=2 zone=2
+2026-03-30 19:14:03 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN cam=2 zone=2
+2026-03-30 19:14:07 [INFO    ] IVS.relay.Main – Relay 2 OK cam=2 zone=2
+2026-03-30 19:14:12 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:14:28 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:14:28 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:14:29 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:14:30 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:14:30 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:14:30 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:14:31 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:14:48 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:14:48 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:14:49 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:14:54 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:14:55 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:15:28 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:15:28 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:15:28 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:15:30 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:15:30 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:15:31 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:15:33 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:15:33 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN cam=1 zone=1
+2026-03-30 19:15:37 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:15:38 [INFO    ] IVS.relay.Main – Relay 1 OK cam=1 zone=1
+2026-03-30 19:16:07 [INFO    ] IVS.relay.Main – Relay process exiting

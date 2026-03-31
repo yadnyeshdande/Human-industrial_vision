@@ -828,3 +828,63 @@
 2026-03-30 15:11:23 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
 2026-03-30 15:11:23 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
 2026-03-30 15:11:24 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 2 SHM handles
+2026-03-30 19:12:33 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=4328
+2026-03-30 19:12:37 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-03-30 19:12:37 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-03-30 19:12:38 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:12:55 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:00 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:08 [INFO    ] IVS.detection.Main – CTRL_CAMERA_RESTARTED cam=2 – reattaching SHM
+2026-03-30 19:13:08 [INFO    ] IVS.detection.Main – Camera 2 SHM reattached
+2026-03-30 19:13:16 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:16 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:17 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:17 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:18 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:19 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:20 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:21 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:23 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:29 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:32 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:35 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:35 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:37 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:37 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:38 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:47 [INFO    ] IVS.detection.Main – Settings reload
+2026-03-30 19:13:47 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json
+2026-03-30 19:13:50 [INFO    ] IVS.detection.Main – CTRL_CAMERA_RESTARTED cam=2 – reattaching SHM
+2026-03-30 19:13:50 [INFO    ] IVS.detection.Main – Camera 2 SHM reattached
+2026-03-30 19:13:54 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:54 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:13:58 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:14:02 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:14:03 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:14:07 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=2
+2026-03-30 19:14:12 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:28 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:28 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:29 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:30 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:30 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:30 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:31 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:48 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:48 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:49 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:50 [INFO    ] IVS.detection.Main – CTRL_CAMERA_RESTARTED cam=2 – reattaching SHM
+2026-03-30 19:14:50 [INFO    ] IVS.detection.Main – Camera 2 SHM reattached
+2026-03-30 19:14:54 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:14:55 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:28 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:28 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:28 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:30 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:30 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:31 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:33 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:33 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:37 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:15:38 [WARNING ] IVS.detection.Main – VIOLATION cam=1 zone=1 relay=1
+2026-03-30 19:16:07 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 2 SHM handles

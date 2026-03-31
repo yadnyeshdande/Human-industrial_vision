@@ -299,11 +299,15 @@ def _route_batch_results(
 ) -> None:
     """Route each element of a batched inference result back to its camera."""
     if len(all_detections) != len(batch_meta):
-        log.error(f"Batch size mismatch: expected {len(batch_meta)} detections, got {len(all_detections)}")
+        log.error(
+            f"Batch size mismatch: expected {len(batch_meta)} detections, "
+            f"got {len(all_detections)}"
+        )
         # Process only the minimum to avoid index errors
         min_len = min(len(batch_meta), len(all_detections))
-        batch_meta = batch_meta[:min_len]
+        batch_meta     = batch_meta[:min_len]
         all_detections = all_detections[:min_len]
+
     for (cid, frame_ctr), raw_results in zip(batch_meta, all_detections):
         # Update last seen counter now that we've processed this frame
         last_frame_ctrs[cid] = frame_ctr
