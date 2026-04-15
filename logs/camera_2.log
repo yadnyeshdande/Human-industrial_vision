@@ -211,3 +211,93 @@
 2026-03-30 19:13:10 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=5356
 2026-03-30 19:13:52 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=8180
 2026-03-30 19:14:52 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=896
+2026-03-30 19:52:12 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=5088
+2026-03-30 19:52:49 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=6844
+2026-03-30 19:53:03 [INFO    ] IVS.camera_2.Main – Camera process 2 exiting
+2026-04-14 22:58:28 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=1420
+2026-04-14 22:59:04 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=9496
+2026-04-14 22:59:46 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11132
+2026-04-14 23:00:46 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10772
+2026-04-14 23:02:16 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10828
+2026-04-14 23:04:50 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10436
+2026-04-14 23:07:22 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11208
+2026-04-14 23:09:53 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=9056
+2026-04-14 23:10:06 [INFO    ] IVS.camera_2.Main – Camera process 2 exiting
+2026-04-15 12:55:23 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=2756
+2026-04-15 12:55:43 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 12:56:00 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10820
+2026-04-15 12:56:20 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 12:56:42 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=4288
+2026-04-15 12:57:02 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 12:57:42 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=2948
+2026-04-15 12:58:02 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 12:58:20 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10836
+2026-04-15 12:58:52 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=4680
+2026-04-15 12:59:12 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 12:59:30 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=4688
+2026-04-15 13:05:06 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=2548
+2026-04-15 13:05:26 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 13:05:43 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=8680
+2026-04-15 13:06:03 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 13:06:25 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10908
+2026-04-15 13:06:49 [INFO    ] IVS.camera_2.Main – Camera process 2 exiting
+2026-04-15 13:08:19 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=12300
+2026-04-15 13:08:39 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 13:10:05 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11632
+2026-04-15 13:10:43 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=12780
+2026-04-15 13:11:25 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=4268
+2026-04-15 13:12:25 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10528
+2026-04-15 13:13:57 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=12996
+2026-04-15 13:14:17 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 13:16:27 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=4344
+2026-04-15 13:16:47 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 13:18:58 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=348
+2026-04-15 13:19:18 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 13:21:28 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=2428
+2026-04-15 13:21:48 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 13:24:09 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=5380
+2026-04-15 13:26:38 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11736
+2026-04-15 13:28:53 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=2380
+2026-04-15 13:55:53 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=9516
+2026-04-15 13:56:30 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=8120
+2026-04-15 13:57:12 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=3468
+2026-04-15 13:58:13 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11340
+2026-04-15 13:59:48 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=13120
+2026-04-15 14:02:14 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11172
+2026-04-15 14:04:45 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=3844
+2026-04-15 14:07:14 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=7460
+2026-04-15 14:09:45 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=8000
+2026-04-15 14:12:16 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=12872
+2026-04-15 14:14:48 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10504
+2026-04-15 14:17:19 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=8160
+2026-04-15 14:23:16 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11088
+2026-04-15 14:23:54 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=1792
+2026-04-15 14:24:35 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11564
+2026-04-15 14:25:59 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=8964
+2026-04-15 14:26:36 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=5840
+2026-04-15 14:27:18 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=11040
+2026-04-15 14:27:25 [INFO    ] IVS.camera_2.Main – Camera process 2 exiting
+2026-04-15 14:27:39 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=13076
+2026-04-15 14:28:16 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=13224
+2026-04-15 14:28:58 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=940
+2026-04-15 14:29:59 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=3644
+2026-04-15 14:31:27 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=12556
+2026-04-15 14:58:21 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10140
+2026-04-15 14:58:41 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 14:58:57 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10696
+2026-04-15 14:59:40 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=5012
+2026-04-15 15:00:39 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=4504
+2026-04-15 15:00:59 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 15:02:09 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=10316
+2026-04-15 15:02:29 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 15:03:13 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=4092
+2026-04-15 15:03:34 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 15:03:49 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=3564
+2026-04-15 15:04:09 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 15:04:31 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=7048
+2026-04-15 15:04:51 [WARNING ] IVS.camera_2.Main – Camera 2 reader failed to connect within 20s – restarting
+2026-04-15 15:10:04 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=5896
+2026-04-15 15:10:41 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=5376
+2026-04-15 15:11:23 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=2040
+2026-04-15 15:12:23 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=2716
+2026-04-15 15:13:53 [INFO    ] IVS.camera_2.Main – Camera process 2 started  PID=6368
