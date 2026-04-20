@@ -1,10 +1,19 @@
 # =============================================================================
-# processes/camera_process.py  –  Isolated RTSP capture process  (v4)
+# processes/camera_process.py  –  Isolated RTSP capture process  (v5)
 # =============================================================================
 # FIX #4: "Camera reader thread stalled (infs)" – guard seconds_since_last_frame
 #         with math.isfinite() before formatting; show "not started" instead.
 # FIX #5: RTSP reader now uses SteppedReconnectPolicy (1/3/5/10 s ladder)
 #         instead of exponential backoff to avoid log spam and over-reconnect.
+# FIX LAG-1: cv2.resize() removed from the tight reader thread.
+#         It ran at full RTSP rate (25-30 FPS), burning CPU on both camera
+#         processes and starving Camera 2.  Resize now happens ONCE in the
+#         main loop, right before writer.write(), so it executes at the
+#         12 FPS capture rate only.
+# FIX LAG-2: FFmpeg backend is forced to TCP transport + no-buffer mode via
+#         OPENCV_FFMPEG_CAPTURE_OPTIONS.  On Windows the CAP_PROP_BUFFERSIZE=1
+#         hint is often silently ignored by the FFmpeg backend for RTSP, causing
+#         a creeping decode delay.  The env-var approach bypasses that limitation.
 # =============================================================================
 
 import math
@@ -42,6 +51,10 @@ class _RTSPReaderThread(threading.Thread):
     FIX #5: Uses SteppedReconnectPolicy (1/3/5/10 s).
     FIX #4: seconds_since_last_frame returns a finite float or
             a sentinel BIG_FLOAT; caller checks math.isfinite().
+    FIX LAG-1: cv2.resize() has been REMOVED from this thread.
+            The thread now stores raw frames straight from the decoder.
+            Resize is performed in run_camera_process() at the capped
+            12 FPS rate, not at the full 25-30 FPS decode rate.
     """
 
     BIG_FLOAT = 9999.0   # FIX #4: replaces float("inf") in callers
@@ -49,7 +62,7 @@ class _RTSPReaderThread(threading.Thread):
     def __init__(self, url: str, resolution: Tuple[int, int]):
         super().__init__(daemon=True, name="rtsp-reader")
         self.url        = url
-        self.resolution = resolution
+        self.resolution = resolution          # kept for reference; resize done outside
         self._lock          = threading.Lock()
         self._latest_frame: Optional[np.ndarray] = None
         self._last_frame_t  = 0.0
@@ -70,7 +83,10 @@ class _RTSPReaderThread(threading.Thread):
                     ret, frame = self._cap.read()
                     if not ret or frame is None:
                         break
-                    frame = cv2.resize(frame, self.resolution)
+                    # FIX LAG-1: resize REMOVED here.
+                    # Storing the raw decoder frame keeps this tight read-loop
+                    # CPU-cheap (memcpy only).  The main process loop resizes
+                    # at 12 FPS, not at the full 25-30 FPS decode rate.
                     with self._lock:
                         self._latest_frame = frame
                         self._last_frame_t = time.monotonic()
@@ -83,7 +99,15 @@ class _RTSPReaderThread(threading.Thread):
     def _open(self) -> bool:
         self._close()
         try:
-            cap = cv2.VideoCapture(self.url)
+            # FIX LAG-2: force FFmpeg to TCP transport + disable internal
+            # packet buffering.  On Windows, CAP_PROP_BUFFERSIZE=1 is
+            # often ignored for RTSP streams by the FFmpeg backend, causing
+            # a growing decode delay.  The env-var approach is the only
+            # reliable way to pass fflags/flags to the underlying AVFormatContext.
+            os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"] = (
+                "rtsp_transport;tcp|fflags;nobuffer|flags;low_delay"
+            )
+            cap = cv2.VideoCapture(self.url, cv2.CAP_FFMPEG)
             cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
             if cap.isOpened():
                 self._cap = cap
@@ -144,12 +168,60 @@ def run_camera_process(
     log.info(f"Camera process {camera_id} started  PID={os.getpid()}")
 
     guard   = ResourceGuard(ram_limit_mb=ram_limit_mb)
-    writer  = FrameWriter(camera_id=camera_id,
-                          width=resolution[0], height=resolution[1])
+    # Create FrameWriter with a small retry loop to tolerate transient SHM races
+    writer = None
+    for attempt in range(3):
+        try:
+            writer = FrameWriter(camera_id=camera_id,
+                                 width=resolution[0], height=resolution[1])
+            break
+        except Exception as e:
+            log = get_logger("Main")
+            log.warning(f"FrameWriter create failed (attempt {attempt+1}): {e}")
+            time.sleep(0.5)
+    if writer is None:
+        # Last-resort: try one more time and let exception propagate if it fails
+        writer = FrameWriter(camera_id=camera_id,
+                             width=resolution[0], height=resolution[1])
     fps_ctr = FPSCounter(window=30)
     reader  = _RTSPReaderThread(rtsp_url, resolution)
     reader.start()
     reader_start_t = time.monotonic()   # FIX #3: track when reader was (re)started
+
+    # Dedicated heartbeat sender thread so heartbeats are sent even if
+    # the main loop stalls briefly (prevents supervisor false-kills).
+    class _HeartbeatThread(threading.Thread):
+        def __init__(self, hb_q, pname, camera_id, fps_ctr, guard, reader):
+            super().__init__(daemon=True, name="heartbeat-thread")
+            self.hb_q = hb_q
+            self.pname = pname
+            self.cid = camera_id
+            self.fps_ctr = fps_ctr
+            self.guard = guard
+            self.reader = reader
+            self._stop = threading.Event()
+
+        def run(self):
+            while not self._stop.is_set():
+                try:
+                    msg = make_heartbeat(
+                        source=self.pname,
+                        camera_id=self.cid,
+                        fps=self.fps_ctr.fps,
+                        ram_mb=self.guard.get_ram_mb(),
+                        extra={"connected": self.reader.is_connected},
+                    )
+                    try:
+                        self.hb_q.put_nowait(msg)
+                    except Exception:
+                        # queue full; drop and retry on next interval
+                        pass
+                except Exception:
+                    pass
+                time.sleep(HEARTBEAT_INTERVAL)
+
+    hb_thread = _HeartbeatThread(heartbeat_q, pname, camera_id, fps_ctr, guard, reader)
+    hb_thread.start()
 
     last_hb            = 0.0
     last_frame_t       = time.monotonic()
@@ -179,17 +251,6 @@ def run_camera_process(
                 sys.exit(2)
 
             now = time.monotonic()
-            if now - last_hb >= HEARTBEAT_INTERVAL:
-                last_hb = now
-                heartbeat_q.put_nowait(
-                    make_heartbeat(
-                        source=pname,
-                        camera_id=camera_id,
-                        fps=fps_ctr.fps,
-                        ram_mb=guard.get_ram_mb(),
-                        extra={"connected": reader.is_connected},
-                    )
-                )
 
             # Watchdog: only fire if the reader has been alive long enough to
             # have connected.  On startup seconds_since_last_frame returns
@@ -233,9 +294,37 @@ def run_camera_process(
                 time.sleep(0.005)
                 continue
 
+            # FIX LAG-1: resize happens HERE, at 12 FPS, not inside the
+            # reader thread at 25-30 FPS.  This halves the per-camera CPU
+            # cost of decoding and eliminates the OS scheduling asymmetry
+            # that caused Camera 2 to starve for CPU cycles.
+            frame = cv2.resize(frame, resolution)
+
             last_written_frame = frame
             last_frame_t       = time.monotonic()
-            writer.write(frame)
+            try:
+                writer.write(frame)
+            except Exception as e:
+                log = get_logger("Main")
+                log.error(f"FrameWriter.write failed: {e} — attempting recreate")
+                try:
+                    # Close old writer and cleanup SHM for this camera, then recreate
+                    try:
+                        writer.close()
+                    except Exception:
+                        pass
+                    from ipc.frame_store import cleanup_shm_for_camera
+                    cleanup_shm_for_camera(camera_id, resolution[0], resolution[1])
+                except Exception:
+                    pass
+                try:
+                    writer = FrameWriter(camera_id=camera_id,
+                                         width=resolution[0], height=resolution[1])
+                except Exception as e2:
+                    log.error(f"Recreate FrameWriter failed: {e2}")
+                    # continue loop; don't crash camera process — heartbeat will show disconnected
+                    time.sleep(0.5)
+                    continue
             fps_ctr.tick()
 
     except KeyboardInterrupt:
@@ -250,6 +339,11 @@ def run_camera_process(
             pass
         sys.exit(1)
     finally:
+        try:
+            hb_thread._stop.set()
+            hb_thread.join(timeout=1)
+        except Exception:
+            pass
         reader.stop()
         reader.join(timeout=5)
         writer.close()

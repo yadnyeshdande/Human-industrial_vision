@@ -124,11 +124,23 @@ class ResourceGuard:
         return 0.0
 
     def get_vram_mb(self) -> float:
-        if _TORCH and torch.cuda.is_available():
+        # Prefer NVML device-level used VRAM if available (accurate for whole GPU)
+        if _NVML and self._gpu_handle:
             try:
-                return torch.cuda.memory_reserved() / (1024 * 1024)
+                info = _pynvml.nvmlDeviceGetMemoryInfo(self._gpu_handle)
+                return float(info.used) / (1024 * 1024)
             except Exception:
                 pass
+        # Fall back to PyTorch per-process allocation/reserved if available
+        if _TORCH and torch.cuda.is_available():
+            try:
+                # use allocated() which reflects actual tensors, reserved() can be misleading
+                return torch.cuda.memory_allocated() / (1024 * 1024)
+            except Exception:
+                try:
+                    return torch.cuda.memory_reserved() / (1024 * 1024)
+                except Exception:
+                    pass
         return 0.0
 
     def get_gpu_utilization(self) -> float:

@@ -32,7 +32,7 @@ from ipc.messages import (
 
 # ── tunables ────────────────────────────────────────────────────────────────
 POLL_INTERVAL       = 3.0
-HEARTBEAT_TIMEOUT   = 30.0
+HEARTBEAT_TIMEOUT   = 60.0
 SOFT_RESTART_HRS    = 24.0
 RESTART_BACKOFF     = [5, 10, 30, 60, 120]
 GUI_OPTIONAL        = True      # system continues if GUI crashes
@@ -332,11 +332,39 @@ class Supervisor:
                 mtype  = msg.get("type",   "")
 
                 if mtype == MSG_HEARTBEAT:
-                    for name, entry in self.entries.items():
-                        if source.startswith(name.split("_")[0]) or source == name:
-                            entry.last_hb = time.monotonic()
-                            entry.reset_backoff()
-                            break
+                    # Map heartbeat `source` to the correct ProcessEntry.
+                    # Prefer exact name match. For camera/detection workers parse id suffix.
+                    now_t = time.monotonic()
+                    matched = False
+                    # Exact name match
+                    if source in self.entries:
+                        self.entries[source].last_hb = now_t
+                        self.entries[source].reset_backoff()
+                        matched = True
+                    else:
+                        parts = source.split("_")
+                        if parts and parts[0] == "camera" and len(parts) > 1:
+                            name = f"camera_{parts[1]}"
+                            entry = self.entries.get(name)
+                            if entry:
+                                entry.last_hb = now_t
+                                entry.reset_backoff()
+                                matched = True
+                        elif parts and parts[0].startswith("detection"):
+                            # detection or detection_N
+                            entry = self.entries.get(source) or self.entries.get("detection")
+                            if entry:
+                                entry.last_hb = now_t
+                                entry.reset_backoff()
+                                matched = True
+                    if not matched:
+                        # Fallback: try to match by exact type prefix only (rare)
+                        for name, entry in self.entries.items():
+                            if source == name:
+                                entry.last_hb = now_t
+                                entry.reset_backoff()
+                                matched = True
+                                break
 
                 elif mtype == MSG_ERROR:
                     payload = msg.get("payload", {})

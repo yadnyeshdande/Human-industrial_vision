@@ -77,7 +77,7 @@ def make_detection_result(source, camera_id, persons, violations, fps,
 
 
 def make_telemetry(source, detection_fps, gpu_vram_mb, gpu_util_pct,
-                   gpu_temp_c, ram_mb, cameras_active):
+                   gpu_temp_c, ram_mb, cameras_active, extra: dict = None):
     """
     FIX #10: Published by detection worker → result_q → GUI sidebar.
     Decoupled from heartbeat so supervisor is not overloaded.
@@ -91,6 +91,8 @@ def make_telemetry(source, detection_fps, gpu_vram_mb, gpu_util_pct,
         "ram_mb":         round(float(ram_mb),         1),
         "cameras_active": list(cameras_active),
     }
+    if extra:
+        msg["payload"]["extra"] = extra
     return msg
 
 

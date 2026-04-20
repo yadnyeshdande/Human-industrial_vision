@@ -1,5 +1,5 @@
 # =============================================================================
-# processes/detection_process.py  –  GPU YOLO detection worker  (v5)
+# processes/detection_process.py  –  GPU YOLO detection worker  (v6)
 # =============================================================================
 #
 # SHM LIFECYCLE FIX
@@ -35,6 +35,19 @@
 # Typical improvement on RTX 3050 + YOLOv8n/l + 3 cameras:
 #   Before:  ~12 FPS per camera,  GPU util ~35%
 #   After:   ~22 FPS per camera,  GPU util ~75%
+#
+# FIX LAG-3: BATCH_COLLECT_TIMEOUT_S was defined but never *used* in
+#   _collect_batch().  The function did a single instant pass and returned,
+#   so a camera whose frame arrived 1 ms after the sweep had to wait an
+#   entire YOLO inference cycle (~80 ms) before being picked up.  This
+#   caused erratic effective framerates and made Camera 2 appear slower
+#   than Camera 1 even though both are identical hardware.
+#
+#   The fix: _collect_batch() now waits up to BATCH_COLLECT_TIMEOUT_S
+#   (40 ms) for ALL active cameras to provide a fresh frame before
+#   dispatching.  It breaks out early as soon as every camera has
+#   contributed, so the common case (both frames already ready) adds
+#   zero latency.
 # =============================================================================
 
 import os
@@ -74,7 +87,8 @@ FPS_TARGET         = 12
 
 # Micro-batch: wait this long to accumulate frames before forcing a batch
 # even if some cameras have no new frame yet (keeps latency bounded).
-BATCH_COLLECT_TIMEOUT_S = 0.04    # 40 ms → max latency added by batching
+# FIX LAG-3: this constant is now actually *used* inside _collect_batch().
+BATCH_COLLECT_TIMEOUT_S = 0.12    # 120 ms → allow more time to gather frames across cameras
 
 
 def run_detection_process(
@@ -123,6 +137,10 @@ def run_detection_process(
     last_hb        = 0.0
     last_telemetry = 0.0
     fps_cap        = FPS_TARGET
+    # telemetry stats for batch sizing and inference timing
+    _batch_count = 0
+    _batch_total_size = 0
+    _infer_total_time = 0.0
 
     try:
         while True:
@@ -150,17 +168,27 @@ def run_detection_process(
                 avg_fps = (sum(c.fps for c in fps_counters.values())
                            / max(len(fps_counters), 1))
                 gpu = guard.gpu_health_summary()
-                heartbeat_q.put_nowait(make_heartbeat(
-                    source=pname, fps=avg_fps,
-                    ram_mb=guard.get_ram_mb(),
-                    extra={**gpu, "cameras": camera_ids, "worker_id": worker_id},
-                ))
+                try:
+                    heartbeat_q.put_nowait(
+                        make_heartbeat(
+                            source=pname, fps=avg_fps,
+                            ram_mb=guard.get_ram_mb(),
+                            extra={**gpu, "cameras": camera_ids, "worker_id": worker_id},
+                        )
+                    )
+                except Exception:
+                    # drop heartbeat if queue full
+                    pass
 
             # ── telemetry → GUI sidebar ───────────────────────────────────────
             if now - last_telemetry >= TELEMETRY_EVERY:
                 last_telemetry = now
                 avg_fps = (sum(c.fps for c in fps_counters.values())
                            / max(len(fps_counters), 1))
+                # prepare extra telemetry: average batch size and inference time
+                avg_batch = (_batch_total_size / _batch_count) if _batch_count else 0.0
+                avg_infer = (_infer_total_time / _batch_count) if _batch_count else 0.0
+                extra = {"avg_batch_size": round(avg_batch, 2), "avg_infer_s": round(avg_infer, 3)}
                 try:
                     result_q.put_nowait(make_telemetry(
                         source=pname,
@@ -170,9 +198,14 @@ def run_detection_process(
                         gpu_temp_c=guard.get_gpu_temp(),
                         ram_mb=guard.get_ram_mb(),
                         cameras_active=camera_ids,
+                        extra=extra,
                     ))
                 except Exception:
                     pass
+                # reset telemetry counters for next window
+                _batch_count = 0
+                _batch_total_size = 0
+                _infer_total_time = 0.0
 
             # ── MICRO-BATCH INFERENCE ─────────────────────────────────────────
             # Collect one fresh frame per camera (non-blocking) then run a
@@ -187,11 +220,17 @@ def run_detection_process(
                 continue
 
             # Single GPU kernel for the whole batch
+            t0 = time.monotonic()
             try:
                 all_detections = detector.detect_batch(batch_frames)
             except Exception as e:
                 log.error(f"Batch inference error: {e}")
                 all_detections = [[] for _ in batch_frames]
+            infer_t = time.monotonic() - t0
+            # update telemetry counters
+            _batch_count += 1
+            _batch_total_size += len(batch_frames)
+            _infer_total_time += infer_t
 
             # Route each result back to its camera
             _route_batch_results(
@@ -219,7 +258,10 @@ def run_detection_process(
         pass
     except Exception as e:
         log.error(f"Detection worker fatal: {e}", exc_info=True)
-        heartbeat_q.put_nowait(make_error(pname, str(e), fatal=True))
+        try:
+            heartbeat_q.put_nowait(make_error(pname, str(e), fatal=True))
+        except Exception:
+                pass
         sys.exit(1)
     finally:
         try:
@@ -244,42 +286,78 @@ def _collect_batch(
     fps_cap:         float,
 ) -> Tuple[List[np.ndarray], List[Tuple[int, int]]]:
     """
-    MICRO-BATCH: Gather the latest NEW frame from each camera in one pass.
+    MICRO-BATCH: Gather the latest NEW frame from each camera.
+
+    FIX LAG-3: Previously this function did a single instant sweep and
+    returned immediately.  A camera whose frame arrived 1 ms after the
+    sweep had to wait a full YOLO inference cycle (~80 ms) before being
+    picked up.  This made Camera 2 appear to run slower than Camera 1
+    even though both cameras produce frames at the same rate.
+
+    The fix: loop until BATCH_COLLECT_TIMEOUT_S has elapsed OR every
+    active camera has provided a new frame, whichever comes first.
+    In the common case – both frames are already in shared memory when
+    _collect_batch is called – the inner loop exits on the very first
+    iteration (zero added latency).
 
     Returns:
         batch_frames – list of BGR frames ready for model input
         batch_meta   – list of (camera_id, frame_counter) in matching order
 
-    SHM LIFECYCLE FIX: We call read_latest_frame() (unconditional read) here
+    SHM LIFECYCLE NOTE: We call read_latest_frame() (unconditional read)
     rather than read_if_new(), then filter by counter comparison ourselves.
     This avoids touching the reader's internal _last_counter so that
     is_stale detection (counter rollback check) still works correctly.
     """
+    interval   = 1.0 / max(fps_cap, 1)
+    start_time = time.monotonic()
+
+    # Count how many cameras currently have a valid SHM segment attached.
+    active_count = sum(
+        1 for cid in camera_ids
+        if readers.get(cid) is not None and readers[cid]._shm is not None
+    )
+
+    # Edge-case: no cameras ready at all – return immediately.
+    if active_count == 0:
+        return [], []
+
     batch_frames: List[np.ndarray]        = []
     batch_meta:   List[Tuple[int, int]]   = []
 
-    interval = 1.0 / max(fps_cap, 1)
+    while time.monotonic() - start_time < BATCH_COLLECT_TIMEOUT_S:
+        batch_frames = []
+        batch_meta   = []
 
-    for cid in camera_ids:
-        reader = readers.get(cid)
-        if reader is None or reader._shm is None:
-            continue
+        for cid in camera_ids:
+            reader = readers.get(cid)
+            if reader is None or reader._shm is None:
+                continue
 
-        result = reader.read_latest_frame()
-        if result is None:
-            continue
-        frame, counter = result
+            result = reader.read_latest_frame()
+            if result is None:
+                continue
 
-        # Skip if no new frame since last batch
-        if counter == last_frame_ctrs.get(cid, 0):
-            continue
+            frame, counter = result
 
-        # Per-camera FPS throttle
-        if not _throttle_ok(cid, interval):
-            continue
+            # Skip if no new frame since last batch
+            if counter == last_frame_ctrs.get(cid, 0):
+                continue
 
-        batch_frames.append(frame)
-        batch_meta.append((cid, counter))
+            # Per-camera FPS throttle
+            if not _throttle_ok(cid, interval):
+                continue
+
+            # Ensure contiguous uint8 frames for model preprocessing
+            batch_frames.append(np.ascontiguousarray(frame))
+            batch_meta.append((cid, counter))
+
+        # All active cameras have contributed – no need to wait further.
+        if len(batch_frames) == active_count:
+            break
+
+        # Yield CPU briefly before retrying so we don't spin-burn a core.
+        time.sleep(0.002)
 
     return batch_frames, batch_meta
 

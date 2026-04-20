@@ -620,3 +620,24 @@
 2026-04-15 15:04:43 [WARNING ] IVS.camera_1.Main – Camera 1 reader failed to connect within 20s – restarting
 2026-04-15 15:10:04 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=8332
 2026-04-15 15:15:44 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-19 21:49:02 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=13664
+2026-04-19 21:58:12 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-20 19:21:23 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=29312
+2026-04-20 19:31:12 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=21824
+2026-04-20 19:36:17 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-20 19:39:52 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=28048
+2026-04-20 19:47:57 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-20 20:47:43 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=26660
+2026-04-20 20:50:04 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-20 21:37:05 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=26468
+2026-04-20 21:37:36 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=13016
+2026-04-20 21:42:22 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-20 21:46:47 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=3400
+2026-04-20 21:59:30 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=16692
+2026-04-20 22:03:29 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-20 22:12:57 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=13212
+2026-04-20 22:14:21 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-20 22:26:26 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=24672
+2026-04-20 22:28:56 [INFO    ] IVS.camera_1.Main – Camera process 1 exiting
+2026-04-20 22:36:36 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=15812
+2026-04-20 22:46:04 [INFO    ] IVS.camera_1.Main – Camera process 1 started  PID=19244

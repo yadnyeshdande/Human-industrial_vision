@@ -153,93 +153,33 @@ class PersonDetector:
         """
         if not self.model_loaded or self.model is None or not frames:
             return [[] for _ in frames]
-
-        # Try optimized pinned-memory -> non_blocking transfer -> device tensor path
         try:
             import torch
-
-            # Prepare CPU tensors with pinned memory to speed up host->device transfer
-            cpu_tensors = []
-            for f in frames:
-                # ensure contiguous uint8 array
-                arr = np.ascontiguousarray(f)
-                # convert to CHW uint8 tensor on CPU
-                t = torch.from_numpy(arr)
-                # from numpy gives HWC; convert to CHW, float and normalize when model expects floats
-                # keep uint8 for ultralytics preprocessing if passing numpy, but for tensor path convert to float
-                t = t.permute(2, 0, 1).to(dtype=torch.float32)
-                # normalize to 0..1
-                t = t.div(255.0)
-                # pin memory for faster transfers
-                try:
-                    t = t.pin_memory()
-                except Exception:
-                    pass
-                cpu_tensors.append(t)
-
-            # Stack into (N,C,H,W) and transfer to device non-blocking
-            batch_tensor = torch.stack(cpu_tensors, dim=0)
-            if self.device == "cuda":
-                batch_tensor = batch_tensor.to("cuda", non_blocking=True)
-                if self._use_fp16:
-                    batch_tensor = batch_tensor.half()
-
             with torch.no_grad():
+                # Pass the list directly – ultralytics batches it internally
                 results = self.model(
-                    batch_tensor,
+                    frames,                          # list[np.ndarray]
                     conf=self.conf_threshold,
                     classes=[self.PERSON_CLASS_ID],
                     device=self.device,
-                    half=False,  # already converted if needed
+                    half=self._use_fp16,
                     verbose=False,
                 )
-                if self.device == "cuda":
-                    try:
-                        torch.cuda.synchronize()
-                    except Exception:
-                        pass
-
             out: List[List[Tuple[int, int, int, int, float]]] = []
             for res in results:
                 frame_persons = []
                 if res.boxes is not None:
                     for box in res.boxes:
-                        try:
-                            xy = box.xyxy[0].cpu().numpy()
-                            conf = float(box.conf[0].cpu().numpy())
-                            x1, y1, x2, y2 = xy
-                            frame_persons.append((int(x1), int(y1), int(x2), int(y2), conf))
-                        except Exception:
-                            continue
+                        x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
+                        conf = float(box.conf[0].cpu().numpy())
+                        frame_persons.append(
+                            (int(x1), int(y1), int(x2), int(y2), conf)
+                        )
                 out.append(frame_persons)
             return out
-
-        except Exception as e_opt:
-            # Fallback: call model with numpy list as before
-            try:
-                import torch
-                with torch.no_grad():
-                    results = self.model(
-                        frames,
-                        conf=self.conf_threshold,
-                        classes=[self.PERSON_CLASS_ID],
-                        device=self.device,
-                        half=self._use_fp16,
-                        verbose=False,
-                    )
-                out = []
-                for res in results:
-                    frame_persons = []
-                    if res.boxes is not None:
-                        for box in res.boxes:
-                            x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
-                            conf = float(box.conf[0].cpu().numpy())
-                            frame_persons.append((int(x1), int(y1), int(x2), int(y2), conf))
-                    out.append(frame_persons)
-                return out
-            except Exception as e:
-                logger.error(f"Batch inference failed (both optimized and fallback): {e_opt} | {e}")
-                return [[] for _ in frames]
+        except Exception as e:
+            logger.error(f"Batch inference failed: {e}")
+            return [[] for _ in frames]
 
     # -------------------------------------------------------------------------
     def is_model_loaded(self) -> bool:

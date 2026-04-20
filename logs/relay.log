@@ -953,3 +953,204 @@
 2026-04-15 15:15:14 [INFO    ] IVS.relay.Main – Relay 7 OK cam=1 zone=1
 2026-04-15 15:15:22 [INFO    ] IVS.relay.Main – Relay 7 OK cam=1 zone=1
 2026-04-15 15:15:44 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-19 21:49:02 [INFO    ] IVS.relay.Main – Relay process started  PID=9020
+2026-04-19 21:49:02 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-19 21:49:11 [INFO    ] IVS.relay.Main – Relay 7 OK cam=1 zone=1
+2026-04-19 21:49:12 [INFO    ] IVS.relay.Main – Relay 8 OK cam=2 zone=2
+2026-04-19 21:49:12 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-19 21:49:18 [INFO    ] IVS.relay.Main – Relay 7 OK cam=1 zone=1
+2026-04-19 21:49:18 [INFO    ] IVS.relay.Main – Relay 7 COOLDOWN cam=1 zone=1
+2026-04-19 21:49:21 [INFO    ] IVS.relay.Main – Relay 7 OK cam=1 zone=1
+2026-04-19 21:49:28 [INFO    ] IVS.relay.Main – Relay 8 OK cam=2 zone=2
+2026-04-19 21:49:47 [INFO    ] IVS.relay.Main – Relay 7 OK cam=1 zone=1
+2026-04-19 21:49:50 [INFO    ] IVS.relay.Main – Relay 8 OK cam=2 zone=2
+2026-04-19 21:49:50 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-19 21:49:54 [INFO    ] IVS.relay.Main – Relay 7 OK cam=1 zone=1
+2026-04-19 21:49:56 [INFO    ] IVS.relay.Main – Relay 8 OK cam=2 zone=2
+2026-04-19 21:58:12 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 19:21:23 [INFO    ] IVS.relay.Main – Relay process started  PID=4040
+2026-04-20 19:21:23 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 19:21:43 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:21:45 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:21:45 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:21:46 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:21:46 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:21:47 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:21:50 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:22:02 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:22:06 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:22:24 [INFO    ] IVS.relay.Main – Reloading settings
+2026-04-20 19:22:24 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json
+2026-04-20 19:22:24 [INFO    ] IVS.relay.Main – Relay updated: cooldown=1.0s duration=1.0s
+2026-04-20 19:22:42 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:22:57 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:25:13 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 19:25:25 [INFO    ] IVS.relay.Main – Relay 7 COOLDOWN cam=1 zone=1
+2026-04-20 19:25:26 [INFO    ] IVS.relay.Main – Relay 7 COOLDOWN cam=1 zone=1
+2026-04-20 19:25:48 [INFO    ] IVS.relay.Main – Relay 7 COOLDOWN cam=1 zone=1
+2026-04-20 19:25:52 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 19:31:12 [INFO    ] IVS.relay.Main – Relay process started  PID=1588
+2026-04-20 19:31:12 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 19:36:17 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 19:39:52 [INFO    ] IVS.relay.Main – Relay process started  PID=13108
+2026-04-20 19:39:52 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 19:47:57 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 20:47:43 [INFO    ] IVS.relay.Main – Relay process started  PID=22248
+2026-04-20 20:47:43 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 20:47:58 [INFO    ] IVS.relay.Main – Relay 7 COOLDOWN cam=1 zone=1
+2026-04-20 20:48:00 [INFO    ] IVS.relay.Main – Relay 7 COOLDOWN cam=1 zone=1
+2026-04-20 20:48:35 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:48:41 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:48:44 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:49:03 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:49:03 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:49:07 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:49:10 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:49:10 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:49:11 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:49:11 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 20:50:04 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 21:37:05 [INFO    ] IVS.relay.Main – Relay process started  PID=21908
+2026-04-20 21:37:05 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 21:37:13 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 21:37:36 [INFO    ] IVS.relay.Main – Relay process started  PID=18128
+2026-04-20 21:37:36 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 21:41:26 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 21:41:27 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 21:41:27 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 21:41:28 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 21:41:34 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 21:41:36 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 21:42:22 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 21:46:47 [INFO    ] IVS.relay.Main – Relay process started  PID=18052
+2026-04-20 21:46:48 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 21:46:58 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 21:59:30 [INFO    ] IVS.relay.Main – Relay process started  PID=21152
+2026-04-20 21:59:30 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 22:03:29 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 22:12:57 [INFO    ] IVS.relay.Main – Relay process started  PID=25100
+2026-04-20 22:12:57 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 22:13:10 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:10 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:15 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:16 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:17 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:19 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:26 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:29 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:32 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:33 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:38 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:40 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:13:49 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:14:17 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:14:17 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:14:21 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 22:26:26 [INFO    ] IVS.relay.Main – Relay process started  PID=18704
+2026-04-20 22:26:26 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 22:26:54 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:26:54 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:26:55 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:26:55 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:26:57 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:01 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:09 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:15 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:22 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:36 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:41 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:43 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:46 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:48 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:51 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:27:59 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:28:01 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:28:02 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:28:03 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:28:06 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:28:08 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:28:11 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:28:55 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 22:36:36 [INFO    ] IVS.relay.Main – Relay process started  PID=2716
+2026-04-20 22:36:36 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 22:36:45 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:36:47 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:36:48 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:36:48 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:36:52 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:36:53 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:36:54 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:36:59 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:36:59 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:07 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:10 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:10 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:12 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:12 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:16 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:19 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:19 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:25 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:25 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:26 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:26 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:26 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:32 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:33 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:34 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:34 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:34 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:35 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:36 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:46 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:47 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:54 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:54 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:55 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:57 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:37:58 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:00 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:01 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:01 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:04 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:04 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:05 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:08 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:08 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:09 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:11 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:42 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:44 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:45 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:48 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:52 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:38:52 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:39:09 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:42:26 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-04-20 22:46:04 [INFO    ] IVS.relay.Main – Relay process started  PID=15720
+2026-04-20 22:46:04 [INFO    ] IVS.relay.Main – USB HID relay hardware initialised
+2026-04-20 22:46:14 [INFO    ] IVS.relay.Main – Relay 7 COOLDOWN cam=1 zone=1
+2026-04-20 22:46:16 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:19 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:21 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:21 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:22 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:24 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:24 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:24 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:25 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:26 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:27 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:27 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:29 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:31 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:32 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:33 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:33 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:35 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:38 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:38 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:39 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:40 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:40 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
+2026-04-20 22:46:45 [INFO    ] IVS.relay.Main – Relay process exiting

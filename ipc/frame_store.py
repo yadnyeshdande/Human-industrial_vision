@@ -120,21 +120,43 @@ class FrameWriter:
             return 0
         h, w = frame.shape[:2]
         ch   = frame.shape[2] if frame.ndim == 3 else 1
-
+        # Ensure frame has expected shape; if not, attempt a proper resize
         if w != self.width or h != self.height:
-            frame = np.ascontiguousarray(
-                np.resize(frame, (self.height, self.width, self.channels))
-            )
-            h, w, ch = self.height, self.width, self.channels
+            try:
+                import cv2
+                frame = cv2.resize(frame, (self.width, self.height))
+                frame = np.ascontiguousarray(frame)
+                h, w, ch = frame.shape[:3]
+            except Exception:
+                # Fallback: make a contiguous array and crop/pad safely
+                out = np.zeros((self.height, self.width, self.channels),
+                               dtype=np.uint8)
+                fh = min(h, self.height)
+                fw = min(w, self.width)
+                out[:fh, :fw] = frame[:fh, :fw]
+                frame = out
+                h, w, ch = frame.shape[:3]
 
         self._counter = (self._counter + 1) & 0xFFFF_FFFF
 
         hdr = struct.pack(_HEADER_FMT, self._counter, w, h, ch)
-        self._shm.buf[:_HEADER_SIZE] = hdr
-
-        raw = np.frombuffer(self._shm.buf, dtype=np.uint8,
-                            count=w * h * ch, offset=_HEADER_SIZE)
-        np.copyto(raw, frame.reshape(-1))
+        # Write header then payload.  Use a numpy view into the SHM buffer
+        # and a contiguous uint8 frame to avoid creating an intermediate
+        # Python `bytes` object (reduces allocations and CPU jitter).
+        mv = memoryview(self._shm.buf)
+        mv[:_HEADER_SIZE] = hdr
+        payload_nbytes = w * h * ch
+        try:
+            frame_u8 = np.ascontiguousarray(frame, dtype=np.uint8)
+            flat = frame_u8.reshape(-1)
+            raw = np.ndarray(shape=(payload_nbytes,), dtype=np.uint8,
+                             buffer=self._shm.buf, offset=_HEADER_SIZE)
+            raw[:] = flat
+        except Exception:
+            # Final fallback: use numpy copy (robust but slightly slower)
+            raw = np.frombuffer(self._shm.buf, dtype=np.uint8,
+                                count=w * h * ch, offset=_HEADER_SIZE)
+            np.copyto(raw, np.ascontiguousarray(frame).reshape(-1))
         return self._counter
 
     def close(self) -> None:
