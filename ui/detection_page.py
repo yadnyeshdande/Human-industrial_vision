@@ -25,8 +25,8 @@ from PyQt5.QtGui import QColor, QFont
 from config.loader import ConfigManager
 from ipc.frame_store import FrameReader
 from ipc.messages import (
-    MSG_DETECTION_RESULT, MSG_RELAY_STATUS, MSG_SYSTEM_HEALTH,
-    MSG_HEARTBEAT, MSG_TELEMETRY,
+    MSG_DETECTION_RESULT, MSG_RELAY_STATUS, MSG_RELAY_HEALTH,
+    MSG_SYSTEM_HEALTH, MSG_HEARTBEAT, MSG_TELEMETRY,
 )
 from ui.video_panel import VideoPanel
 from utils.logger import get_logger
@@ -225,6 +225,12 @@ class DetectionPage(QWidget):
         relay_box = QGroupBox("Relay Status")
         self.relay_layout = QVBoxLayout(relay_box)
         self.relay_status_labels: Dict[int, QLabel] = {}
+
+        # Shows real hardware connection state from MSG_RELAY_HEALTH
+        self.relay_health_label = QLabel("Relay: initialising...")
+        self.relay_health_label.setStyleSheet("color: #888888; font-size: 11px;")
+        self.relay_layout.addWidget(self.relay_health_label)
+
         vbox.addWidget(relay_box)
 
         # FIX #10: telemetry stats from MSG_TELEMETRY
@@ -378,13 +384,20 @@ class DetectionPage(QWidget):
             pass
 
         # Drain relay_status_q
+        # Drain relay_status_q
         try:
             while True:
-                msg = self.relay_status_q.get_nowait()
-                if msg.get("type") == MSG_RELAY_STATUS:
+                msg   = self.relay_status_q.get_nowait()
+                mtype = msg.get("type")
+
+                if mtype == MSG_RELAY_STATUS:
                     rid   = msg["payload"].get("relay_id", 1)
                     state = msg["payload"].get("state", False)
                     self._update_relay_ui(rid, state)
+
+                elif mtype == MSG_RELAY_HEALTH:
+                    self._update_relay_health_ui(msg["payload"])
+
         except Exception:
             pass
 
@@ -513,6 +526,32 @@ class DetectionPage(QWidget):
         icon  = "🔴" if state else "🟢"
         lbl.setText(f"{icon} Relay {relay_id}: {'ON' if state else 'OFF'}")
         lbl.setStyleSheet(f"color: {color}; font-size: 11px;")
+
+    def _update_relay_health_ui(self, payload: dict) -> None:
+        """Update relay health label from MSG_RELAY_HEALTH payload."""
+        hw_type   = payload.get("hw_type",   "none")
+        connected = payload.get("connected", False)
+        channels  = payload.get("channels",  0)
+        error     = payload.get("error",     "")
+
+        if hw_type == "none":
+            label = "Relay: Simulation"
+            color = "#888888"
+        elif connected:
+            label = f"Relay OK {hw_type.upper()} ({channels} ch)"
+            color = "#33cc33"
+        else:
+            label = f"Relay DISCONNECTED {hw_type.upper()}"
+            color = "#ff3333"
+
+        if error:
+            label += f" – {error}"
+
+        if hasattr(self, "relay_health_label"):
+            self.relay_health_label.setText(label)
+            self.relay_health_label.setStyleSheet(
+                f"color: {color}; font-size: 11px; font-weight: bold;"
+            )
 
     # ── clocks ────────────────────────────────────────────────────────────────
 

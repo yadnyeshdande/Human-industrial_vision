@@ -32,3 +32,5 @@ pynvml>=11.0.0
 
 # PyTorch – install separately with CUDA support:
 # pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# Ethernet relay (Waveshare Modbus TCP) - install only if relay_type: ethernet
+pymodbus>=3.0

@@ -247,23 +247,21 @@ class Supervisor:
             )
 
         # Relay
+        # Relay  –  relay_process reads SETTINGS directly; pass queues only
+        _relay_ctrl_q = Queue(maxsize=10)
         self.entries["relay"] = ProcessEntry(
             name   = "relay",
             target = run_relay_process,
             args   = (
                 self.heartbeat_q,
-                Queue(maxsize=10),    # relay control queue (for CTRL_RELOAD_SETTINGS)
+                _relay_ctrl_q,
                 self.relay_q,
                 self.relay_status_q,
-                SETTINGS.use_usb_relay,
-                SETTINGS.usb_num_channels,
-                SETTINGS.usb_serial,
-                SETTINGS.relay_duration,
-                SETTINGS.relay_cooldown,
+                # ram_limit_mb omitted -> uses module default (RAM_LIMIT_RELAY)
             ),
         )
-        # Keep a reference to relay's control queue
-        self._relay_control_q = self.entries["relay"].args[1]
+        # Keep reference for CTRL_RELOAD_SETTINGS broadcasts and shutdown
+        self._relay_control_q = _relay_ctrl_q
 
         # GUI  (FIX #11: is_optional=True but NO restart limit)
         self.entries["gui"] = ProcessEntry(

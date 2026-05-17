@@ -50,20 +50,26 @@ processing_resolution: [1280, 720]
 # RELAY HARDWARE
 # ---------------------------------------------------------------------------
 relay:
-  # Set to true to use real USB relay hardware (pyhid_usb_relay)
-  # Set to false for software simulation (testing)
+  # Relay backend selector.
+  # Values: none | usb | ethernet
+  # "none"     - simulation only (safe default, no hardware needed)
+  # "usb"      - pyhid_usb_relay (USB HID relay board)
+  # "ethernet" - Waveshare Modbus TCP Ethernet relay
+  relay_type: none
+
+  # USB relay settings (active only when relay_type: usb)
   use_usb_relay: false
-
-  # Number of relay channels on your USB relay board
   num_channels: 8
-
-  # Optional: serial number to identify a specific device
   serial: null
 
-  # How long each relay stays activated (seconds)
-  activation_duration: 1.0
+  # Ethernet relay settings (active only when relay_type: ethernet)
+  eth_relay_ip: "192.168.1.200"
+  eth_relay_port: 502
+  eth_relay_device_id: 1
+  eth_relay_num_channels: 16
 
-  # Minimum time between re-triggering the same relay (seconds)
+  # Shared timing
+  activation_duration: 1.0
   cooldown: 5.0
 
 # ---------------------------------------------------------------------------

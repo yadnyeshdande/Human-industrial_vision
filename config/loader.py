@@ -54,6 +54,13 @@ class AppSettings:
         self.use_usb_relay:         bool             = False
         self.usb_num_channels:      int              = 8
         self.usb_serial:            Optional[str]    = None
+        # Relay backend selector  (v6 – dual backend)
+        # Values: "none" | "usb" | "ethernet"
+        self.relay_type:             str = "none"
+        self.eth_relay_ip:           str = "192.168.1.200"
+        self.eth_relay_port:         int = 502
+        self.eth_relay_device_id:    int = 1
+        self.eth_relay_num_channels: int = 16
         self.frame_queue_size:      int              = 30
         self.ui_update_fps:         int              = 30
         # FIX #9: restore last tab index on GUI restart
@@ -78,6 +85,12 @@ class AppSettings:
             self.use_usb_relay        = data.get("use_usb_relay",         self.use_usb_relay)
             self.usb_num_channels     = data.get("usb_num_channels",      self.usb_num_channels)
             self.usb_serial           = data.get("usb_serial",            self.usb_serial)
+            self.relay_type             = data.get("relay_type",             self.relay_type)
+            self.eth_relay_ip           = data.get("eth_relay_ip",           self.eth_relay_ip)
+            self.eth_relay_port         = int(data.get("eth_relay_port",     self.eth_relay_port))
+            self.eth_relay_device_id    = int(data.get("eth_relay_device_id",self.eth_relay_device_id))
+            self.eth_relay_num_channels = int(data.get("eth_relay_num_channels",
+                                                        self.eth_relay_num_channels))
             self.frame_queue_size     = data.get("frame_queue_size",      self.frame_queue_size)
             self.ui_update_fps        = data.get("ui_update_fps",         self.ui_update_fps)
             # FIX #9
@@ -102,6 +115,11 @@ class AppSettings:
             "use_usb_relay":         self.use_usb_relay,
             "usb_num_channels":      self.usb_num_channels,
             "usb_serial":            self.usb_serial,
+            "relay_type":             self.relay_type,
+            "eth_relay_ip":           self.eth_relay_ip,
+            "eth_relay_port":         self.eth_relay_port,
+            "eth_relay_device_id":    self.eth_relay_device_id,
+            "eth_relay_num_channels": self.eth_relay_num_channels,
             "frame_queue_size":      self.frame_queue_size,
             "ui_update_fps":         self.ui_update_fps,
             "last_page_index":       self.last_page_index,  # FIX #9

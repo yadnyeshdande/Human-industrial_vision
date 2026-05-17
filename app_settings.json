@@ -14,5 +14,11 @@
   "usb_serial": null,
   "frame_queue_size": 30,
   "ui_update_fps": 30,
-  "last_page_index": 0
+  "last_page_index": 0,
+
+  "relay_type": "none",
+  "eth_relay_ip": "192.168.1.200",
+  "eth_relay_port": 502,
+  "eth_relay_device_id": 1,
+  "eth_relay_num_channels": 16
 }

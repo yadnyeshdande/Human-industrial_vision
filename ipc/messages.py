@@ -23,6 +23,7 @@ MSG_ZONE_UPDATED     = "zone_config_updated"
 MSG_SETTINGS_SAVED   = "settings_saved"
 MSG_SYSTEM_HEALTH    = "system_health"
 MSG_TELEMETRY        = "telemetry"          # FIX #10: detection → GUI sidebar
+MSG_RELAY_HEALTH = "relay_health"    # relay_process -> status_q -> GUI
 
 # Control sub-commands
 CTRL_SHUTDOWN        = "shutdown"
@@ -152,5 +153,21 @@ def make_camera_restarted(source: str, camera_id: int) -> dict:
     msg["payload"] = {
         "command":   CTRL_CAMERA_RESTARTED,
         "camera_id": camera_id,
+    }
+    return msg
+
+def make_relay_health(source: str, hw_type: str, connected: bool,
+                      channels: int, error: str = "") -> dict:
+    """
+    relay_process -> status_q -> GUI.
+    hw_type  : "none" | "usb" | "ethernet"
+    connected: actual hardware state (heartbeat-verified, never stale)
+    """
+    msg = _base(MSG_RELAY_HEALTH, source)
+    msg["payload"] = {
+        "hw_type":   hw_type,
+        "connected": connected,
+        "channels":  channels,
+        "error":     error,
     }
     return msg
