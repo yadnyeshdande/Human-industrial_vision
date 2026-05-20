@@ -1,23 +1,31 @@
 # =============================================================================
-# core/detector.py  –  YOLO multi-class detector  (v3 – class filter + hot-reload)
+# core/detector.py  –  YOLO multi-class detector  (v3)
 # =============================================================================
+# v2: Model MUST exist locally in models/. No download ever.
+#     detect_persons_with_scores() added for enriched bboxes.
 #
-# BUG FIX (Bug #1 – model not loading on change):
-#   reload(model_name, target_classes) hot-swaps the model without restarting the
-#   process.  unload() is called first to free GPU VRAM, then _load() loads the
-#   new model.  Called by detection_process on CTRL_RELOAD_SETTINGS when the
-#   stored model name differs from the currently loaded one.
+# v3 changes (Bug #1 + Feature #1):
+# -----------------------------------
+# FEAT #1 – target_classes parameter:
+#   PersonDetector(target_classes=[0, 2]) → only detect classes 0 and 2.
+#   PersonDetector(target_classes=[])    → detect ALL classes (default).
+#   Replaces the hardcoded classes=[PERSON_CLASS_ID] in detect_batch().
 #
-# FEATURE #1 – configurable target classes:
-#   target_classes=[]      → pass classes=None to YOLO → detect ALL classes.
-#   target_classes=[0,2]   → pass classes=[0,2] to YOLO → only those IDs.
-#   get_class_names()      → returns {class_id: class_name} for the loaded model.
-#   This replaces the previous hardcoded PERSON_CLASS_ID = 0 approach.
+# FEAT #1 – get_class_names():
+#   Returns {class_id: class_name} for the loaded model.
+#   Called by detection_process to label bounding boxes with real names.
 #
-# BACKWARD COMPAT:
-#   detect_persons()              still works (strips cls_id, returns 4-tuples).
-#   detect_persons_with_scores()  still works (strips cls_id, returns 5-tuples).
-#   detect_batch() now returns    6-tuples: (x1, y1, x2, y2, conf, cls_id).
+# BUG #1 – reload() for hot-swap:
+#   detector.reload(new_model_name, new_target_classes) unloads the current
+#   model (clears GPU VRAM), updates state, and loads the new model.
+#   Called by detection_process._drain_control on CTRL_RELOAD_SETTINGS /
+#   CTRL_RELOAD_MODEL so no process restart is needed.
+#
+# detect_batch() return type change:
+#   v2 returned [(x1,y1,x2,y2,conf), ...]  – 5-tuples
+#   v3 returns  [(x1,y1,x2,y2,conf,cls_id), ...] – 6-tuples
+#   detect_persons() and detect_persons_with_scores() are unchanged
+#   (they strip cls_id to preserve backward compatibility).
 # =============================================================================
 
 from pathlib import Path
@@ -37,20 +45,24 @@ class PersonDetector:
 
     Parameters
     ----------
-    model_name      : filename in models/ (e.g. "yolov8n.pt").
-                      Defaults to SETTINGS.yolo_model.
-    conf_threshold  : detection confidence.  Defaults to SETTINGS.detection_confidence.
-    target_classes  : list of class IDs to detect.
-                      []  = detect ALL classes (no filter passed to YOLO).
-                      [0] = detect only class 0.
-                      Defaults to SETTINGS.target_classes.
+    model_name     : filename in models/ (e.g. "yolov8n.pt").
+                     Defaults to SETTINGS.yolo_model.
+    conf_threshold : detection confidence. Defaults to SETTINGS.detection_confidence.
+    target_classes : list of class IDs to detect.
+                     []  = detect ALL classes (no filter, backward-compat default).
+                     [0] = detect only class 0.
+                     Defaults to SETTINGS.target_classes.
 
     Hot-reload
     ----------
     Call reload(new_model_name, new_target_classes) to swap the model at
-    runtime without recreating the object.  The old model is fully unloaded
-    (VRAM cleared) before the new one is loaded.
+    runtime.  The old model is fully unloaded (VRAM cleared) before the
+    new one is loaded.  No process restart required.
     """
+
+    # kept for backward compat – still used by _verify_person_class
+    PERSON_CLASS_ID   = 0
+    PERSON_CLASS_NAME = "person"
 
     def __init__(
         self,
@@ -63,22 +75,22 @@ class PersonDetector:
         self.conf_threshold = conf_threshold or SETTINGS.detection_confidence
         self._model_name    = model_name or SETTINGS.yolo_model
 
-        # empty list  = detect all classes (backward-compat with original code)
+        # [] = detect all classes (passes classes=None to YOLO)
         if target_classes is not None:
             self.target_classes: List[int] = list(target_classes)
         else:
             self.target_classes = list(SETTINGS.target_classes)
 
-        self.model        = None
-        self.device       = "cpu"
-        self.model_loaded = False
-        self._use_fp16    = False
-        self._class_names: Dict[int, str] = {}
+        self.model          = None
+        self.device         = "cpu"
+        self.model_loaded   = False
+        self._use_fp16      = False
+        self._class_names:  Dict[int, str] = {}
 
         MODELS_DIR.mkdir(parents=True, exist_ok=True)
         self._load()
 
-    # ── public API ─────────────────────────────────────────────────────────
+    # ── public API ────────────────────────────────────────────────────────────
 
     def get_class_names(self) -> Dict[int, str]:
         """Return a copy of {class_id: class_name} for the loaded model."""
@@ -86,16 +98,16 @@ class PersonDetector:
 
     def reload(self, model_name: str, target_classes: List[int]) -> None:
         """
-        Hot-swap the model.
+        Hot-swap the model in-place.
 
-        1. Unloads the current model and clears VRAM.
+        1. Unloads current model and clears GPU VRAM.
         2. Updates _model_name + target_classes.
         3. Loads the new model.
 
-        Raises RuntimeError if the new model file is not present in models/.
+        Raises RuntimeError if the new model file is not in models/.
         """
         logger.info(
-            f"[HotReload] {self._model_name} → {model_name}  "
+            f"[HotReload] {self._model_name!r} → {model_name!r}  "
             f"classes={target_classes if target_classes else 'ALL'}"
         )
         self.unload()
@@ -103,10 +115,10 @@ class PersonDetector:
         self.target_classes = list(target_classes)
         self._load()
 
-    # ── internals ──────────────────────────────────────────────────────────
+    # ── internals ─────────────────────────────────────────────────────────────
 
     def _load(self) -> None:
-        # Hard check – refuse to run if model not in models/ directory
+        # Hard check – refuse to run if model not local
         local_path = MODELS_DIR / self._model_name
         if not local_path.exists():
             msg = (
@@ -121,17 +133,16 @@ class PersonDetector:
             import torch
 
             logger.info(f"Loading model: {local_path}")
-            # Pass local path directly – ultralytics will NOT attempt a download
+            # Pass local path directly – ultralytics will NOT download
             self.model = YOLO(str(local_path))
 
-            # ── capture class names from model metadata ──────────────────
+            # Capture class names from model metadata (FEAT #1)
             if hasattr(self.model, "names") and self.model.names:
                 self._class_names = dict(self.model.names)
                 preview = ", ".join(
-                    f"{k}:{v}"
-                    for k, v in list(self._class_names.items())[:10]
+                    f"{k}:{v}" for k, v in list(self._class_names.items())[:8]
                 )
-                suffix = "…" if len(self._class_names) > 10 else ""
+                suffix = "…" if len(self._class_names) > 8 else ""
                 logger.info(
                     f"Model has {len(self._class_names)} classes: {preview}{suffix}"
                 )
@@ -139,7 +150,6 @@ class PersonDetector:
                 self._class_names = {}
                 logger.warning("Model has no class names – labels will be class IDs")
 
-            # ── device selection ─────────────────────────────────────────
             if torch.cuda.is_available():
                 self.device    = "cuda"
                 self._use_fp16 = True
@@ -180,12 +190,12 @@ class PersonDetector:
         except Exception as e:
             logger.warning(f"Warm-up failed (non-fatal): {e}")
 
-    # ── detection API ──────────────────────────────────────────────────────
+    # ── detection API ─────────────────────────────────────────────────────────
 
     def detect_persons(
         self, frame: np.ndarray
     ) -> List[Tuple[int, int, int, int]]:
-        """Backward-compat: returns [(x1,y1,x2,y2), ...]."""
+        """Returns [(x1,y1,x2,y2), ...] – legacy interface, unchanged."""
         return [
             (x1, y1, x2, y2)
             for x1, y1, x2, y2, *_ in self.detect_persons_with_scores(frame)
@@ -195,13 +205,14 @@ class PersonDetector:
         self, frame: np.ndarray
     ) -> List[Tuple[int, int, int, int, float]]:
         """
-        Backward-compat: returns [(x1,y1,x2,y2,conf), ...].
-        Strips the cls_id that detect_batch now includes.
+        Returns [(x1, y1, x2, y2, confidence), ...] – backward-compat.
+        Strips cls_id from the v3 6-tuple that detect_batch now returns.
         """
         if not self.model_loaded or self.model is None:
             return []
         results = self.detect_batch([frame])
         raw = results[0] if results else []
+        # strip cls_id (element [5]) to preserve 5-tuple contract
         return [(x1, y1, x2, y2, conf) for x1, y1, x2, y2, conf, *_ in raw]
 
     def detect_batch(
@@ -211,23 +222,22 @@ class PersonDetector:
         MICRO-BATCH GPU INFERENCE.
 
         Returns:
-            Per-frame list of (x1, y1, x2, y2, confidence, cls_id) tuples.
-            cls_id is the integer YOLO class.
+            Per-frame list of (x1, y1, x2, y2, confidence, cls_id) 6-tuples.
             Length matches len(frames).  Empty list = no detections.
 
-        Class filtering:
-            self.target_classes == []  → classes=None  (YOLO detects all)
-            self.target_classes != []  → classes=[…]   (YOLO filters server-side)
+        Class filtering (FEAT #1):
+            target_classes == []  → classes=None   (YOLO detects all)
+            target_classes != []  → classes=[…]    (YOLO filters server-side)
         """
         if not self.model_loaded or self.model is None or not frames:
             return [[] for _ in frames]
 
-        # None → YOLO detects all classes; a list → YOLO filters to those IDs
+        # None → YOLO detects all; list → YOLO filters to those IDs
         classes_filter: Optional[List[int]] = (
             self.target_classes if self.target_classes else None
         )
 
-        # ── optimised path: pinned-memory tensor batch ───────────────────
+        # Optimised path: pinned-memory → non_blocking device transfer
         try:
             import torch
 
@@ -252,9 +262,9 @@ class PersonDetector:
                 results = self.model(
                     batch_tensor,
                     conf=self.conf_threshold,
-                    classes=classes_filter,
+                    classes=classes_filter,   # FEAT #1: dynamic filter
                     device=self.device,
-                    half=False,   # already converted above
+                    half=False,               # already converted above
                     verbose=False,
                 )
                 if self.device == "cuda":
@@ -271,7 +281,7 @@ class PersonDetector:
                         try:
                             xy     = box.xyxy[0].cpu().numpy()
                             conf   = float(box.conf[0].cpu().numpy())
-                            cls_id = int(box.cls[0].cpu().numpy())
+                            cls_id = int(box.cls[0].cpu().numpy())   # FEAT #1
                             x1, y1, x2, y2 = xy
                             frame_dets.append(
                                 (int(x1), int(y1), int(x2), int(y2), conf, cls_id)
@@ -282,7 +292,7 @@ class PersonDetector:
             return out
 
         except Exception as e_opt:
-            # ── fallback path: pass raw numpy list ───────────────────────
+            # Fallback: pass numpy list directly
             try:
                 import torch
                 with torch.no_grad():
@@ -313,13 +323,12 @@ class PersonDetector:
                 )
                 return [[] for _ in frames]
 
-    # ── status ─────────────────────────────────────────────────────────────
+    # ── status ────────────────────────────────────────────────────────────────
 
     def is_model_loaded(self) -> bool:
         return self.model_loaded and self.model is not None
 
     def unload(self) -> None:
-        """Free model from RAM/VRAM.  Safe to call even if already unloaded."""
         if self.model is not None:
             try:
                 del self.model

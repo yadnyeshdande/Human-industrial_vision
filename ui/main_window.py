@@ -1,22 +1,27 @@
 # =============================================================================
 # ui/main_window.py  –  Main application window  (v5)
 # =============================================================================
-# v5 change:
-#   SettingsPage now receives det_control_q so it can send CTRL_RELOAD_SETTINGS
-#   directly to the detection worker on Save (Bug #1 fix).
-#   Previously SettingsPage only had heartbeat_q → supervisor, which meant the
-#   detection process never received the model-change signal reliably.
+# FIX #8:  "D" key shortcut → switch to Detection Mode tab.
+# FIX #9:  On startup: restore last tab from SETTINGS.last_page_index.
+#          On tab change: persist new index to SETTINGS (saved lazily).
+# FIX #12: closeEvent() stops all child page timers and detaches SHM.
+# BUG #1:  SettingsPage now receives det_control_q so it can send
+#          CTRL_RELOAD_SETTINGS directly to the detection worker on Save.
+#          Previously SettingsPage only had heartbeat_q → supervisor,
+#          so the detection process never received the model-change signal.
 # =============================================================================
 
 import time
 from multiprocessing import Queue
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from PyQt5.QtWidgets import (
-    QMainWindow, QTabWidget, QLabel, QMessageBox, QAction,
+    QMainWindow, QTabWidget, QWidget, QVBoxLayout,
+    QStatusBar, QLabel, QMessageBox, QAction
 )
-from PyQt5.QtGui import QKeySequence
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtGui import QKeySequence, QFont
+# FIX #8: QShortcut
 from PyQt5.QtWidgets import QShortcut
 
 from config.loader import ConfigManager, SETTINGS
@@ -64,10 +69,10 @@ class MainWindow(QMainWindow):
 
         self._setup_pages()
         self._setup_menu()
-        self._setup_shortcuts()
+        self._setup_shortcuts()    # FIX #8
         self._setup_status_bar()
         self._start_timers()
-        self._restore_last_page()
+        self._restore_last_page()  # FIX #9
 
         logger.info("MainWindow initialized")
 
@@ -100,7 +105,7 @@ class MainWindow(QMainWindow):
         self.settings_page = SettingsPage(
             config_manager=self.config_manager,
             heartbeat_q=self.heartbeat_q,
-            det_control_q=self.det_control_q,   # BUG #1 FIX: wire det queue
+            det_control_q=self.det_control_q,   # BUG #1 FIX: direct line to detection
         )
         self.tabs.addTab(self.settings_page, "⚙  Settings")
 
@@ -142,15 +147,19 @@ class MainWindow(QMainWindow):
         about_act.triggered.connect(self._show_about)
         help_menu.addAction(about_act)
 
+    # FIX #8: keyboard shortcuts
     def _setup_shortcuts(self) -> None:
+        # "D" → jump to Detection Mode
         d_sc = QShortcut(QKeySequence("D"), self)
         d_sc.activated.connect(self.show_detection_page)
 
+        # Standard numeric shortcuts (mirror menu)
         for key, idx in [("1", 0), ("2", 1), ("3", 2)]:
             sc = QShortcut(QKeySequence(key), self)
             sc.activated.connect(lambda _, i=idx: self.tabs.setCurrentIndex(i))
 
     def show_detection_page(self) -> None:
+        """FIX #8: switch to Detection Mode."""
         self.tabs.setCurrentIndex(TAB_DETECTION)
 
     # ── status bar ────────────────────────────────────────────────────────────
@@ -216,15 +225,22 @@ class MainWindow(QMainWindow):
     def _update_status_bar(self) -> None:
         self._sb_uptime.setText("Uptime: " + uptime_str(self._start_time))
 
+    # ── FIX #9: last-page restore ─────────────────────────────────────────────
+
     def _restore_last_page(self) -> None:
+        """FIX #9: on startup, set the tab to the last recorded page."""
         idx = getattr(SETTINGS, "last_page_index", 0)
         if 0 <= idx < self.tabs.count():
             self.tabs.setCurrentIndex(idx)
             logger.info(f"Restored last page: {idx}")
 
+    # ── tab change ────────────────────────────────────────────────────────────
+
     def _on_tab_changed(self, index: int) -> None:
         if index == TAB_DETECTION:
             self.detection_page.reload_all_zones()
+
+        # FIX #9: persist tab change to settings (lazy – no file write on every click)
         SETTINGS.last_page_index = index
         logger.debug(f"Tab changed → {index}")
 
@@ -255,22 +271,26 @@ class MainWindow(QMainWindow):
             "</ul>"
         )
 
-    # ── graceful shutdown ─────────────────────────────────────────────────────
+    # ── FIX #12: graceful shutdown ────────────────────────────────────────────
 
     def closeEvent(self, event) -> None:
+        """FIX #12: stop all timers, detach SHM, then close."""
         logger.info("GUI window closing – cleaning up")
 
+        # Save last page before exiting
         try:
             SETTINGS.last_page_index = self.tabs.currentIndex()
             SETTINGS.save()
         except Exception:
             pass
 
+        # Stop main-window timers
         for attr in ["_hb_timer", "_ctrl_timer", "_sb_timer"]:
             t = getattr(self, attr, None)
             if t and t.isActive():
                 t.stop()
 
+        # FIX #12: call shutdown() on each page to stop their timers + SHM
         for page in [self.detection_page, self.teaching_page]:
             try:
                 page.shutdown()

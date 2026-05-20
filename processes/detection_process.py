@@ -3,31 +3,29 @@
 # =============================================================================
 #
 # SHM LIFECYCLE FIX  (v6 – unchanged)
-# MICRO-BATCH GPU INFERENCE  (v6 – unchanged)
+# MICRO-BATCH GPU INFERENCE / FIX LAG-3  (v6 – unchanged)
 #
 # v7 changes (Bug #1 + Feature #1):
-# ----------------------------------
-# BUG FIX – model not loading on change (Bug #1):
-#   _drain_control now hot-swaps the model when CTRL_RELOAD_SETTINGS arrives
-#   and the saved model name or target_classes differ from what is loaded.
-#   Swap uses detector.reload(new_model, new_classes) which:
-#     1. Calls detector.unload()  →  frees GPU VRAM.
-#     2. Updates _model_name + target_classes.
-#     3. Calls _load()            →  loads new model.
-#   No process restart required.
+# -----------------------------------
+# BUG #1 – model not loading on change:
+#   _drain_control() now hot-swaps the model on CTRL_RELOAD_SETTINGS /
+#   CTRL_RELOAD_MODEL.  Uses detector_ref[0] (mutable single-element list)
+#   so the inner function can replace the detector reference without a return.
 #
-# violation_mode hot-reload:
-#   violation_mode_ref[0] is updated from SETTINGS on every CTRL_RELOAD_SETTINGS
-#   so a mode change (center ↔ overlap) also takes effect without a restart.
+#   CTRL_RELOAD_SETTINGS: swaps if model name OR target_classes changed.
+#   CTRL_RELOAD_MODEL:    always swaps (force path, from settings_page).
+#   violation_mode_ref[0] also updated so center↔overlap takes effect live.
+#
+# BUG #1 – startup model not loading:
+#   _load_detector_strict() now calls SETTINGS.load() before constructing
+#   PersonDetector, passing model_name/conf_threshold/target_classes from
+#   SETTINGS.  Previously it used the class defaults, so the operator's
+#   saved model was ignored on every startup.
 #
 # FEATURE #1 – class-labelled bounding boxes:
-#   _route_batch_results now receives class_names dict from the live detector
-#   and labels every bounding box with the real class name (e.g. "person",
-#   "helmet") instead of the hardcoded "person" string.
-#
-# detector_ref / violation_mode_ref pattern:
-#   Both are single-element lists so inner functions can mutate the caller's
-#   reference.  detector_ref[0] replaces direct `detector` usage everywhere.
+#   _route_batch_results() receives class_names dict and labels each bbox
+#   with the real class name ("person", "helmet", etc.) + cls_id field.
+#   Falls back to "class_N" if name not found in dict.
 # =============================================================================
 
 import os
@@ -65,10 +63,8 @@ TELEMETRY_EVERY    = 2.0
 OVERHEAT_FPS_CAP   = 6
 FPS_TARGET         = 12
 
-# Micro-batch: wait up to this long to gather all camera frames before
-# forcing a dispatch.  In the common case (frames already ready) this
-# adds zero latency.
-BATCH_COLLECT_TIMEOUT_S = 0.12   # 120 ms
+# FIX LAG-3: this constant is now actually *used* inside _collect_batch().
+BATCH_COLLECT_TIMEOUT_S = 0.12    # 120 ms
 
 
 def run_detection_process(
@@ -91,20 +87,20 @@ def run_detection_process(
 
     guard = ResourceGuard(ram_limit_mb=ram_limit_mb, vram_limit_mb=vram_limit_mb)
 
-    # ── load detector (reads SETTINGS.yolo_model + target_classes) ───────────
+    # BUG #1 FIX: _load_detector_strict now reads SETTINGS first so the
+    # operator's saved model (not the class default) is loaded at startup.
     detector = _load_detector_strict(heartbeat_q, pname, log)
     if detector is None:
         sys.exit(1)
 
-    # Wrap in a mutable 1-element list so _drain_control can hot-swap the
-    # model without needing to return a new reference.
+    # Wrap in a mutable 1-element list so _drain_control can replace the
+    # reference in-place without a return value.
     detector_ref: List = [detector]
 
-    # Same pattern for violation_mode so it can be updated from SETTINGS
-    # without restarting the process.
+    # Same pattern for violation_mode: updated live from SETTINGS on reload.
     violation_mode_ref: List[str] = [violation_mode]
 
-    # ── SHM readers (built ONCE – never rebuilt inside the loop) ─────────────
+    # SHM LIFECYCLE FIX: build readers dict once; never rebuild inside the loop
     readers: Dict[int, FrameReader] = {}
     zones:   Dict[int, List]        = {}
 
@@ -114,6 +110,7 @@ def run_detection_process(
         readers[cid] = FrameReader(camera_id=cid, width=w, height=h)
         zones[cid]   = _parse_zones(cam.get("zones", []))
 
+    # SHM LIFECYCLE FIX: attach once at startup; never call attach() in the loop
     _attach_readers_with_retry(readers, log)
 
     fps_counters:     Dict[int, FPSCounter] = {cid: FPSCounter(30) for cid in readers}
@@ -133,7 +130,7 @@ def run_detection_process(
             # ── control queue ─────────────────────────────────────────────────
             _drain_control(
                 control_q, zones, log, pname, heartbeat_q,
-                detector_ref, violation_mode_ref,
+                detector_ref, violation_mode_ref,           # v7: ref lists
                 readers, fps_counters, prev_violations,
             )
 
@@ -160,8 +157,7 @@ def run_detection_process(
                         make_heartbeat(
                             source=pname, fps=avg_fps,
                             ram_mb=guard.get_ram_mb(),
-                            extra={**gpu, "cameras": camera_ids,
-                                   "worker_id": worker_id},
+                            extra={**gpu, "cameras": camera_ids, "worker_id": worker_id},
                         )
                     )
                 except Exception:
@@ -170,15 +166,16 @@ def run_detection_process(
             # ── telemetry → GUI sidebar ───────────────────────────────────────
             if now - last_telemetry >= TELEMETRY_EVERY:
                 last_telemetry = now
-                avg_fps   = (sum(c.fps for c in fps_counters.values())
-                             / max(len(fps_counters), 1))
+                avg_fps = (sum(c.fps for c in fps_counters.values())
+                           / max(len(fps_counters), 1))
                 avg_batch = (_batch_total_size / _batch_count) if _batch_count else 0.0
                 avg_infer = (_infer_total_time / _batch_count) if _batch_count else 0.0
                 extra = {
-                    "avg_batch_size":  round(avg_batch, 2),
-                    "avg_infer_s":     round(avg_infer, 3),
-                    "model":           detector_ref[0]._model_name,
-                    "target_classes":  detector_ref[0].target_classes or "ALL",
+                    "avg_batch_size": round(avg_batch, 2),
+                    "avg_infer_s":    round(avg_infer, 3),
+                    # FEAT #1: report current model + active classes in telemetry
+                    "model":          detector_ref[0]._model_name,
+                    "target_classes": detector_ref[0].target_classes or "ALL",
                 }
                 try:
                     result_q.put_nowait(make_telemetry(
@@ -222,6 +219,7 @@ def run_detection_process(
                 zones, prev_violations, fps_counters, last_frame_ctrs,
                 result_q, relay_q, pname,
                 violation_mode_ref[0], log,
+                # FEAT #1: pass live class names for labelled bounding boxes
                 class_names=detector_ref[0].get_class_names(),
             )
 
@@ -236,9 +234,8 @@ def run_detection_process(
                         log.info(f"Camera {cid} SHM reattached successfully")
                         last_frame_ctrs[cid] = 0
                     else:
-                        log.warning(
-                            f"Camera {cid} SHM reattach failed – will retry"
-                        )
+                        log.warning(f"Camera {cid} SHM reattach failed – "
+                                    "will retry on next counter-reset")
 
     except KeyboardInterrupt:
         pass
@@ -254,12 +251,11 @@ def run_detection_process(
             detector_ref[0].unload()
         except Exception:
             pass
+        # SHM LIFECYCLE FIX: close every handle exactly once on exit
         for r in readers.values():
             r.close()
-        log.info(
-            f"Detection worker {worker_id} exiting; "
-            f"closed {len(readers)} SHM handles"
-        )
+        log.info(f"Detection worker {worker_id} exiting; "
+                 f"closed {len(readers)} SHM handles")
 
 
 # =============================================================================
@@ -273,15 +269,11 @@ def _collect_batch(
     fps_cap:         float,
 ) -> Tuple[List[np.ndarray], List[Tuple[int, int]]]:
     """
-    Gather the latest NEW frame from each camera.
+    MICRO-BATCH: Gather the latest NEW frame from each camera.
 
-    Waits up to BATCH_COLLECT_TIMEOUT_S for all active cameras to provide
-    a fresh frame before forcing a dispatch.  In the common case (all frames
-    already ready in shared memory) the inner loop exits on the first iteration.
-
-    Returns:
-        batch_frames – list of BGR frames
-        batch_meta   – list of (camera_id, frame_counter)
+    FIX LAG-3: Loops until BATCH_COLLECT_TIMEOUT_S or all active cameras
+    have contributed, whichever comes first.  Zero added latency in the
+    common case (all frames already in SHM when called).
     """
     interval   = 1.0 / max(fps_cap, 1)
     start_time = time.monotonic()
@@ -341,15 +333,9 @@ def _route_batch_results(
     pname:           str,
     violation_mode:  str,
     log,
-    class_names:     Optional[Dict[int, str]] = None,
+    class_names:     Optional[Dict[int, str]] = None,   # FEAT #1
 ) -> None:
-    """
-    Route each element of a batched inference result back to its camera.
-
-    class_names is passed from detector_ref[0].get_class_names() so
-    bounding boxes carry real class labels ("person", "helmet", etc.)
-    instead of the previous hardcoded "person".
-    """
+    """Route each element of a batched inference result back to its camera."""
     if len(all_detections) != len(batch_meta):
         log.error(
             f"Batch size mismatch: expected {len(batch_meta)} detections, "
@@ -364,16 +350,15 @@ def _route_batch_results(
     for (cid, frame_ctr), raw_results in zip(batch_meta, all_detections):
         last_frame_ctrs[cid] = frame_ctr
 
-        # Extract bbox only (first 4 elements); remaining elements are
-        # conf + cls_id which we strip here.
+        # detector v3 returns 6-tuples: (x1,y1,x2,y2,conf,cls_id)
+        # detector v2 returned 5-tuples: (x1,y1,x2,y2,conf) – also handled
         persons = [(x1, y1, x2, y2) for x1, y1, x2, y2, *_ in raw_results]
 
-        # Build enriched bounding box dicts with real class labels.
-        # raw tuple is (x1, y1, x2, y2, conf, cls_id)  [6 elements]
-        # Legacy fallback: 5 elements → cls_id defaults to 0.
+        # FEAT #1: label each bbox with its real class name
         bounding_boxes = []
         for raw in raw_results:
-            x1, y1, x2, y2, conf = raw[0], raw[1], raw[2], raw[3], raw[4]
+            x1, y1, x2, y2 = raw[0], raw[1], raw[2], raw[3]
+            conf   = raw[4] if len(raw) > 4 else 1.0
             cls_id = raw[5] if len(raw) > 5 else 0
             label  = _names.get(cls_id, f"class_{cls_id}")
             bounding_boxes.append({
@@ -398,7 +383,7 @@ def _route_batch_results(
                         "relay_id": relay_id,
                         "bbox":     list(bbox),
                     })
-                    break   # one violation per detection is enough
+                    break
 
         prev  = prev_violations.get(cid, set())
         new_v = cur_viols - prev
@@ -434,7 +419,6 @@ def _route_batch_results(
 
 _last_infer_t: Dict[int, float] = {}
 
-
 def _throttle_ok(cid: int, interval: float) -> bool:
     now = time.monotonic()
     if now - _last_infer_t.get(cid, 0.0) < interval:
@@ -444,7 +428,7 @@ def _throttle_ok(cid: int, interval: float) -> bool:
 
 
 # =============================================================================
-# Control queue drain
+# Control queue drain  (v7 – hot model swap)
 # =============================================================================
 
 def _drain_control(
@@ -453,8 +437,8 @@ def _drain_control(
     log,
     pname,
     heartbeat_q,
-    detector_ref,           # List[PersonDetector]  – mutable 1-element list
-    violation_mode_ref,     # List[str]             – mutable 1-element list
+    detector_ref,        # List[PersonDetector] – mutable 1-element list (v7)
+    violation_mode_ref,  # List[str]            – mutable 1-element list (v7)
     readers,
     fps_counters,
     prev_violations,
@@ -462,12 +446,14 @@ def _drain_control(
     """
     Drain all pending control messages.
 
-    Hot-swap logic (Bug #1 fix):
-        On CTRL_RELOAD_SETTINGS, compare SETTINGS.yolo_model and
-        SETTINGS.target_classes against the currently loaded model.
-        If either differs, call detector_ref[0].reload() to drop the old
-        model from VRAM and load the new one in-place.
-        violation_mode_ref[0] is also updated from SETTINGS.
+    BUG #1 FIX:
+        CTRL_RELOAD_SETTINGS: hot-swap if model or classes differ.
+        CTRL_RELOAD_MODEL:    always hot-swap (force path).
+        Both call detector_ref[0].reload() which:
+          1. Calls unload() → frees GPU VRAM.
+          2. Updates _model_name + target_classes.
+          3. Calls _load() → loads new model.
+        violation_mode_ref[0] updated immediately on CTRL_RELOAD_SETTINGS.
     """
     try:
         while True:
@@ -475,7 +461,7 @@ def _drain_control(
             mtype = msg.get("type", "")
             cmd   = msg.get("payload", {}).get("command", "")
 
-            # ── shutdown ──────────────────────────────────────────────────
+            # ── shutdown ──────────────────────────────────────────────────────
             if mtype == "shutdown" or cmd == CTRL_SHUTDOWN:
                 log.info("Shutdown – exiting")
                 try:
@@ -486,12 +472,12 @@ def _drain_control(
                     r.close()
                 sys.exit(0)
 
-            # ── zone config reload ────────────────────────────────────────
+            # ── zone config reload ─────────────────────────────────────────────
             if mtype == "zone_config_updated" or cmd == CTRL_RELOAD_CFG:
                 log.info("Zone config update – reloading")
                 _reload_zones(zones, log)
 
-            # ── soft reset (CUDA cache flush) ─────────────────────────────
+            # ── soft reset ────────────────────────────────────────────────────
             if cmd == CTRL_SOFT_RESET:
                 log.info("Soft reset – clearing CUDA cache")
                 try:
@@ -502,62 +488,54 @@ def _drain_control(
                 except Exception:
                     pass
 
-            # ── settings reload + model hot-swap ─────────────────────────
+            # ── settings reload + conditional model hot-swap (BUG #1 FIX) ────
             if cmd == CTRL_RELOAD_SETTINGS:
-                log.info("CTRL_RELOAD_SETTINGS received – reloading settings")
+                log.info("CTRL_RELOAD_SETTINGS – reloading settings")
                 try:
                     from config.loader import SETTINGS
                     SETTINGS.load()
 
-                    # Update violation mode immediately (no restart needed)
+                    # violation_mode takes effect immediately – no restart needed
                     new_mode = SETTINGS.violation_mode
                     if new_mode != violation_mode_ref[0]:
                         log.info(
-                            f"violation_mode changed: "
-                            f"{violation_mode_ref[0]} → {new_mode}"
+                            f"violation_mode: {violation_mode_ref[0]!r} → {new_mode!r}"
                         )
                         violation_mode_ref[0] = new_mode
 
-                    # Check whether the model or class list changed
+                    # Swap model only if something actually changed
                     new_model   = SETTINGS.yolo_model
                     new_classes = list(SETTINGS.target_classes)
                     cur_model   = detector_ref[0]._model_name
                     cur_classes = detector_ref[0].target_classes
 
-                    model_changed   = new_model   != cur_model
-                    classes_changed = new_classes != cur_classes
-
-                    if model_changed or classes_changed:
+                    if new_model != cur_model or new_classes != cur_classes:
                         log.info(
-                            f"[HotReload] model: {cur_model!r} → {new_model!r}  "
-                            f"classes: {cur_classes or 'ALL'} → "
-                            f"{new_classes or 'ALL'}"
+                            f"[HotReload] {cur_model!r} → {new_model!r}  "
+                            f"classes: {cur_classes or 'ALL'} → {new_classes or 'ALL'}"
                         )
                         try:
                             detector_ref[0].reload(new_model, new_classes)
                             log.info(
-                                f"[HotReload] SUCCESS – "
-                                f"now running {new_model!r}  "
+                                f"[HotReload] SUCCESS  "
+                                f"model={new_model!r}  "
                                 f"classes={new_classes or 'ALL'}"
                             )
-                        except Exception as swap_err:
+                        except Exception as e:
                             log.error(
-                                f"[HotReload] FAILED: {swap_err} – "
-                                "keeping previous model"
+                                f"[HotReload] FAILED: {e} – keeping previous model"
                             )
                     else:
                         log.info(
-                            "CTRL_RELOAD_SETTINGS: model unchanged "
-                            f"({cur_model!r}), no reload needed"
+                            f"CTRL_RELOAD_SETTINGS: model unchanged ({cur_model!r}), "
+                            "no reload needed"
                         )
-
                 except Exception as e:
                     log.warning(f"Settings reload failed: {e}")
 
-
-            # ── explicit model reload (force regardless of name change) ──
+            # ── force model reload – always swap ──────────────────────────────
             if cmd == CTRL_RELOAD_MODEL:
-                log.info("CTRL_RELOAD_MODEL received – force-reloading model")
+                log.info("CTRL_RELOAD_MODEL – force-reloading model from SETTINGS")
                 try:
                     from config.loader import SETTINGS
                     SETTINGS.load()
@@ -566,17 +544,17 @@ def _drain_control(
                     detector_ref[0].reload(new_model, new_classes)
                     violation_mode_ref[0] = SETTINGS.violation_mode
                     log.info(
-                        f"[CTRL_RELOAD_MODEL] SUCCESS – "
-                        f"{new_model!r}  classes={new_classes or 'ALL'}"
+                        f"[CTRL_RELOAD_MODEL] SUCCESS  "
+                        f"model={new_model!r}  "
+                        f"classes={new_classes or 'ALL'}"
                     )
                 except Exception as e:
                     log.error(f"[CTRL_RELOAD_MODEL] FAILED: {e}")
-            # ── SHM lifecycle: camera restarted ───────────────────────────
+
+            # ── SHM lifecycle: camera restarted ───────────────────────────────
             if cmd == CTRL_CAMERA_RESTARTED:
-                camera_id = (
-                    msg.get("payload", {}).get("camera_id")
-                    or msg.get("camera_id")
-                )
+                camera_id = (msg.get("payload", {}).get("camera_id")
+                             or msg.get("camera_id"))
                 if camera_id is not None and camera_id in readers:
                     log.info(
                         f"CTRL_CAMERA_RESTARTED cam={camera_id} – reattaching SHM"
@@ -600,12 +578,13 @@ def _drain_control(
 
 def _load_detector_strict(heartbeat_q, pname, log):
     """
-    Load PersonDetector reading model + target_classes from SETTINGS.
-    Returns None on fatal failure (caller exits).
+    BUG #1 FIX: Call SETTINGS.load() before constructing PersonDetector so
+    the operator's saved model / target_classes are used at startup instead
+    of the class-level defaults.
     """
     try:
         from config.loader import SETTINGS
-        SETTINGS.load()   # ensure latest settings are in memory
+        SETTINGS.load()   # read app_settings.json into memory
 
         from core.detector import PersonDetector
         det = PersonDetector(
@@ -614,7 +593,7 @@ def _load_detector_strict(heartbeat_q, pname, log):
             target_classes=SETTINGS.target_classes,
         )
         if not det.is_model_loaded():
-            raise RuntimeError("Model loaded but is_model_loaded() returned False")
+            raise RuntimeError("Model not loaded after PersonDetector()")
         return det
     except Exception as e:
         log.error(f"Detector load failed: {e}", exc_info=True)
@@ -633,7 +612,7 @@ def _parse_zones(raw):
 
 def _attach_readers_with_retry(readers, log, retries=60, delay=1.0):
     """
-    SHM LIFECYCLE FIX: Called ONCE at startup.
+    SHM LIFECYCLE FIX: Called ONCE at startup.  Never called again.
     Waits up to retries*delay seconds for each camera's SHM segment to appear.
     """
     remaining = set(readers.keys())
@@ -653,16 +632,13 @@ def _attach_readers_with_retry(readers, log, retries=60, delay=1.0):
 
 def _check_violation(bbox, points, mode):
     """
-    CHECK 1 – Both modes verified:
-      center  : bbox centroid tested with point_in_polygon (ray-casting).
-                Fewer false positives – requires the person's centre to be
-                inside the zone before alarming.
-      overlap : bbox_overlaps_polygon tests all 4 corners + centroid of bbox
-                against the polygon, AND tests all polygon vertices against
-                the bbox rectangle.  More sensitive – fires as soon as any
-                part of the bounding box intersects the zone.
-    Both functions are in core/geometry.py and use the same well-tested
-    ray-casting implementation.  ✅ working as designed.
+    CHECK 1 – Both modes confirmed working:
+      center  → point_in_polygon(bbox_center(bbox), points)
+                Ray-casting on centroid. Fewer false positives.
+      overlap → bbox_overlaps_polygon(bbox, points)
+                All 4 bbox corners + centroid vs polygon, plus all polygon
+                vertices vs bbox rectangle. More sensitive.
+    Both use the same ray-casting implementation in core/geometry.py. ✅
     """
     from core.geometry import bbox_center, point_in_polygon, bbox_overlaps_polygon
     if mode == "center":
@@ -696,7 +672,7 @@ def _save_snapshot(frame, bbox, camera_id, zone_id, relay_id, zones, log):
 
         x1, y1, x2, y2 = [int(v) for v in bbox[:4]]
         cv2.rectangle(snap, (x1, y1), (x2, y2), (0, 0, 255), 3)
-        cv2.putText(snap, "Violation", (x1, y1 - 10),
+        cv2.putText(snap, "Violating Person", (x1, y1 - 10),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
         ts = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
