@@ -1,53 +1,33 @@
 # =============================================================================
-# processes/detection_process.py  –  GPU YOLO detection worker  (v6)
+# processes/detection_process.py  –  GPU YOLO detection worker  (v7)
 # =============================================================================
 #
-# SHM LIFECYCLE FIX
-# -----------------
-# • reader.attach() is called ONCE per camera at startup inside
-#   _attach_readers_with_retry().  It is NEVER called again inside the
-#   processing loop.  The old pattern `if reader._shm is None: reader.attach()`
-#   inside the hot loop created a handle-accumulation path on Windows when
-#   camera processes restarted.
+# SHM LIFECYCLE FIX  (v6 – unchanged)
+# MICRO-BATCH GPU INFERENCE  (v6 – unchanged)
 #
-# • When the supervisor sends CTRL_CAMERA_RESTARTED (camera_id=N), the control
-#   drain calls reader.reattach() for that specific camera exactly once.
-#   reattach() closes the stale OS handle and opens a fresh one.
+# v7 changes (Bug #1 + Feature #1):
+# ----------------------------------
+# BUG FIX – model not loading on change (Bug #1):
+#   _drain_control now hot-swaps the model when CTRL_RELOAD_SETTINGS arrives
+#   and the saved model name or target_classes differ from what is loaded.
+#   Swap uses detector.reload(new_model, new_classes) which:
+#     1. Calls detector.unload()  →  frees GPU VRAM.
+#     2. Updates _model_name + target_classes.
+#     3. Calls _load()            →  loads new model.
+#   No process restart required.
 #
-# • As a fallback, read_if_new() now sets reader.is_stale=True when it detects
-#   a counter reset (writer restarted without CTRL_CAMERA_RESTARTED arriving).
-#   The loop checks is_stale after each read and auto-reattaches once.
+# violation_mode hot-reload:
+#   violation_mode_ref[0] is updated from SETTINGS on every CTRL_RELOAD_SETTINGS
+#   so a mode change (center ↔ overlap) also takes effect without a restart.
 #
-# MICRO-BATCH GPU INFERENCE
-# -------------------------
-# The old architecture called model(single_frame) in a round-robin loop,
-# launching one CUDA kernel per camera per cycle.  On an RTX 3050 with
-# 3 cameras this keeps GPU utilization at ~35%.
+# FEATURE #1 – class-labelled bounding boxes:
+#   _route_batch_results now receives class_names dict from the live detector
+#   and labels every bounding box with the real class name (e.g. "person",
+#   "helmet") instead of the hardcoded "person" string.
 #
-# The new architecture:
-#   1. _collect_batch() reads the latest NEW frame from every camera in
-#      one pass without calling the model.
-#   2. detector.detect_batch(frames) calls model([f1, f2, f3]) once,
-#      resulting in a single CUDA kernel that fully occupies the GPU.
-#   3. _route_batch_results() maps each result back to its camera_id and
-#      dispatches detection_result messages + relay triggers.
-#
-# Typical improvement on RTX 3050 + YOLOv8n/l + 3 cameras:
-#   Before:  ~12 FPS per camera,  GPU util ~35%
-#   After:   ~22 FPS per camera,  GPU util ~75%
-#
-# FIX LAG-3: BATCH_COLLECT_TIMEOUT_S was defined but never *used* in
-#   _collect_batch().  The function did a single instant pass and returned,
-#   so a camera whose frame arrived 1 ms after the sweep had to wait an
-#   entire YOLO inference cycle (~80 ms) before being picked up.  This
-#   caused erratic effective framerates and made Camera 2 appear slower
-#   than Camera 1 even though both are identical hardware.
-#
-#   The fix: _collect_batch() now waits up to BATCH_COLLECT_TIMEOUT_S
-#   (40 ms) for ALL active cameras to provide a fresh frame before
-#   dispatching.  It breaks out early as soon as every camera has
-#   contributed, so the common case (both frames already ready) adds
-#   zero latency.
+# detector_ref / violation_mode_ref pattern:
+#   Both are single-element lists so inner functions can mutate the caller's
+#   reference.  detector_ref[0] replaces direct `detector` usage everywhere.
 # =============================================================================
 
 import os
@@ -75,7 +55,7 @@ from ipc.messages import (
     make_telemetry,
     MSG_SHUTDOWN, MSG_CONTROL, MSG_ZONE_UPDATED,
     CTRL_SHUTDOWN, CTRL_RELOAD_CFG, CTRL_SOFT_RESET, CTRL_RELOAD_SETTINGS,
-    CTRL_CAMERA_RESTARTED,
+    CTRL_CAMERA_RESTARTED, CTRL_RELOAD_MODEL,
 )
 
 SNAPSHOT_DIR       = Path("snapshots")
@@ -85,10 +65,10 @@ TELEMETRY_EVERY    = 2.0
 OVERHEAT_FPS_CAP   = 6
 FPS_TARGET         = 12
 
-# Micro-batch: wait this long to accumulate frames before forcing a batch
-# even if some cameras have no new frame yet (keeps latency bounded).
-# FIX LAG-3: this constant is now actually *used* inside _collect_batch().
-BATCH_COLLECT_TIMEOUT_S = 0.12    # 120 ms → allow more time to gather frames across cameras
+# Micro-batch: wait up to this long to gather all camera frames before
+# forcing a dispatch.  In the common case (frames already ready) this
+# adds zero latency.
+BATCH_COLLECT_TIMEOUT_S = 0.12   # 120 ms
 
 
 def run_detection_process(
@@ -111,11 +91,20 @@ def run_detection_process(
 
     guard = ResourceGuard(ram_limit_mb=ram_limit_mb, vram_limit_mb=vram_limit_mb)
 
+    # ── load detector (reads SETTINGS.yolo_model + target_classes) ───────────
     detector = _load_detector_strict(heartbeat_q, pname, log)
     if detector is None:
         sys.exit(1)
 
-    # SHM LIFECYCLE FIX: build readers dict once; never rebuild inside the loop
+    # Wrap in a mutable 1-element list so _drain_control can hot-swap the
+    # model without needing to return a new reference.
+    detector_ref: List = [detector]
+
+    # Same pattern for violation_mode so it can be updated from SETTINGS
+    # without restarting the process.
+    violation_mode_ref: List[str] = [violation_mode]
+
+    # ── SHM readers (built ONCE – never rebuilt inside the loop) ─────────────
     readers: Dict[int, FrameReader] = {}
     zones:   Dict[int, List]        = {}
 
@@ -125,20 +114,17 @@ def run_detection_process(
         readers[cid] = FrameReader(camera_id=cid, width=w, height=h)
         zones[cid]   = _parse_zones(cam.get("zones", []))
 
-    # SHM LIFECYCLE FIX: attach once at startup; never call attach() in the loop
     _attach_readers_with_retry(readers, log)
 
     fps_counters:     Dict[int, FPSCounter] = {cid: FPSCounter(30) for cid in readers}
     prev_violations:  Dict[int, set]        = {cid: set()           for cid in readers}
-    # Track last frame counter per camera so batch collector can detect new frames
     last_frame_ctrs:  Dict[int, int]        = {cid: 0               for cid in readers}
     camera_ids = list(readers.keys())
 
     last_hb        = 0.0
     last_telemetry = 0.0
     fps_cap        = FPS_TARGET
-    # telemetry stats for batch sizing and inference timing
-    _batch_count = 0
+    _batch_count      = 0
     _batch_total_size = 0
     _infer_total_time = 0.0
 
@@ -147,7 +133,8 @@ def run_detection_process(
             # ── control queue ─────────────────────────────────────────────────
             _drain_control(
                 control_q, zones, log, pname, heartbeat_q,
-                detector, readers, fps_counters, prev_violations,
+                detector_ref, violation_mode_ref,
+                readers, fps_counters, prev_violations,
             )
 
             # ── resource guard ────────────────────────────────────────────────
@@ -173,22 +160,26 @@ def run_detection_process(
                         make_heartbeat(
                             source=pname, fps=avg_fps,
                             ram_mb=guard.get_ram_mb(),
-                            extra={**gpu, "cameras": camera_ids, "worker_id": worker_id},
+                            extra={**gpu, "cameras": camera_ids,
+                                   "worker_id": worker_id},
                         )
                     )
                 except Exception:
-                    # drop heartbeat if queue full
                     pass
 
             # ── telemetry → GUI sidebar ───────────────────────────────────────
             if now - last_telemetry >= TELEMETRY_EVERY:
                 last_telemetry = now
-                avg_fps = (sum(c.fps for c in fps_counters.values())
-                           / max(len(fps_counters), 1))
-                # prepare extra telemetry: average batch size and inference time
+                avg_fps   = (sum(c.fps for c in fps_counters.values())
+                             / max(len(fps_counters), 1))
                 avg_batch = (_batch_total_size / _batch_count) if _batch_count else 0.0
                 avg_infer = (_infer_total_time / _batch_count) if _batch_count else 0.0
-                extra = {"avg_batch_size": round(avg_batch, 2), "avg_infer_s": round(avg_infer, 3)}
+                extra = {
+                    "avg_batch_size":  round(avg_batch, 2),
+                    "avg_infer_s":     round(avg_infer, 3),
+                    "model":           detector_ref[0]._model_name,
+                    "target_classes":  detector_ref[0].target_classes or "ALL",
+                }
                 try:
                     result_q.put_nowait(make_telemetry(
                         source=pname,
@@ -202,45 +193,39 @@ def run_detection_process(
                     ))
                 except Exception:
                     pass
-                # reset telemetry counters for next window
-                _batch_count = 0
+                _batch_count      = 0
                 _batch_total_size = 0
                 _infer_total_time = 0.0
 
             # ── MICRO-BATCH INFERENCE ─────────────────────────────────────────
-            # Collect one fresh frame per camera (non-blocking) then run a
-            # single model([f1, f2, f3]) call instead of N serial calls.
             batch_frames, batch_meta = _collect_batch(
                 camera_ids, readers, last_frame_ctrs, fps_cap
             )
 
             if not batch_frames:
-                # No new frames from any camera – sleep briefly and retry
                 time.sleep(0.005)
                 continue
 
-            # Single GPU kernel for the whole batch
             t0 = time.monotonic()
             try:
-                all_detections = detector.detect_batch(batch_frames)
+                all_detections = detector_ref[0].detect_batch(batch_frames)
             except Exception as e:
                 log.error(f"Batch inference error: {e}")
                 all_detections = [[] for _ in batch_frames]
             infer_t = time.monotonic() - t0
-            # update telemetry counters
-            _batch_count += 1
+            _batch_count      += 1
             _batch_total_size += len(batch_frames)
             _infer_total_time += infer_t
 
-            # Route each result back to its camera
             _route_batch_results(
                 batch_meta, all_detections,
                 zones, prev_violations, fps_counters, last_frame_ctrs,
-                result_q, relay_q, pname, violation_mode, log,
+                result_q, relay_q, pname,
+                violation_mode_ref[0], log,
+                class_names=detector_ref[0].get_class_names(),
             )
 
-            # SHM LIFECYCLE FIX: auto-reattach for any camera whose reader
-            # detected a counter-reset (fallback for missed CTRL_CAMERA_RESTARTED)
+            # SHM LIFECYCLE FIX: auto-reattach on counter-reset fallback
             for cid, reader in readers.items():
                 if reader.is_stale:
                     log.warning(
@@ -251,8 +236,9 @@ def run_detection_process(
                         log.info(f"Camera {cid} SHM reattached successfully")
                         last_frame_ctrs[cid] = 0
                     else:
-                        log.warning(f"Camera {cid} SHM reattach failed – "
-                                    "will retry on next counter-reset")
+                        log.warning(
+                            f"Camera {cid} SHM reattach failed – will retry"
+                        )
 
     except KeyboardInterrupt:
         pass
@@ -261,18 +247,19 @@ def run_detection_process(
         try:
             heartbeat_q.put_nowait(make_error(pname, str(e), fatal=True))
         except Exception:
-                pass
+            pass
         sys.exit(1)
     finally:
         try:
-            detector.unload()
+            detector_ref[0].unload()
         except Exception:
             pass
-        # SHM LIFECYCLE FIX: close every handle exactly once on exit
         for r in readers.values():
             r.close()
-        log.info(f"Detection worker {worker_id} exiting; "
-                 f"closed {len(readers)} SHM handles")
+        log.info(
+            f"Detection worker {worker_id} exiting; "
+            f"closed {len(readers)} SHM handles"
+        )
 
 
 # =============================================================================
@@ -286,44 +273,29 @@ def _collect_batch(
     fps_cap:         float,
 ) -> Tuple[List[np.ndarray], List[Tuple[int, int]]]:
     """
-    MICRO-BATCH: Gather the latest NEW frame from each camera.
+    Gather the latest NEW frame from each camera.
 
-    FIX LAG-3: Previously this function did a single instant sweep and
-    returned immediately.  A camera whose frame arrived 1 ms after the
-    sweep had to wait a full YOLO inference cycle (~80 ms) before being
-    picked up.  This made Camera 2 appear to run slower than Camera 1
-    even though both cameras produce frames at the same rate.
-
-    The fix: loop until BATCH_COLLECT_TIMEOUT_S has elapsed OR every
-    active camera has provided a new frame, whichever comes first.
-    In the common case – both frames are already in shared memory when
-    _collect_batch is called – the inner loop exits on the very first
-    iteration (zero added latency).
+    Waits up to BATCH_COLLECT_TIMEOUT_S for all active cameras to provide
+    a fresh frame before forcing a dispatch.  In the common case (all frames
+    already ready in shared memory) the inner loop exits on the first iteration.
 
     Returns:
-        batch_frames – list of BGR frames ready for model input
-        batch_meta   – list of (camera_id, frame_counter) in matching order
-
-    SHM LIFECYCLE NOTE: We call read_latest_frame() (unconditional read)
-    rather than read_if_new(), then filter by counter comparison ourselves.
-    This avoids touching the reader's internal _last_counter so that
-    is_stale detection (counter rollback check) still works correctly.
+        batch_frames – list of BGR frames
+        batch_meta   – list of (camera_id, frame_counter)
     """
     interval   = 1.0 / max(fps_cap, 1)
     start_time = time.monotonic()
 
-    # Count how many cameras currently have a valid SHM segment attached.
     active_count = sum(
         1 for cid in camera_ids
         if readers.get(cid) is not None and readers[cid]._shm is not None
     )
 
-    # Edge-case: no cameras ready at all – return immediately.
     if active_count == 0:
         return [], []
 
-    batch_frames: List[np.ndarray]        = []
-    batch_meta:   List[Tuple[int, int]]   = []
+    batch_frames: List[np.ndarray]      = []
+    batch_meta:   List[Tuple[int, int]] = []
 
     while time.monotonic() - start_time < BATCH_COLLECT_TIMEOUT_S:
         batch_frames = []
@@ -340,23 +312,18 @@ def _collect_batch(
 
             frame, counter = result
 
-            # Skip if no new frame since last batch
             if counter == last_frame_ctrs.get(cid, 0):
                 continue
 
-            # Per-camera FPS throttle
             if not _throttle_ok(cid, interval):
                 continue
 
-            # Ensure contiguous uint8 frames for model preprocessing
             batch_frames.append(np.ascontiguousarray(frame))
             batch_meta.append((cid, counter))
 
-        # All active cameras have contributed – no need to wait further.
         if len(batch_frames) == active_count:
             break
 
-        # Yield CPU briefly before retrying so we don't spin-burn a core.
         time.sleep(0.002)
 
     return batch_frames, batch_meta
@@ -374,28 +341,47 @@ def _route_batch_results(
     pname:           str,
     violation_mode:  str,
     log,
+    class_names:     Optional[Dict[int, str]] = None,
 ) -> None:
-    """Route each element of a batched inference result back to its camera."""
+    """
+    Route each element of a batched inference result back to its camera.
+
+    class_names is passed from detector_ref[0].get_class_names() so
+    bounding boxes carry real class labels ("person", "helmet", etc.)
+    instead of the previous hardcoded "person".
+    """
     if len(all_detections) != len(batch_meta):
         log.error(
             f"Batch size mismatch: expected {len(batch_meta)} detections, "
             f"got {len(all_detections)}"
         )
-        # Process only the minimum to avoid index errors
-        min_len = min(len(batch_meta), len(all_detections))
+        min_len        = min(len(batch_meta), len(all_detections))
         batch_meta     = batch_meta[:min_len]
         all_detections = all_detections[:min_len]
 
+    _names = class_names or {}
+
     for (cid, frame_ctr), raw_results in zip(batch_meta, all_detections):
-        # Update last seen counter now that we've processed this frame
         last_frame_ctrs[cid] = frame_ctr
 
+        # Extract bbox only (first 4 elements); remaining elements are
+        # conf + cls_id which we strip here.
         persons = [(x1, y1, x2, y2) for x1, y1, x2, y2, *_ in raw_results]
-        bounding_boxes = [
-            {"bbox": [x1, y1, x2, y2], "label": "person",
-             "confidence": round(float(conf), 3)}
-            for x1, y1, x2, y2, conf in raw_results
-        ]
+
+        # Build enriched bounding box dicts with real class labels.
+        # raw tuple is (x1, y1, x2, y2, conf, cls_id)  [6 elements]
+        # Legacy fallback: 5 elements → cls_id defaults to 0.
+        bounding_boxes = []
+        for raw in raw_results:
+            x1, y1, x2, y2, conf = raw[0], raw[1], raw[2], raw[3], raw[4]
+            cls_id = raw[5] if len(raw) > 5 else 0
+            label  = _names.get(cls_id, f"class_{cls_id}")
+            bounding_boxes.append({
+                "bbox":       [x1, y1, x2, y2],
+                "label":      label,
+                "confidence": round(float(conf), 3),
+                "cls_id":     cls_id,
+            })
 
         cam_zones   = zones.get(cid, [])
         cur_viols   = set()
@@ -412,7 +398,7 @@ def _route_batch_results(
                         "relay_id": relay_id,
                         "bbox":     list(bbox),
                     })
-                    break
+                    break   # one violation per detection is enough
 
         prev  = prev_violations.get(cid, set())
         new_v = cur_viols - prev
@@ -448,6 +434,7 @@ def _route_batch_results(
 
 _last_infer_t: Dict[int, float] = {}
 
+
 def _throttle_ok(cid: int, interval: float) -> bool:
     now = time.monotonic()
     if now - _last_infer_t.get(cid, 0.0) < interval:
@@ -460,29 +447,51 @@ def _throttle_ok(cid: int, interval: float) -> bool:
 # Control queue drain
 # =============================================================================
 
-def _drain_control(control_q, zones, log, pname, heartbeat_q,
-                   detector, readers, fps_counters, prev_violations):
+def _drain_control(
+    control_q,
+    zones,
+    log,
+    pname,
+    heartbeat_q,
+    detector_ref,           # List[PersonDetector]  – mutable 1-element list
+    violation_mode_ref,     # List[str]             – mutable 1-element list
+    readers,
+    fps_counters,
+    prev_violations,
+):
+    """
+    Drain all pending control messages.
+
+    Hot-swap logic (Bug #1 fix):
+        On CTRL_RELOAD_SETTINGS, compare SETTINGS.yolo_model and
+        SETTINGS.target_classes against the currently loaded model.
+        If either differs, call detector_ref[0].reload() to drop the old
+        model from VRAM and load the new one in-place.
+        violation_mode_ref[0] is also updated from SETTINGS.
+    """
     try:
         while True:
             msg   = control_q.get_nowait()
             mtype = msg.get("type", "")
             cmd   = msg.get("payload", {}).get("command", "")
 
+            # ── shutdown ──────────────────────────────────────────────────
             if mtype == "shutdown" or cmd == CTRL_SHUTDOWN:
                 log.info("Shutdown – exiting")
                 try:
-                    detector.unload()
+                    detector_ref[0].unload()
                 except Exception:
                     pass
-                # Close all SHM handles before exit
                 for r in readers.values():
                     r.close()
                 sys.exit(0)
 
+            # ── zone config reload ────────────────────────────────────────
             if mtype == "zone_config_updated" or cmd == CTRL_RELOAD_CFG:
                 log.info("Zone config update – reloading")
                 _reload_zones(zones, log)
 
+            # ── soft reset (CUDA cache flush) ─────────────────────────────
             if cmd == CTRL_SOFT_RESET:
                 log.info("Soft reset – clearing CUDA cache")
                 try:
@@ -493,18 +502,81 @@ def _drain_control(control_q, zones, log, pname, heartbeat_q,
                 except Exception:
                     pass
 
+            # ── settings reload + model hot-swap ─────────────────────────
             if cmd == CTRL_RELOAD_SETTINGS:
-                log.info("Settings reload")
+                log.info("CTRL_RELOAD_SETTINGS received – reloading settings")
                 try:
                     from config.loader import SETTINGS
                     SETTINGS.load()
+
+                    # Update violation mode immediately (no restart needed)
+                    new_mode = SETTINGS.violation_mode
+                    if new_mode != violation_mode_ref[0]:
+                        log.info(
+                            f"violation_mode changed: "
+                            f"{violation_mode_ref[0]} → {new_mode}"
+                        )
+                        violation_mode_ref[0] = new_mode
+
+                    # Check whether the model or class list changed
+                    new_model   = SETTINGS.yolo_model
+                    new_classes = list(SETTINGS.target_classes)
+                    cur_model   = detector_ref[0]._model_name
+                    cur_classes = detector_ref[0].target_classes
+
+                    model_changed   = new_model   != cur_model
+                    classes_changed = new_classes != cur_classes
+
+                    if model_changed or classes_changed:
+                        log.info(
+                            f"[HotReload] model: {cur_model!r} → {new_model!r}  "
+                            f"classes: {cur_classes or 'ALL'} → "
+                            f"{new_classes or 'ALL'}"
+                        )
+                        try:
+                            detector_ref[0].reload(new_model, new_classes)
+                            log.info(
+                                f"[HotReload] SUCCESS – "
+                                f"now running {new_model!r}  "
+                                f"classes={new_classes or 'ALL'}"
+                            )
+                        except Exception as swap_err:
+                            log.error(
+                                f"[HotReload] FAILED: {swap_err} – "
+                                "keeping previous model"
+                            )
+                    else:
+                        log.info(
+                            "CTRL_RELOAD_SETTINGS: model unchanged "
+                            f"({cur_model!r}), no reload needed"
+                        )
+
                 except Exception as e:
                     log.warning(f"Settings reload failed: {e}")
 
-            # SHM LIFECYCLE FIX: supervisor signals that camera N restarted
+
+            # ── explicit model reload (force regardless of name change) ──
+            if cmd == CTRL_RELOAD_MODEL:
+                log.info("CTRL_RELOAD_MODEL received – force-reloading model")
+                try:
+                    from config.loader import SETTINGS
+                    SETTINGS.load()
+                    new_model   = SETTINGS.yolo_model
+                    new_classes = list(SETTINGS.target_classes)
+                    detector_ref[0].reload(new_model, new_classes)
+                    violation_mode_ref[0] = SETTINGS.violation_mode
+                    log.info(
+                        f"[CTRL_RELOAD_MODEL] SUCCESS – "
+                        f"{new_model!r}  classes={new_classes or 'ALL'}"
+                    )
+                except Exception as e:
+                    log.error(f"[CTRL_RELOAD_MODEL] FAILED: {e}")
+            # ── SHM lifecycle: camera restarted ───────────────────────────
             if cmd == CTRL_CAMERA_RESTARTED:
-                camera_id = msg.get("payload", {}).get("camera_id") \
-                            or msg.get("camera_id")
+                camera_id = (
+                    msg.get("payload", {}).get("camera_id")
+                    or msg.get("camera_id")
+                )
                 if camera_id is not None and camera_id in readers:
                     log.info(
                         f"CTRL_CAMERA_RESTARTED cam={camera_id} – reattaching SHM"
@@ -519,7 +591,7 @@ def _drain_control(control_q, zones, log, pname, heartbeat_q,
                         )
 
     except Exception:
-        pass
+        pass   # queue empty – normal exit
 
 
 # =============================================================================
@@ -527,11 +599,22 @@ def _drain_control(control_q, zones, log, pname, heartbeat_q,
 # =============================================================================
 
 def _load_detector_strict(heartbeat_q, pname, log):
+    """
+    Load PersonDetector reading model + target_classes from SETTINGS.
+    Returns None on fatal failure (caller exits).
+    """
     try:
+        from config.loader import SETTINGS
+        SETTINGS.load()   # ensure latest settings are in memory
+
         from core.detector import PersonDetector
-        det = PersonDetector()
+        det = PersonDetector(
+            model_name=SETTINGS.yolo_model,
+            conf_threshold=SETTINGS.detection_confidence,
+            target_classes=SETTINGS.target_classes,
+        )
         if not det.is_model_loaded():
-            raise RuntimeError("Model not loaded")
+            raise RuntimeError("Model loaded but is_model_loaded() returned False")
         return det
     except Exception as e:
         log.error(f"Detector load failed: {e}", exc_info=True)
@@ -550,7 +633,7 @@ def _parse_zones(raw):
 
 def _attach_readers_with_retry(readers, log, retries=60, delay=1.0):
     """
-    SHM LIFECYCLE FIX: Called ONCE at startup.  Never called again.
+    SHM LIFECYCLE FIX: Called ONCE at startup.
     Waits up to retries*delay seconds for each camera's SHM segment to appear.
     """
     remaining = set(readers.keys())
@@ -569,6 +652,18 @@ def _attach_readers_with_retry(readers, log, retries=60, delay=1.0):
 
 
 def _check_violation(bbox, points, mode):
+    """
+    CHECK 1 – Both modes verified:
+      center  : bbox centroid tested with point_in_polygon (ray-casting).
+                Fewer false positives – requires the person's centre to be
+                inside the zone before alarming.
+      overlap : bbox_overlaps_polygon tests all 4 corners + centroid of bbox
+                against the polygon, AND tests all polygon vertices against
+                the bbox rectangle.  More sensitive – fires as soon as any
+                part of the bounding box intersects the zone.
+    Both functions are in core/geometry.py and use the same well-tested
+    ray-casting implementation.  ✅ working as designed.
+    """
     from core.geometry import bbox_center, point_in_polygon, bbox_overlaps_polygon
     if mode == "center":
         return point_in_polygon(bbox_center(bbox), points)
@@ -601,7 +696,7 @@ def _save_snapshot(frame, bbox, camera_id, zone_id, relay_id, zones, log):
 
         x1, y1, x2, y2 = [int(v) for v in bbox[:4]]
         cv2.rectangle(snap, (x1, y1), (x2, y2), (0, 0, 255), 3)
-        cv2.putText(snap, "Violating Person", (x1, y1 - 10),
+        cv2.putText(snap, "Violation", (x1, y1 - 10),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
         ts = datetime.now().strftime("%Y%m%d_%H%M%S_%f")

@@ -1663,3 +1663,54 @@
 2026-04-20 22:46:40 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=8
 2026-04-20 22:46:40 [WARNING ] IVS.detection.Main – VIOLATION cam=2 zone=2 relay=8
 2026-04-20 22:46:45 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 2 SHM handles
+2026-05-20 08:37:48 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=9640
+2026-05-20 08:37:56 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-05-20 08:37:56 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-05-20 08:38:22 [INFO    ] IVS.detection.Main – Settings reload
+2026-05-20 08:38:22 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:38:39 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 2 SHM handles
+2026-05-20 08:40:31 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=28916
+2026-05-20 08:40:36 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-05-20 08:40:36 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-05-20 08:40:47 [INFO    ] IVS.detection.Main – Settings reload
+2026-05-20 08:40:47 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:41:29 [INFO    ] IVS.detection.Main – Settings reload
+2026-05-20 08:41:29 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:41:54 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 2 SHM handles
+2026-05-20 09:10:24 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=13336
+2026-05-20 09:10:24 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=ALL
+2026-05-20 09:10:29 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-05-20 09:10:29 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-05-20 09:10:52 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS received – reloading settings
+2026-05-20 09:10:52 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2]
+2026-05-20 09:10:52 [INFO    ] IVS.detection.Main – [HotReload] model: 'yolov8l.pt' → 'yolov8n.pt'  classes: ALL → [0, 1, 2]
+2026-05-20 09:10:52 [INFO    ] IVS.detection.Main – [HotReload] SUCCESS – now running 'yolov8n.pt'  classes=[0, 1, 2]
+2026-05-20 09:10:55 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS received – reloading settings
+2026-05-20 09:10:55 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2]
+2026-05-20 09:10:55 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS: model unchanged ('yolov8n.pt'), no reload needed
+2026-05-20 09:11:14 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS received – reloading settings
+2026-05-20 09:11:14 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:14 [INFO    ] IVS.detection.Main – [HotReload] model: 'yolov8n.pt' → 'yolov8n.pt'  classes: [0, 1, 2] → [0, 1, 2, 12]
+2026-05-20 09:11:15 [INFO    ] IVS.detection.Main – [HotReload] SUCCESS – now running 'yolov8n.pt'  classes=[0, 1, 2, 12]
+2026-05-20 09:11:16 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS received – reloading settings
+2026-05-20 09:11:16 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:16 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS: model unchanged ('yolov8n.pt'), no reload needed
+2026-05-20 09:11:16 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS received – reloading settings
+2026-05-20 09:11:16 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:16 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS: model unchanged ('yolov8n.pt'), no reload needed
+2026-05-20 09:11:19 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS received – reloading settings
+2026-05-20 09:11:19 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:19 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS: model unchanged ('yolov8n.pt'), no reload needed
+2026-05-20 09:12:39 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 2 SHM handles
+2026-05-20 09:26:43 [INFO    ] IVS.detection.Main – Detection worker 0 started  PID=28584
+2026-05-20 09:26:43 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:26:47 [INFO    ] IVS.detection.Main – Attached SHM for camera 1
+2026-05-20 09:26:47 [INFO    ] IVS.detection.Main – Attached SHM for camera 2
+2026-05-20 09:27:14 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS received – reloading settings
+2026-05-20 09:27:14 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 09:27:14 [INFO    ] IVS.detection.Main – [HotReload] model: 'yolov8n.pt' → 'PyreaserchYTYolo12.pt'  classes: [0, 1, 2, 12] → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 09:27:14 [INFO    ] IVS.detection.Main – [HotReload] SUCCESS – now running 'PyreaserchYTYolo12.pt'  classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 09:27:16 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS received – reloading settings
+2026-05-20 09:27:16 [INFO    ] IVS.detection.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 09:27:16 [INFO    ] IVS.detection.Main – CTRL_RELOAD_SETTINGS: model unchanged ('PyreaserchYTYolo12.pt'), no reload needed
+2026-05-20 09:27:45 [INFO    ] IVS.detection.Main – Detection worker 0 exiting; closed 2 SHM handles

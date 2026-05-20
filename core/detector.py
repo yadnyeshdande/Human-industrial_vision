@@ -1,13 +1,27 @@
 # =============================================================================
-# core/detector.py  –  YOLO person detector  (v2 – patched)
+# core/detector.py  –  YOLO multi-class detector  (v3 – class filter + hot-reload)
 # =============================================================================
-# FIX #10: Model MUST exist locally in models/.
-#          If missing → raise RuntimeError immediately.  No download ever.
-#          detect_persons_with_scores() added for FIX #4 enriched bboxes.
+#
+# BUG FIX (Bug #1 – model not loading on change):
+#   reload(model_name, target_classes) hot-swaps the model without restarting the
+#   process.  unload() is called first to free GPU VRAM, then _load() loads the
+#   new model.  Called by detection_process on CTRL_RELOAD_SETTINGS when the
+#   stored model name differs from the currently loaded one.
+#
+# FEATURE #1 – configurable target classes:
+#   target_classes=[]      → pass classes=None to YOLO → detect ALL classes.
+#   target_classes=[0,2]   → pass classes=[0,2] to YOLO → only those IDs.
+#   get_class_names()      → returns {class_id: class_name} for the loaded model.
+#   This replaces the previous hardcoded PERSON_CLASS_ID = 0 approach.
+#
+# BACKWARD COMPAT:
+#   detect_persons()              still works (strips cls_id, returns 4-tuples).
+#   detect_persons_with_scores()  still works (strips cls_id, returns 5-tuples).
+#   detect_batch() now returns    6-tuples: (x1, y1, x2, y2, conf, cls_id).
 # =============================================================================
 
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 from utils.logger import get_logger
@@ -19,35 +33,80 @@ MODELS_DIR = Path(__file__).parent.parent / "models"
 
 class PersonDetector:
     """
-    YOLO-based person detector.
+    YOLO-based multi-class detector.
 
-    FIX #10 – no download policy:
-        Model file must exist at models/<name>.pt before startup.
-        If missing, __init__ raises RuntimeError and the detection
-        process exits with code 1 – supervisor will NOT restart it
-        (fatal error, operator must place the model file).
+    Parameters
+    ----------
+    model_name      : filename in models/ (e.g. "yolov8n.pt").
+                      Defaults to SETTINGS.yolo_model.
+    conf_threshold  : detection confidence.  Defaults to SETTINGS.detection_confidence.
+    target_classes  : list of class IDs to detect.
+                      []  = detect ALL classes (no filter passed to YOLO).
+                      [0] = detect only class 0.
+                      Defaults to SETTINGS.target_classes.
+
+    Hot-reload
+    ----------
+    Call reload(new_model_name, new_target_classes) to swap the model at
+    runtime without recreating the object.  The old model is fully unloaded
+    (VRAM cleared) before the new one is loaded.
     """
 
-    PERSON_CLASS_ID   = 0
-    PERSON_CLASS_NAME = "person"
-
-    def __init__(self, model_name: Optional[str] = None,
-                 conf_threshold: Optional[float] = None):
+    def __init__(
+        self,
+        model_name:     Optional[str]       = None,
+        conf_threshold: Optional[float]     = None,
+        target_classes: Optional[List[int]] = None,
+    ):
         from config.loader import SETTINGS
 
         self.conf_threshold = conf_threshold or SETTINGS.detection_confidence
         self._model_name    = model_name or SETTINGS.yolo_model
-        self.model          = None
-        self.device         = "cpu"
-        self.model_loaded   = False
-        self._use_fp16      = False
+
+        # empty list  = detect all classes (backward-compat with original code)
+        if target_classes is not None:
+            self.target_classes: List[int] = list(target_classes)
+        else:
+            self.target_classes = list(SETTINGS.target_classes)
+
+        self.model        = None
+        self.device       = "cpu"
+        self.model_loaded = False
+        self._use_fp16    = False
+        self._class_names: Dict[int, str] = {}
 
         MODELS_DIR.mkdir(parents=True, exist_ok=True)
         self._load()
 
-    # -------------------------------------------------------------------------
+    # ── public API ─────────────────────────────────────────────────────────
+
+    def get_class_names(self) -> Dict[int, str]:
+        """Return a copy of {class_id: class_name} for the loaded model."""
+        return dict(self._class_names)
+
+    def reload(self, model_name: str, target_classes: List[int]) -> None:
+        """
+        Hot-swap the model.
+
+        1. Unloads the current model and clears VRAM.
+        2. Updates _model_name + target_classes.
+        3. Loads the new model.
+
+        Raises RuntimeError if the new model file is not present in models/.
+        """
+        logger.info(
+            f"[HotReload] {self._model_name} → {model_name}  "
+            f"classes={target_classes if target_classes else 'ALL'}"
+        )
+        self.unload()
+        self._model_name    = model_name
+        self.target_classes = list(target_classes)
+        self._load()
+
+    # ── internals ──────────────────────────────────────────────────────────
+
     def _load(self) -> None:
-        # FIX #10: hard check – refuse to run if model not local
+        # Hard check – refuse to run if model not in models/ directory
         local_path = MODELS_DIR / self._model_name
         if not local_path.exists():
             msg = (
@@ -55,16 +114,32 @@ class PersonDetector:
                 f"Place the model file in the models/ directory before starting."
             )
             logger.error(msg)
-            raise RuntimeError(msg)   # detection process will exit(1)
+            raise RuntimeError(msg)
 
         try:
             from ultralytics import YOLO
             import torch
 
             logger.info(f"Loading model: {local_path}")
-            # Pass local path directly – ultralytics will NOT download
+            # Pass local path directly – ultralytics will NOT attempt a download
             self.model = YOLO(str(local_path))
 
+            # ── capture class names from model metadata ──────────────────
+            if hasattr(self.model, "names") and self.model.names:
+                self._class_names = dict(self.model.names)
+                preview = ", ".join(
+                    f"{k}:{v}"
+                    for k, v in list(self._class_names.items())[:10]
+                )
+                suffix = "…" if len(self._class_names) > 10 else ""
+                logger.info(
+                    f"Model has {len(self._class_names)} classes: {preview}{suffix}"
+                )
+            else:
+                self._class_names = {}
+                logger.warning("Model has no class names – labels will be class IDs")
+
+            # ── device selection ─────────────────────────────────────────
             if torch.cuda.is_available():
                 self.device    = "cuda"
                 self._use_fp16 = True
@@ -72,28 +147,25 @@ class PersonDetector:
             else:
                 logger.info("YOLO using CPU")
 
-            self._verify_person_class()
             self._warmup()
             self.model_loaded = True
-            logger.info(f"Detector ready: {self._model_name}")
+
+            tc_str = (
+                "ALL classes"
+                if not self.target_classes
+                else ", ".join(
+                    f"{c}:{self._class_names.get(c, str(c))}"
+                    for c in self.target_classes
+                )
+            )
+            logger.info(f"Detector ready: {self._model_name}  [{tc_str}]")
 
         except RuntimeError:
-            raise   # propagate our abort
+            raise
         except Exception as e:
             logger.error(f"Detector load failed: {e}", exc_info=True)
             self.model_loaded = False
             raise
-
-    def _verify_person_class(self) -> None:
-        try:
-            names = self.model.names
-            if names and self.PERSON_CLASS_ID in names:
-                if names[self.PERSON_CLASS_ID].lower() == self.PERSON_CLASS_NAME:
-                    logger.info("Verified class 0 = 'person'")
-                    return
-            logger.warning("Person class verification inconclusive – continuing")
-        except Exception as e:
-            logger.warning(f"Class verify error: {e}")
 
     def _warmup(self) -> None:
         try:
@@ -108,76 +180,68 @@ class PersonDetector:
         except Exception as e:
             logger.warning(f"Warm-up failed (non-fatal): {e}")
 
-    # -------------------------------------------------------------------------
+    # ── detection API ──────────────────────────────────────────────────────
+
     def detect_persons(
         self, frame: np.ndarray
     ) -> List[Tuple[int, int, int, int]]:
-        """Returns [(x1,y1,x2,y2), ...] – legacy interface."""
-        return [(x1, y1, x2, y2)
-                for x1, y1, x2, y2, _ in self.detect_persons_with_scores(frame)]
+        """Backward-compat: returns [(x1,y1,x2,y2), ...]."""
+        return [
+            (x1, y1, x2, y2)
+            for x1, y1, x2, y2, *_ in self.detect_persons_with_scores(frame)
+        ]
 
     def detect_persons_with_scores(
         self, frame: np.ndarray
     ) -> List[Tuple[int, int, int, int, float]]:
         """
-        Returns [(x1, y1, x2, y2, confidence), ...]
-        Single-frame inference – wraps detect_batch() for backward compat.
+        Backward-compat: returns [(x1,y1,x2,y2,conf), ...].
+        Strips the cls_id that detect_batch now includes.
         """
         if not self.model_loaded or self.model is None:
             return []
         results = self.detect_batch([frame])
-        return results[0] if results else []
+        raw = results[0] if results else []
+        return [(x1, y1, x2, y2, conf) for x1, y1, x2, y2, conf, *_ in raw]
 
     def detect_batch(
         self, frames: List[np.ndarray]
-    ) -> List[List[Tuple[int, int, int, int, float]]]:
+    ) -> List[List[Tuple[int, int, int, int, float, int]]]:
         """
         MICRO-BATCH GPU INFERENCE.
 
-        Accepts a list of BGR frames (1–N) and runs them through YOLO in a
-        single forward pass, launching one CUDA kernel instead of N serial
-        kernels.  This significantly improves GPU occupancy on an RTX 3050
-        when running 2–6 cameras simultaneously.
-
-        YOLOv8 natively accepts a list[np.ndarray] as input and returns one
-        Results object per element in the same order.
-
         Returns:
-            List of per-frame results, each entry is:
-                [(x1, y1, x2, y2, confidence), ...]
-            Length matches len(frames).  Empty list for frames with no person.
+            Per-frame list of (x1, y1, x2, y2, confidence, cls_id) tuples.
+            cls_id is the integer YOLO class.
+            Length matches len(frames).  Empty list = no detections.
 
-        Typical RTX 3050 + YOLOv8n + 3 cameras:
-            Serial:  ~12 FPS/camera,  GPU util ~35%
-            Batched: ~22 FPS/camera,  GPU util ~75%
+        Class filtering:
+            self.target_classes == []  → classes=None  (YOLO detects all)
+            self.target_classes != []  → classes=[…]   (YOLO filters server-side)
         """
         if not self.model_loaded or self.model is None or not frames:
             return [[] for _ in frames]
 
-        # Try optimized pinned-memory -> non_blocking transfer -> device tensor path
+        # None → YOLO detects all classes; a list → YOLO filters to those IDs
+        classes_filter: Optional[List[int]] = (
+            self.target_classes if self.target_classes else None
+        )
+
+        # ── optimised path: pinned-memory tensor batch ───────────────────
         try:
             import torch
 
-            # Prepare CPU tensors with pinned memory to speed up host->device transfer
             cpu_tensors = []
             for f in frames:
-                # ensure contiguous uint8 array
                 arr = np.ascontiguousarray(f)
-                # convert to CHW uint8 tensor on CPU
-                t = torch.from_numpy(arr)
-                # from numpy gives HWC; convert to CHW, float and normalize when model expects floats
-                # keep uint8 for ultralytics preprocessing if passing numpy, but for tensor path convert to float
-                t = t.permute(2, 0, 1).to(dtype=torch.float32)
-                # normalize to 0..1
-                t = t.div(255.0)
-                # pin memory for faster transfers
+                t   = torch.from_numpy(arr).permute(2, 0, 1).to(dtype=torch.float32)
+                t   = t.div(255.0)
                 try:
                     t = t.pin_memory()
                 except Exception:
                     pass
                 cpu_tensors.append(t)
 
-            # Stack into (N,C,H,W) and transfer to device non-blocking
             batch_tensor = torch.stack(cpu_tensors, dim=0)
             if self.device == "cuda":
                 batch_tensor = batch_tensor.to("cuda", non_blocking=True)
@@ -188,9 +252,9 @@ class PersonDetector:
                 results = self.model(
                     batch_tensor,
                     conf=self.conf_threshold,
-                    classes=[self.PERSON_CLASS_ID],
+                    classes=classes_filter,
                     device=self.device,
-                    half=False,  # already converted if needed
+                    half=False,   # already converted above
                     verbose=False,
                 )
                 if self.device == "cuda":
@@ -199,62 +263,75 @@ class PersonDetector:
                     except Exception:
                         pass
 
-            out: List[List[Tuple[int, int, int, int, float]]] = []
+            out: List[List[Tuple[int, int, int, int, float, int]]] = []
             for res in results:
-                frame_persons = []
+                frame_dets: List[Tuple[int, int, int, int, float, int]] = []
                 if res.boxes is not None:
                     for box in res.boxes:
                         try:
-                            xy = box.xyxy[0].cpu().numpy()
-                            conf = float(box.conf[0].cpu().numpy())
+                            xy     = box.xyxy[0].cpu().numpy()
+                            conf   = float(box.conf[0].cpu().numpy())
+                            cls_id = int(box.cls[0].cpu().numpy())
                             x1, y1, x2, y2 = xy
-                            frame_persons.append((int(x1), int(y1), int(x2), int(y2), conf))
+                            frame_dets.append(
+                                (int(x1), int(y1), int(x2), int(y2), conf, cls_id)
+                            )
                         except Exception:
                             continue
-                out.append(frame_persons)
+                out.append(frame_dets)
             return out
 
         except Exception as e_opt:
-            # Fallback: call model with numpy list as before
+            # ── fallback path: pass raw numpy list ───────────────────────
             try:
                 import torch
                 with torch.no_grad():
                     results = self.model(
                         frames,
                         conf=self.conf_threshold,
-                        classes=[self.PERSON_CLASS_ID],
+                        classes=classes_filter,
                         device=self.device,
                         half=self._use_fp16,
                         verbose=False,
                     )
                 out = []
                 for res in results:
-                    frame_persons = []
+                    frame_dets = []
                     if res.boxes is not None:
                         for box in res.boxes:
                             x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
-                            conf = float(box.conf[0].cpu().numpy())
-                            frame_persons.append((int(x1), int(y1), int(x2), int(y2), conf))
-                    out.append(frame_persons)
+                            conf   = float(box.conf[0].cpu().numpy())
+                            cls_id = int(box.cls[0].cpu().numpy())
+                            frame_dets.append(
+                                (int(x1), int(y1), int(x2), int(y2), conf, cls_id)
+                            )
+                    out.append(frame_dets)
                 return out
             except Exception as e:
-                logger.error(f"Batch inference failed (both optimized and fallback): {e_opt} | {e}")
+                logger.error(
+                    f"Batch inference failed (both paths): {e_opt} | {e}"
+                )
                 return [[] for _ in frames]
 
-    # -------------------------------------------------------------------------
+    # ── status ─────────────────────────────────────────────────────────────
+
     def is_model_loaded(self) -> bool:
         return self.model_loaded and self.model is not None
 
     def unload(self) -> None:
+        """Free model from RAM/VRAM.  Safe to call even if already unloaded."""
         if self.model is not None:
             try:
                 del self.model
                 self.model        = None
                 self.model_loaded = False
+                self._class_names = {}
                 if self.device == "cuda":
                     import torch
                     torch.cuda.empty_cache()
                     torch.cuda.synchronize()
-                logger.info(f"Model '{self._model_name}' unloaded, CUDA cache cleared")
+                logger.info(
+                    f"Model '{self._model_name}' unloaded – GPU VRAM cache cleared"
+                )
             except Exception as e:
                 logger.warning(f"Unload error: {e}")

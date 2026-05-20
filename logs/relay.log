@@ -1154,3 +1154,47 @@
 2026-04-20 22:46:40 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
 2026-04-20 22:46:40 [INFO    ] IVS.relay.Main – Relay 8 COOLDOWN cam=2 zone=2
 2026-04-20 22:46:45 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 08:37:48 [INFO    ] IVS.relay.Main – Relay process started  PID=1544
+2026-05-20 08:37:48 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:37:48 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: none
+2026-05-20 08:38:22 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 08:38:22 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:38:22 [INFO    ] IVS.relay.Main – Relay type changed: none -> ethernet – hot-swapping backend
+2026-05-20 08:38:22 [INFO    ] IVS.relay.Main – [Relay] Backend 'none' closed
+2026-05-20 08:38:22 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 08:38:22 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=1.0s duration=1.0s
+2026-05-20 08:38:39 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 08:38:39 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 08:40:31 [INFO    ] IVS.relay.Main – Relay process started  PID=23468
+2026-05-20 08:40:31 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:40:31 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 08:40:47 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 08:40:47 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:40:47 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=1.0s duration=1.0s
+2026-05-20 08:41:30 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 08:41:30 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:41:30 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=1.0s duration=1.0s
+2026-05-20 08:41:53 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 08:41:54 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 09:10:24 [INFO    ] IVS.relay.Main – Relay process started  PID=17104
+2026-05-20 09:10:24 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=ALL
+2026-05-20 09:10:24 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 09:10:55 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 09:10:55 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2]
+2026-05-20 09:10:55 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 09:11:17 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 09:11:17 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:17 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 09:11:20 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 09:11:20 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:20 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 09:12:39 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 09:12:39 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 09:26:43 [INFO    ] IVS.relay.Main – Relay process started  PID=26976
+2026-05-20 09:26:43 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:26:43 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 09:27:17 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 09:27:17 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 09:27:17 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 09:27:45 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 09:27:45 [INFO    ] IVS.relay.Main – Relay process exiting

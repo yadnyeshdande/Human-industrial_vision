@@ -1,24 +1,36 @@
 {
-  "timestamp": "2026-04-20T21:37:10",
+  "timestamp": "2026-05-20T09:27:42",
   "processing_resolution": [
     640,
     360
   ],
-  "yolo_model": "yolov8n.pt",
+  "yolo_model": "PyreaserchYTYolo12.pt",
   "detection_confidence": 0.5,
   "violation_mode": "overlap",
-  "relay_cooldown": 1.0,
+  "relay_cooldown": 0.5,
   "relay_duration": 1.0,
-  "use_usb_relay": true,
+  "use_usb_relay": false,
   "usb_num_channels": 8,
   "usb_serial": null,
-  "frame_queue_size": 30,
-  "ui_update_fps": 30,
-  "last_page_index": 0,
-
-  "relay_type": "none",
+  "relay_type": "ethernet",
   "eth_relay_ip": "192.168.1.200",
   "eth_relay_port": 502,
   "eth_relay_device_id": 1,
-  "eth_relay_num_channels": 16
+  "eth_relay_num_channels": 16,
+  "frame_queue_size": 30,
+  "ui_update_fps": 30,
+  "last_page_index": 2,
+  "target_classes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ]
 }

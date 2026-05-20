@@ -1374,3 +1374,82 @@ TypeError: ZoneEditor.add_zone() missing 1 required positional argument: 'color'
 2026-04-20 22:46:05 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
 2026-04-20 22:46:09 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
 2026-04-20 22:46:18 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 2
+2026-05-20 08:37:48 [INFO    ] IVS.gui.Main – GUI process started  PID=1520
+2026-05-20 08:37:49 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:37:49 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-05-20 08:37:49 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-05-20 08:37:49 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-05-20 08:37:49 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-05-20 08:37:49 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-05-20 08:37:49 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-05-20 08:37:49 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-05-20 08:37:49 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-05-20 08:37:52 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-05-20 08:38:19 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-05-20 08:38:19 [INFO    ] IVS.gui.SettingsPage – Settings saved – relay_type=ethernet
+2026-05-20 08:38:34 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-05-20 08:38:36 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-05-20 08:38:36 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-05-20 08:38:36 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-05-20 08:38:36 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-05-20 08:38:36 [INFO    ] IVS.gui.Main – GUI process exiting
+2026-05-20 08:40:31 [INFO    ] IVS.gui.Main – GUI process started  PID=11484
+2026-05-20 08:40:31 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json
+2026-05-20 08:40:31 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-05-20 08:40:31 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-05-20 08:40:31 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-05-20 08:40:31 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-05-20 08:40:31 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-05-20 08:40:31 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-05-20 08:40:31 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-05-20 08:40:31 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-05-20 08:40:35 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-05-20 08:40:45 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-05-20 08:40:45 [INFO    ] IVS.gui.SettingsPage – Settings saved – relay_type=ethernet
+2026-05-20 08:40:53 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-05-20 08:40:55 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 1
+2026-05-20 08:41:19 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-05-20 08:41:26 [INFO    ] IVS.gui.ConfigLoader – Settings saved atomically to app_settings.json
+2026-05-20 08:41:26 [INFO    ] IVS.gui.SettingsPage – Settings saved – relay_type=ethernet
+2026-05-20 09:10:24 [INFO    ] IVS.gui.Main – GUI process started  PID=13628
+2026-05-20 09:10:24 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=ALL
+2026-05-20 09:10:24 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-05-20 09:10:24 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-05-20 09:10:24 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-05-20 09:10:24 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-05-20 09:10:24 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-05-20 09:10:24 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-05-20 09:10:24 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-05-20 09:10:24 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-05-20 09:10:29 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-05-20 09:10:42 [INFO    ] IVS.gui.SettingsPage – Class panel rebuilt for model with 80 classes; preselected=[]
+2026-05-20 09:10:52 [INFO    ] IVS.gui.ConfigLoader – Settings saved → app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2]
+2026-05-20 09:10:52 [INFO    ] IVS.gui.SettingsPage – CTRL_RELOAD_SETTINGS sent directly to detection worker (model=yolov8n.pt, classes=[0, 1, 2])
+2026-05-20 09:10:52 [INFO    ] IVS.gui.SettingsPage – Settings saved — relay_type=ethernet  model=yolov8n.pt  target_classes=[0, 1, 2]
+2026-05-20 09:11:14 [INFO    ] IVS.gui.ConfigLoader – Settings saved → app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:14 [INFO    ] IVS.gui.SettingsPage – CTRL_RELOAD_SETTINGS sent directly to detection worker (model=yolov8n.pt, classes=[0, 1, 2, 12])
+2026-05-20 09:11:14 [INFO    ] IVS.gui.SettingsPage – Settings saved — relay_type=ethernet  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:16 [INFO    ] IVS.gui.ConfigLoader – Settings saved → app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:11:16 [INFO    ] IVS.gui.SettingsPage – CTRL_RELOAD_SETTINGS sent directly to detection worker (model=yolov8n.pt, classes=[0, 1, 2, 12])
+2026-05-20 09:11:16 [INFO    ] IVS.gui.SettingsPage – Settings saved — relay_type=ethernet  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:26:43 [INFO    ] IVS.gui.Main – GUI process started  PID=21432
+2026-05-20 09:26:43 [INFO    ] IVS.gui.ConfigLoader – Settings loaded from app_settings.json  model=yolov8n.pt  target_classes=[0, 1, 2, 12]
+2026-05-20 09:26:43 [INFO    ] IVS.gui.ConfigLoader – Config loaded: 2 cameras, 2 zones
+2026-05-20 09:26:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 1 added
+2026-05-20 09:26:43 [INFO    ] IVS.gui.TeachingPage – Camera panel 2 added
+2026-05-20 09:26:43 [INFO    ] IVS.gui.TeachingPage – TeachingPage loaded 2 cameras: [1, 2]
+2026-05-20 09:26:43 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 0
+2026-05-20 09:26:43 [INFO    ] IVS.gui.DetectionPage – Detection feed switched to camera 1
+2026-05-20 09:26:43 [INFO    ] IVS.gui.MainWindow – Restored last page: 0
+2026-05-20 09:26:43 [INFO    ] IVS.gui.MainWindow – MainWindow initialized
+2026-05-20 09:26:45 [INFO    ] IVS.gui.SettingsPage – Class panel rebuilt for model with 80 classes; preselected=[0, 1, 2, 12]
+2026-05-20 09:26:47 [DEBUG   ] IVS.gui.MainWindow – Tab changed → 2
+2026-05-20 09:26:51 [INFO    ] IVS.gui.SettingsPage – Class panel rebuilt for model with 11 classes; preselected=[0, 1, 2]
+2026-05-20 09:27:14 [INFO    ] IVS.gui.ConfigLoader – Settings saved → app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 09:27:14 [INFO    ] IVS.gui.SettingsPage – CTRL_RELOAD_SETTINGS sent directly to detection worker (model=PyreaserchYTYolo12.pt, classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+2026-05-20 09:27:14 [INFO    ] IVS.gui.SettingsPage – Settings saved — relay_type=ethernet  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 09:27:42 [INFO    ] IVS.gui.MainWindow – GUI window closing – cleaning up
+2026-05-20 09:27:42 [INFO    ] IVS.gui.ConfigLoader – Settings saved → app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 09:27:42 [INFO    ] IVS.gui.DetectionPage – DetectionPage shutdown complete
+2026-05-20 09:27:42 [INFO    ] IVS.gui.MainWindow – GUI window closed cleanly
+2026-05-20 09:27:42 [INFO    ] IVS.gui.Main – GUI process exiting

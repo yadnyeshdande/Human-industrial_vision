@@ -1,7 +1,10 @@
 # =============================================================================
-# ipc/messages.py  –  Typed inter-process message protocol  (v4)
+# ipc/messages.py  –  Typed inter-process message protocol  (v5)
 # =============================================================================
-# NEW: MSG_TELEMETRY – detection → result_q → GUI sidebar (FIX #10)
+# v4: MSG_TELEMETRY – detection → result_q → GUI sidebar
+# v5: CTRL_RELOAD_MODEL – supervisor/GUI → detection: reload model immediately.
+#     Distinct from CTRL_RELOAD_SETTINGS (which also triggers a model swap if
+#     settings differ, but CTRL_RELOAD_MODEL forces it unconditionally).
 # =============================================================================
 
 import time
@@ -22,16 +25,20 @@ MSG_RESTART_ACK      = "restart_ack"
 MSG_ZONE_UPDATED     = "zone_config_updated"
 MSG_SETTINGS_SAVED   = "settings_saved"
 MSG_SYSTEM_HEALTH    = "system_health"
-MSG_TELEMETRY        = "telemetry"          # FIX #10: detection → GUI sidebar
-MSG_RELAY_HEALTH = "relay_health"    # relay_process -> status_q -> GUI
+MSG_TELEMETRY        = "telemetry"          # detection → GUI sidebar
+MSG_RELAY_HEALTH     = "relay_health"       # relay_process → status_q → GUI
 
 # Control sub-commands
-CTRL_SHUTDOWN        = "shutdown"
-CTRL_RELOAD_CFG      = "reload_config"
-CTRL_SOFT_RESET      = "soft_reset"
-CTRL_PING            = "ping"
-CTRL_RELOAD_SETTINGS = "reload_settings"
-CTRL_CAMERA_RESTARTED = "camera_restarted"   # SHM LIFECYCLE: supervisor → detection
+CTRL_SHUTDOWN         = "shutdown"
+CTRL_RELOAD_CFG       = "reload_config"
+CTRL_SOFT_RESET       = "soft_reset"
+CTRL_PING             = "ping"
+CTRL_RELOAD_SETTINGS  = "reload_settings"
+CTRL_CAMERA_RESTARTED = "camera_restarted"  # SHM LIFECYCLE: supervisor → detection
+# v5: force-reload the YOLO model (supervisor/GUI → detection worker).
+# detection_process reacts by calling detector.reload(SETTINGS.yolo_model,
+# SETTINGS.target_classes) regardless of whether the name changed.
+CTRL_RELOAD_MODEL     = "reload_model"
 
 
 def _base(msg_type, source, camera_id=None):
@@ -60,7 +67,7 @@ def make_frame_ready(source, camera_id, shm_name, frame_counter):
 
 def make_detection_result(source, camera_id, persons, violations, fps,
                            frame_counter, bounding_boxes=None, zone_status=None):
-    """Enriched detection result with bounding_boxes, zone_status."""
+    """Enriched detection result with bounding_boxes (now class-labelled) and zone_status."""
     msg = _base(MSG_DETECTION_RESULT, source, camera_id)
     msg["payload"] = {
         "persons":            persons,
@@ -68,7 +75,7 @@ def make_detection_result(source, camera_id, persons, violations, fps,
         "fps":                fps,
         "frame_counter":      frame_counter,
         "bounding_boxes":     bounding_boxes or [
-            {"bbox": list(p), "label": "person", "confidence": 1.0}
+            {"bbox": list(p), "label": "object", "confidence": 1.0, "cls_id": 0}
             for p in persons
         ],
         "zone_status":        zone_status or {v["zone_id"]: True for v in violations},
@@ -79,10 +86,7 @@ def make_detection_result(source, camera_id, persons, violations, fps,
 
 def make_telemetry(source, detection_fps, gpu_vram_mb, gpu_util_pct,
                    gpu_temp_c, ram_mb, cameras_active, extra: dict = None):
-    """
-    FIX #10: Published by detection worker → result_q → GUI sidebar.
-    Decoupled from heartbeat so supervisor is not overloaded.
-    """
+    """Published by detection worker → result_q → GUI sidebar."""
     msg = _base(MSG_TELEMETRY, source)
     msg["payload"] = {
         "detection_fps":  round(float(detection_fps), 2),
@@ -128,7 +132,7 @@ def make_status(source, data):
 
 
 def make_zone_updated(source):
-    """FIX #12: notify detection workers that zone config changed."""
+    """Notify detection workers that zone config changed."""
     return _base(MSG_ZONE_UPDATED, source)
 
 
@@ -146,8 +150,7 @@ def make_system_health(source, data):
 def make_camera_restarted(source: str, camera_id: int) -> dict:
     """
     SHM LIFECYCLE FIX: Supervisor → detection workers.
-    Tells detection to call reader.reattach(camera_id) once so the stale
-    OS handle is released and a fresh one is opened.
+    Tells detection to call reader.reattach(camera_id) once.
     """
     msg = _base(MSG_CONTROL, source, camera_id)
     msg["payload"] = {
@@ -156,10 +159,11 @@ def make_camera_restarted(source: str, camera_id: int) -> dict:
     }
     return msg
 
+
 def make_relay_health(source: str, hw_type: str, connected: bool,
                       channels: int, error: str = "") -> dict:
     """
-    relay_process -> status_q -> GUI.
+    relay_process → status_q → GUI.
     hw_type  : "none" | "usb" | "ethernet"
     connected: actual hardware state (heartbeat-verified, never stale)
     """
@@ -170,4 +174,14 @@ def make_relay_health(source: str, hw_type: str, connected: bool,
         "channels":  channels,
         "error":     error,
     }
+    return msg
+
+
+def make_reload_model(source: str) -> dict:
+    """
+    GUI/supervisor → detection worker: force-reload the model from SETTINGS.
+    Used after the user confirms a model change in the settings page.
+    """
+    msg = _base(MSG_CONTROL, source)
+    msg["payload"] = {"command": CTRL_RELOAD_MODEL}
     return msg

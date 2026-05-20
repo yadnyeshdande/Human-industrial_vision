@@ -246,7 +246,6 @@ class Supervisor:
                 ),
             )
 
-        # Relay
         # Relay  –  relay_process reads SETTINGS directly; pass queues only
         _relay_ctrl_q = Queue(maxsize=10)
         self.entries["relay"] = ProcessEntry(

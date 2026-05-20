@@ -1,8 +1,11 @@
 # =============================================================================
-# config/loader.py  –  Configuration management  (v4)
+# config/loader.py  –  Configuration management  (v5)
 # =============================================================================
-# FIX #9: AppSettings now persists last_page_index (0/1/2)
-#         so GUI restores its last visible tab after restart.
+# FIX #9:  AppSettings persists last_page_index so GUI restores its last tab.
+# FEAT #1: AppSettings.target_classes – list of YOLO class IDs to detect.
+#          Empty list  → detect ALL classes (backward-compatible default).
+#          Non-empty   → detect only the listed IDs, raise alarm on violation.
+#          Persisted to app_settings.json as "target_classes": [0, 2, …]
 # =============================================================================
 
 import json
@@ -65,6 +68,10 @@ class AppSettings:
         self.ui_update_fps:         int              = 30
         # FIX #9: restore last tab index on GUI restart
         self.last_page_index:       int              = 0
+        # FEAT #1: target class IDs for detection + alarm.
+        # [] = detect all classes (backward-compat default).
+        # [0, 2] = detect only class 0 and class 2.
+        self.target_classes:        List[int]        = []
 
     def load(self, path: str = _SETTINGS_FILE) -> None:
         p = Path(path)
@@ -98,7 +105,20 @@ class AppSettings:
                 self.last_page_index = int(data.get("last_page_index", self.last_page_index))
             except (ValueError, TypeError):
                 logger.warning(f"Invalid last_page_index in {path}, using default: {self.last_page_index}")
-            logger.info(f"Settings loaded from {path}")
+
+            # FEAT #1: load target_classes list
+            raw_tc = data.get("target_classes", [])
+            if isinstance(raw_tc, list):
+                self.target_classes = [int(c) for c in raw_tc]
+            else:
+                self.target_classes = []
+                logger.warning(f"Invalid target_classes in {path} – defaulting to []")
+
+            logger.info(
+                f"Settings loaded from {path}  "
+                f"model={self.yolo_model}  "
+                f"target_classes={self.target_classes or 'ALL'}"
+            )
         except Exception as e:
             logger.error(f"Settings load failed: {e} – using defaults")
 
@@ -122,11 +142,16 @@ class AppSettings:
             "eth_relay_num_channels": self.eth_relay_num_channels,
             "frame_queue_size":      self.frame_queue_size,
             "ui_update_fps":         self.ui_update_fps,
-            "last_page_index":       self.last_page_index,  # FIX #9
+            "last_page_index":       self.last_page_index,   # FIX #9
+            "target_classes":        self.target_classes,    # FEAT #1
         }
         try:
             _atomic_json_write(Path(path), data)
-            logger.info(f"Settings saved atomically to {path}")
+            logger.info(
+                f"Settings saved → {path}  "
+                f"model={self.yolo_model}  "
+                f"target_classes={self.target_classes or 'ALL'}"
+            )
         except Exception as e:
             logger.error(f"Settings save failed: {e}")
             raise
