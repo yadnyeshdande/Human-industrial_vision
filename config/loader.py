@@ -49,7 +49,7 @@ def _atomic_json_write(path: Path, data: dict) -> None:
 class AppSettings:
     def __init__(self):
         self.processing_resolution: Tuple[int, int] = (1280, 720)
-        self.yolo_model:            str              = "yolov8n.pt"
+        self.yolo_model:            str              = "PyreaserchYTYolo12.pt"
         self.detection_confidence:  float            = 0.5
         self.violation_mode:        str              = "center"
         self.relay_cooldown:        float            = 5.0

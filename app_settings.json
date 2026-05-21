@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-05-20T09:27:42",
+  "timestamp": "2026-05-21T02:33:54",
   "processing_resolution": [
     640,
     360
   ],
-  "yolo_model": "PyreaserchYTYolo12.pt",
-  "detection_confidence": 0.5,
+  "yolo_model": "yolov8l.pt",
+  "detection_confidence": 0.25,
   "violation_mode": "overlap",
   "relay_cooldown": 0.5,
   "relay_duration": 1.0,
@@ -16,21 +16,11 @@
   "eth_relay_ip": "192.168.1.200",
   "eth_relay_port": 502,
   "eth_relay_device_id": 1,
-  "eth_relay_num_channels": 16,
+  "eth_relay_num_channels": 8,
   "frame_queue_size": 30,
   "ui_update_fps": 30,
   "last_page_index": 2,
   "target_classes": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10
+    0
   ]
 }

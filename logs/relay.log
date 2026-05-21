@@ -1198,3 +1198,578 @@
 2026-05-20 09:27:17 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
 2026-05-20 09:27:45 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
 2026-05-20 09:27:45 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 21:56:55 [INFO    ] IVS.relay.Main – Relay process started  PID=12388
+2026-05-20 21:56:55 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 21:56:55 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 21:57:59 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 21:57:59 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:06:55 [INFO    ] IVS.relay.Main – Relay process started  PID=12388
+2026-05-20 22:06:55 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 22:06:55 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:08:27 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:08:27 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:08:49 [INFO    ] IVS.relay.Main – Relay process started  PID=8816
+2026-05-20 22:08:49 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 22:08:49 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:09:09 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:09:09 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:09:09 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:09:47 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:09:47 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:09:59 [INFO    ] IVS.relay.Main – Relay process started  PID=5636
+2026-05-20 22:09:59 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:09:59 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:10:45 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:10:45 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:12:08 [INFO    ] IVS.relay.Main – Relay process started  PID=12076
+2026-05-20 22:12:08 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:12:08 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:13:31 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:13:31 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:16:46 [INFO    ] IVS.relay.Main – Relay process started  PID=2000
+2026-05-20 22:16:46 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:16:46 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:17:39 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:17:39 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:18:19 [INFO    ] IVS.relay.Main – Relay process started  PID=13584
+2026-05-20 22:18:19 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:18:19 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:21:25 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:21:25 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:21:37 [INFO    ] IVS.relay.Main – Relay process started  PID=372
+2026-05-20 22:21:37 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:21:37 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:21:54 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:21:54 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 22:21:54 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:24:05 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:24:05 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-20 22:24:05 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:24:06 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:24:06 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-20 22:24:06 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:25:55 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:25:55 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:35:12 [INFO    ] IVS.relay.Main – Relay process started  PID=15184
+2026-05-20 22:35:12 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-20 22:35:12 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:36:44 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:36:44 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:37:51 [INFO    ] IVS.relay.Main – Relay process started  PID=15556
+2026-05-20 22:37:51 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-20 22:37:51 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:40:02 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 22:41:19 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 22:41:26 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:41:26 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=ALL
+2026-05-20 22:41:26 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:42:09 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 22:42:11 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:42:11 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:42:11 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:42:55 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:42:55 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 22:46:23 [INFO    ] IVS.relay.Main – Relay process started  PID=14740
+2026-05-20 22:46:23 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:46:23 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 22:46:54 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:46:54 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 22:46:54 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:47:17 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 22:47:19 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:47:19 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+2026-05-20 22:47:19 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:49:24 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 22:50:40 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:50:40 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 22:50:40 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:50:46 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:50:46 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 22:50:46 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:51:46 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:51:46 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 22:51:46 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:53:28 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:53:28 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+2026-05-20 22:53:28 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:53:31 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 22:53:31 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 22:53:38 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:53:38 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+2026-05-20 22:53:38 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:53:41 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:53:41 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=ALL
+2026-05-20 22:53:41 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:53:44 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:53:44 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=ALL
+2026-05-20 22:53:44 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:54:43 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:54:43 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 22:54:43 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:55:07 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:55:07 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=ALL
+2026-05-20 22:55:07 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:55:22 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 22:55:22 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=ALL
+2026-05-20 22:55:22 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 22:55:26 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 22:56:03 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 22:56:03 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 23:25:13 [INFO    ] IVS.relay.Main – Relay process started  PID=14244
+2026-05-20 23:25:13 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=ALL
+2026-05-20 23:25:13 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 23:25:30 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 23:25:30 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=ALL
+2026-05-20 23:25:30 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 23:25:36 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 23:25:36 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=ALL
+2026-05-20 23:25:36 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 23:25:36 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 23:26:17 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 23:26:17 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=ALL
+2026-05-20 23:26:17 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 23:26:34 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 23:26:34 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-20 23:27:06 [INFO    ] IVS.relay.Main – Relay process started  PID=4500
+2026-05-20 23:27:06 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=ALL
+2026-05-20 23:27:06 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-20 23:27:26 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 23:27:26 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-20 23:27:26 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 23:28:41 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 23:28:41 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-20 23:28:41 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 23:29:06 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-20 23:29:06 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-20 23:29:06 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-20 23:29:38 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-20 23:29:51 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-20 23:29:51 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 00:14:01 [INFO    ] IVS.relay.Main – Relay process started  PID=12152
+2026-05-21 00:14:01 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-21 00:14:01 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 00:14:23 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-21 00:14:24 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-21 00:14:25 [WARNING ] IVS.relay.Main – Relay 1 SKIPPED – ethernet hardware disconnected (cam=1 zone=4)
+2026-05-21 00:14:32 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-21 00:14:32 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0]
+2026-05-21 00:14:32 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-21 00:14:57 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-21 00:14:57 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 01:49:47 [INFO    ] IVS.relay.Main – Relay process started  PID=15152
+2026-05-21 01:49:47 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0]
+2026-05-21 01:49:47 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 01:49:53 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-21 01:49:53 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 02:04:47 [INFO    ] IVS.relay.Main – Relay process started  PID=13236
+2026-05-21 02:04:47 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0]
+2026-05-21 02:04:47 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 02:19:35 [INFO    ] IVS.relay.Main – Relay process started  PID=16304
+2026-05-21 02:19:35 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0]
+2026-05-21 02:19:35 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 02:19:44 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-21 02:19:44 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 02:20:10 [INFO    ] IVS.relay.Main – Relay process started  PID=1772
+2026-05-21 02:20:10 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0]
+2026-05-21 02:20:10 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 02:20:49 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-21 02:20:49 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 02:21:00 [INFO    ] IVS.relay.Main – Relay process started  PID=352
+2026-05-21 02:21:01 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0]
+2026-05-21 02:21:01 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 02:21:23 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:21:26 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-21 02:21:26 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=best.pt  target_classes=[0, 1, 2]
+2026-05-21 02:21:26 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-21 02:21:50 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:08 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-21 02:22:08 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-21 02:22:08 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-21 02:22:11 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:16 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:32 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-21 02:22:32 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=ALL
+2026-05-21 02:22:32 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-21 02:22:40 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:42 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:44 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:46 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:49 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:50 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:22:51 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-21 02:22:51 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PyreaserchYTYolo12.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2026-05-21 02:22:51 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-21 02:22:53 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:22:54 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:22:54 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:23:05 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:23:07 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:23:08 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:23:08 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:23:09 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:23:10 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:23:14 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:23:14 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:23:26 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-21 02:23:26 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+2026-05-21 02:23:26 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-21 02:23:30 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-21 02:23:30 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 02:23:44 [INFO    ] IVS.relay.Main – Relay process started  PID=10804
+2026-05-21 02:23:44 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+2026-05-21 02:23:44 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 02:23:49 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:23:49 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:23:50 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:23:50 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:23:51 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:14 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:14 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:24:15 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:24:18 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:20 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:24 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:27 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:28 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:24:28 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:28 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:28 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:24:28 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:24:28 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:24:33 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:33 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:24:35 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:38 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:45 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:46 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:46 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:24:46 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:24:47 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:47 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:49 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:50 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:24:50 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:24:56 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:24:56 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:25:10 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:15 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:16 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:16 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:17 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:17 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:25:18 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:19 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:19 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:25:22 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:24 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:24 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:25:27 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:28 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:28 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:29 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:29 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:25:29 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:30 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:30 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:31 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:32 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:35 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:35 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:25:35 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:25:35 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:25:37 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:39 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:41 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:44 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:44 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:45 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:45 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:25:45 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:25:46 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:46 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:46 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:25:46 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:47 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:25:49 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:50 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:51 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:25:52 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:58 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:25:59 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:02 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:02 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:07 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:07 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:11 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:26:13 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:13 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:16 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:16 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:17 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:21 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:26:21 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:26:24 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:24 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:33 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:33 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:33 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:26:34 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:35 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:36 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:36 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:38 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:40 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:26:42 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:42 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:42 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:44 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:45 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:45 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:26:47 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:26:47 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:51 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:26:52 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:53 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:53 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:53 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:54 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:54 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:54 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:56 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:56 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:56 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:56 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:56 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:59 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:26:59 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:26:59 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:00 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:27:00 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:00 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:04 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:05 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:27:05 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:05 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:05 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:27:05 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:27:06 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:27:06 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:07 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:07 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:27:09 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:10 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:11 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:27:11 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:11 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:12 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:27:12 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:15 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:15 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:27:15 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:16 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:16 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:16 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:27:17 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:17 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:27:17 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:17 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:17 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:18 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=1 zone=4
+2026-05-21 02:27:19 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=2 zone=5
+2026-05-21 02:27:19 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:19 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:27:21 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-21 02:27:21 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 02:30:07 [INFO    ] IVS.relay.Main – Relay process started  PID=13984
+2026-05-21 02:30:07 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+2026-05-21 02:30:07 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 02:30:09 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:09 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:09 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:10 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:11 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:11 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:12 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:12 [INFO    ] IVS.relay.Main – Relay 5 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:30:13 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:14 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:14 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:17 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:19 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:20 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:20 [INFO    ] IVS.relay.Main – Relay 5 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:30:20 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:20 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:21 [INFO    ] IVS.relay.Main – Relay 5 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:30:22 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:26 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:27 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:29 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:30 [INFO    ] IVS.relay.Main – Relay 5 COOLDOWN/FAILED cam=1 zone=4
+2026-05-21 02:30:31 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:38 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:42 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:43 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:45 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:45 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:30:45 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:30:46 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:48 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:51 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-21 02:30:51 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=PPEsnehilsanyalGithub.pt  target_classes=ALL
+2026-05-21 02:30:51 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-21 02:30:52 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:30:56 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:30:56 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:31:06 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:07 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:08 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:31:09 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:09 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:31:14 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:15 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:16 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:16 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:31:17 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:20 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:20 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:31:21 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:22 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:23 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:24 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:24 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:31:25 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:26 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:31:27 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:28 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:29 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:31:30 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:31:31 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:31:38 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:45 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:45 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:31:45 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:31:48 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:31:48 [INFO    ] IVS.relay.Main – Relay 6 COOLDOWN/FAILED cam=2 zone=5
+2026-05-21 02:32:25 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:32:32 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=4
+2026-05-21 02:32:51 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=5
+2026-05-21 02:33:03 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:33:03 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=2 zone=6
+2026-05-21 02:33:04 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:33:04 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=2 zone=6
+2026-05-21 02:33:14 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:33:27 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:33:38 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:33:57 [INFO    ] IVS.relay.Main – CTRL_RELOAD_SETTINGS received
+2026-05-21 02:33:57 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-21 02:33:57 [INFO    ] IVS.relay.Main – Settings reloaded: relay_type=ethernet cooldown=0.5s duration=1.0s
+2026-05-21 02:33:58 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:34:04 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:34:08 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:34:12 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:34:26 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:34:46 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=6
+2026-05-21 02:35:37 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:35:40 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:35:44 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:35:44 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=2 zone=8
+2026-05-21 02:35:53 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:35:54 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=2 zone=8
+2026-05-21 02:35:54 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:35:55 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:35:55 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=2 zone=8
+2026-05-21 02:35:56 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:35:58 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:35:59 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:01 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:01 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=2 zone=8
+2026-05-21 02:36:02 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:06 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:09 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:09 [INFO    ] IVS.relay.Main – Relay 1 COOLDOWN/FAILED cam=2 zone=8
+2026-05-21 02:36:11 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:15 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:33 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:34 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:36:36 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:37 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:39 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:39 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:41 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:43 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:44 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:45 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:45 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:45 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:46 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:47 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:47 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:48 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:48 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:49 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:49 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:51 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:56 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:56 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:56 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:56 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:57 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:57 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:58 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:58 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:36:58 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:36:59 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:01 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:01 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:37:03 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:05 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:06 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:07 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:07 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:37:07 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:37:07 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:08 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:13 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:16 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:27 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:37:28 [INFO    ] IVS.relay.Main – Relay 1 TRIGGERED cam=2 zone=8
+2026-05-21 02:37:35 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:36 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:37:44 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:46 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:46 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:37:57 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:58 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:58 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:37:59 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:37:59 [INFO    ] IVS.relay.Main – Relay 2 TRIGGERED cam=1 zone=7
+2026-05-21 02:38:00 [INFO    ] IVS.relay.Main – Relay 2 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:38:01 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-21 02:38:01 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 02:38:50 [INFO    ] IVS.relay.Main – Relay process started  PID=14148
+2026-05-21 02:38:50 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-21 02:38:50 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 02:39:05 [INFO    ] IVS.relay.Main – [Relay] Backend 'ethernet' closed
+2026-05-21 02:39:05 [INFO    ] IVS.relay.Main – Relay process exiting
+2026-05-21 02:39:37 [INFO    ] IVS.relay.Main – Relay process started  PID=1956
+2026-05-21 02:39:37 [INFO    ] IVS.relay.ConfigLoader – Settings loaded from app_settings.json  model=yolov8l.pt  target_classes=[0]
+2026-05-21 02:39:37 [INFO    ] IVS.relay.Main – [Relay] Initialising backend: ethernet
+2026-05-21 02:40:32 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=7
+2026-05-21 02:40:33 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=7
+2026-05-21 02:40:34 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=7
+2026-05-21 02:40:35 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=7
+2026-05-21 02:40:39 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=7
+2026-05-21 02:40:39 [INFO    ] IVS.relay.Main – Relay 5 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:40:39 [INFO    ] IVS.relay.Main – Relay 5 COOLDOWN/FAILED cam=1 zone=7
+2026-05-21 02:40:41 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=7
+2026-05-21 02:40:43 [INFO    ] IVS.relay.Main – Relay 5 TRIGGERED cam=1 zone=7
+2026-05-21 02:40:56 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8
+2026-05-21 02:41:49 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8
+2026-05-21 02:42:05 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8
+2026-05-21 02:42:06 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8
+2026-05-21 02:42:23 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8
+2026-05-21 02:42:30 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8
+2026-05-21 02:42:38 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8
+2026-05-21 02:42:44 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8
+2026-05-21 02:42:46 [INFO    ] IVS.relay.Main – Relay 6 TRIGGERED cam=2 zone=8

@@ -1,13 +1,40 @@
 # =============================================================================
-# ui/detection_page.py  –  Live detection visualization tab  (v4)
+# ui/detection_page.py  –  Live detection visualization tab  (v5)
 # =============================================================================
 # FIX #2:  Multi-camera selector panel (left sidebar list)
-#          Clicking a camera name switches the main feed.
-# FIX #3:  Frame update loop properly reads shared memory, converts to QImage,
-#          draws overlays and pushes to QLabel at 15 fps.
+# FIX #3:  Frame update loop reads SHM, converts to QImage, draws overlays.
 # FIX #10: Reads MSG_TELEMETRY from result_q → updates sidebar stats panel.
 # FIX #11: All detection results routed per camera_id; only selected cam shown.
 # FIX #12: shutdown() method stops timers and detaches shared memory.
+#
+# v5 changes:
+# -----------
+# SMOOTH-1 – Render loop 15 fps → 30 fps (67 ms → 33 ms timer).
+#   Video smoothness comes from how often update_frame() is called, not from
+#   the detector.  Halving the timer interval doubles perceived smoothness at
+#   near-zero CPU cost (SHM read is a memcpy, not a GPU call).
+#
+# SMOOTH-2 – Stale bbox clearing.
+#   _last_detection_time[cid] is recorded every time a detection result
+#   arrives.  In _update_display(), if (now - last_detection_time) exceeds
+#   BBOX_STALE_S (2.5 s), bboxes are cleared via panel.set_persons([]).
+#   This stops frozen bounding boxes persisting on a moving scene when the
+#   detector is running slowly.
+#
+# SMOOTH-3 – Real video FPS measurement.
+#   _vfps_times[cid] keeps a 3-second rolling window of SHM read timestamps.
+#   This gives the true video stream rate independently of the detector.
+#   Both rates are shown in the panel overlay:
+#       "Cam 1 | 🎥 15.0fps | 🔍 0.3fps  conf=82%"
+#   and the sidebar gains a "Video FPS" row above "Detection FPS".
+#
+# FPS MEANING:
+#   🎥 Video FPS  – how fast the camera process is writing frames to SHM
+#                   (always fast; reflects network/capture speed).
+#   🔍 Detection FPS – how fast the YOLO model processes batches.
+#                   0.2-0.3 on slow CPU/GPU is correct and expected.
+#   These are two independent pipelines.  Video can be smooth while
+#   detection is slow; that is the intended architecture.
 # =============================================================================
 
 import time
@@ -34,15 +61,19 @@ from utils.time_utils import uptime_str
 
 logger = get_logger("DetectionPage")
 
+# SMOOTH-2: clear bounding boxes if no detection result received in this time
+BBOX_STALE_S = 2.5
+
 
 class DetectionPage(QWidget):
     """
     Live detection display.
 
-    FIX #2: Left camera-selector panel – click to switch feed.
-    FIX #3: QTimer update loop reads SHM, renders overlays at ~15 fps.
+    FIX #2:  Left camera-selector panel – click to switch feed.
+    FIX #3:  QTimer update loop reads SHM, renders overlays at ~30 fps.
     FIX #10: MSG_TELEMETRY updates the right-side stats panel.
     FIX #11: Per-camera result routing.
+    v5:      Video fps measurement, stale bbox clearing, 30 fps render loop.
     """
 
     def __init__(
@@ -73,6 +104,13 @@ class DetectionPage(QWidget):
         self.latest_zone_status: Dict[int, dict]  = {}
         self.latest_violations:  Dict[int, list]  = {}
         self.det_fps:            Dict[int, float] = {}
+
+        # SMOOTH-2: timestamp of last detection result per camera
+        self._last_detection_time: Dict[int, float] = {}
+
+        # SMOOTH-3: rolling window of SHM read timestamps for video fps
+        self._vfps_times: Dict[int, List[float]] = {}
+        self._video_fps:  Dict[int, float]        = {}
 
         # Relay state
         self.relay_states: Dict[int, bool] = {}
@@ -119,7 +157,7 @@ class DetectionPage(QWidget):
 
         # CENTRE built FIRST so _video_area / _video_layout exist before the
         # camera-list widget fires currentItemChanged on its first setCurrentRow(0)
-        self._video_area = self._build_video_area()   # assigns self._video_layout
+        self._video_area = self._build_video_area()
         splitter.addWidget(self._video_area)
 
         # LEFT: camera list – may immediately fire _on_camera_selected
@@ -130,9 +168,9 @@ class DetectionPage(QWidget):
         sidebar = self._build_sidebar()
         splitter.addWidget(sidebar)
 
-        splitter.setStretchFactor(0, 1)   # narrow cam list
-        splitter.setStretchFactor(1, 6)   # wide video
-        splitter.setStretchFactor(2, 2)   # sidebar
+        splitter.setStretchFactor(0, 1)
+        splitter.setStretchFactor(1, 6)
+        splitter.setStretchFactor(2, 2)
         splitter.setSizes([160, 800, 280])
         root.addWidget(splitter, stretch=1)
 
@@ -168,7 +206,7 @@ class DetectionPage(QWidget):
         )
         vbox.addWidget(self._cam_list_widget)
 
-        # Populate list from configs (FIX #1 compatibility)
+        # Populate list from configs
         known_ids: set = set()
         for cam_cfg in self.camera_configs:
             cid = cam_cfg["id"]
@@ -188,7 +226,6 @@ class DetectionPage(QWidget):
         item.setSizeHint(QSize(160, 36))
         self._cam_list_widget.addItem(item)
         if self._cam_list_widget.count() == 1:
-            # auto-select first camera
             self._cam_list_widget.setCurrentRow(0)
 
     # FIX #3: central video panel container
@@ -197,8 +234,6 @@ class DetectionPage(QWidget):
         vbox = QVBoxLayout(container)
         vbox.setContentsMargins(0, 0, 0, 0)
 
-        # Store reference so _swap_main_panel can use it safely without
-        # calling container.layout() (which would fail before assignment)
         self._video_layout = vbox
 
         self._main_cam_label = QLabel("Select a camera →")
@@ -226,28 +261,43 @@ class DetectionPage(QWidget):
         self.relay_layout = QVBoxLayout(relay_box)
         self.relay_status_labels: Dict[int, QLabel] = {}
 
-        # Shows real hardware connection state from MSG_RELAY_HEALTH
         self.relay_health_label = QLabel("Relay: initialising...")
         self.relay_health_label.setStyleSheet("color: #888888; font-size: 11px;")
         self.relay_layout.addWidget(self.relay_health_label)
 
         vbox.addWidget(relay_box)
 
-        # FIX #10: telemetry stats from MSG_TELEMETRY
+        # FIX #10 + v5: stats panel with both fps values
         health_box = QGroupBox("Detection Stats")
         hlay = QVBoxLayout(health_box)
-        self.health_det_fps_lbl  = QLabel("Detection FPS: —")
-        self.health_gpu_vram_lbl = QLabel("GPU VRAM: —")
-        self.health_gpu_util_lbl = QLabel("GPU Util: —")
-        self.health_gpu_temp_lbl = QLabel("GPU Temp: —")
-        self.health_viols_lbl    = QLabel("Violations Today: 0")
+
+        # v5: Video FPS row added above Detection FPS
+        self.health_video_fps_lbl = QLabel("Video FPS: —")
+        self.health_det_fps_lbl   = QLabel("Detection FPS: —")
+        self.health_gpu_vram_lbl  = QLabel("GPU VRAM: —")
+        self.health_gpu_util_lbl  = QLabel("GPU Util: —")
+        self.health_gpu_temp_lbl  = QLabel("GPU Temp: —")
+        self.health_viols_lbl     = QLabel("Violations Today: 0")
+
+        # v5: add a small explanatory note below the fps rows
+        fps_note = QLabel(
+            "🎥 = camera stream  🔍 = YOLO inference\n"
+            "These are independent pipelines."
+        )
+        fps_note.setStyleSheet("color: #666; font-size: 9px;")
+        fps_note.setWordWrap(True)
+
         for lbl in [
-            self.health_det_fps_lbl, self.health_gpu_vram_lbl,
-            self.health_gpu_util_lbl, self.health_gpu_temp_lbl,
-            self.health_viols_lbl,
+            self.health_video_fps_lbl, self.health_det_fps_lbl,
+            fps_note,
+            self.health_gpu_vram_lbl, self.health_gpu_util_lbl,
+            self.health_gpu_temp_lbl, self.health_viols_lbl,
         ]:
-            lbl.setStyleSheet("color: #ccc; font-size: 11px;")
+            lbl.setStyleSheet(
+                lbl.styleSheet() or "color: #ccc; font-size: 11px;"
+            )
             hlay.addWidget(lbl)
+
         vbox.addWidget(health_box)
 
         # Violation log
@@ -295,10 +345,10 @@ class DetectionPage(QWidget):
     # ── timers ────────────────────────────────────────────────────────────────
 
     def _start_timers(self) -> None:
-        # FIX #3: 15 fps update loop (≈67ms)
+        # SMOOTH-1: 30 fps render loop (was 15 fps / 67 ms in v4)
         self._update_timer = QTimer(self)
         self._update_timer.timeout.connect(self._update_display)
-        self._update_timer.start(67)
+        self._update_timer.start(33)    # 33 ms ≈ 30 fps
 
         self._clock_timer = QTimer(self)
         self._clock_timer.timeout.connect(self._update_clocks)
@@ -319,9 +369,6 @@ class DetectionPage(QWidget):
 
     def _swap_main_panel(self, cid: int) -> None:
         """Replace the centre panel widget with the target camera's panel."""
-        # Guard: _video_layout is set in _build_video_area().  If this method
-        # is somehow called before that completes (e.g. during a rapid Qt
-        # event loop replay at startup) return silently rather than crash.
         if not hasattr(self, "_video_layout"):
             return
 
@@ -330,7 +377,6 @@ class DetectionPage(QWidget):
         self._ensure_reader_and_panel(cid, res)
         panel = self.video_panels[cid]
 
-        # Use the stored layout reference — never call self._video_area.layout()
         layout = self._video_layout
         while layout.count():
             item = layout.takeAt(0)
@@ -356,8 +402,14 @@ class DetectionPage(QWidget):
     # ── display loop ──────────────────────────────────────────────────────────
 
     def _update_display(self) -> None:
-        """FIX #3 + #10 + #11: drain queues, render selected camera."""
-        # Drain result_q
+        """
+        FIX #3 + #10 + #11 + v5:
+          • Drain result_q and relay_status_q.
+          • Read latest SHM frame for selected camera (30 fps).
+          • Measure real video fps from SHM read timestamps.
+          • Clear stale bboxes if no detection result for > BBOX_STALE_S.
+        """
+        # ── drain result_q ────────────────────────────────────────────────────
         try:
             while True:
                 msg   = self.result_q.get_nowait()
@@ -367,7 +419,6 @@ class DetectionPage(QWidget):
                     self._handle_detection(msg)
 
                 elif mtype == MSG_TELEMETRY:
-                    # FIX #10: update sidebar stats from dedicated telemetry msg
                     self._handle_telemetry(msg)
 
                 elif mtype == MSG_SYSTEM_HEALTH:
@@ -383,8 +434,7 @@ class DetectionPage(QWidget):
         except Exception:
             pass
 
-        # Drain relay_status_q
-        # Drain relay_status_q
+        # ── drain relay_status_q ──────────────────────────────────────────────
         try:
             while True:
                 msg   = self.relay_status_q.get_nowait()
@@ -401,7 +451,7 @@ class DetectionPage(QWidget):
         except Exception:
             pass
 
-        # FIX #3: read frame from SHM for selected camera only
+        # ── SHM frame read + video fps measurement (SMOOTH-1, SMOOTH-3) ──────
         cid = self._selected_cam_id
         if cid is not None and cid in self.frame_readers:
             reader = self.frame_readers[cid]
@@ -411,11 +461,41 @@ class DetectionPage(QWidget):
                 result = reader.read_if_new()
                 if result:
                     frame, _ = result
+
+                    # SMOOTH-3: rolling 3-second window for video fps
+                    t_now = time.monotonic()
+                    times = self._vfps_times.setdefault(cid, [])
+                    times.append(t_now)
+                    # drop timestamps older than 3 seconds
+                    cutoff = t_now - 3.0
+                    while len(times) > 1 and times[0] < cutoff:
+                        times.pop(0)
+                    vfps = (
+                        (len(times) - 1) / max(t_now - times[0], 0.001)
+                        if len(times) > 1 else 0.0
+                    )
+                    self._video_fps[cid] = vfps
+
                     panel = self.video_panels.get(cid)
                     if panel and panel is self._main_panel:
                         panel.update_frame(frame)
 
-        # Stats bar
+        # ── SMOOTH-2: stale bbox clearing ─────────────────────────────────────
+        # If no detection result has arrived for BBOX_STALE_S seconds, clear
+        # the bounding boxes so frozen boxes don't persist on a moving scene.
+        if cid is not None and self.latest_bboxes.get(cid):
+            last_det = self._last_detection_time.get(cid, 0.0)
+            if time.time() - last_det > BBOX_STALE_S:
+                self.latest_bboxes[cid] = []
+                panel = self.video_panels.get(cid)
+                if panel and panel is self._main_panel:
+                    panel.set_persons([])
+                    vfps = self._video_fps.get(cid, 0.0)
+                    panel.update_info(
+                        f"Cam {cid} | 🎥 {vfps:.1f}fps | 🔍 waiting for detection…"
+                    )
+
+        # ── stats bar ─────────────────────────────────────────────────────────
         total_z = sum(len(c.zones) for c in self.config_manager.get_all_cameras())
         total_v = sum(len(v) for v in self.latest_violations.values())
         cam_str = f"Cam {cid}" if cid else "—"
@@ -429,7 +509,7 @@ class DetectionPage(QWidget):
     # ── message handlers ──────────────────────────────────────────────────────
 
     def _handle_detection(self, msg: Dict) -> None:
-        """FIX #11: store per-camera; only update panel if selected."""
+        """FIX #11 + v5: store per-camera; update panel + timestamp."""
         cid     = msg.get("camera_id")
         payload = msg.get("payload", {})
 
@@ -443,6 +523,9 @@ class DetectionPage(QWidget):
         self.latest_violations[cid]  = violations
         self.det_fps[cid]            = fps
 
+        # SMOOTH-2: record arrival time so stale-clear logic has a reference
+        self._last_detection_time[cid] = time.time()
+
         # FIX #11: update video panel ONLY for the selected camera
         if cid == self._selected_cam_id:
             panel = self.video_panels.get(cid)
@@ -450,6 +533,9 @@ class DetectionPage(QWidget):
                 persons = [tuple(b["bbox"]) for b in bboxes]
                 panel.set_persons(persons)
                 panel.set_zone_violations(zone_status)
+
+                # SMOOTH-3: show BOTH video fps and detection fps
+                vfps     = self._video_fps.get(cid, 0.0)
                 max_conf = max(
                     (b.get("confidence", 0.0) for b in bboxes), default=0.0
                 )
@@ -458,7 +544,8 @@ class DetectionPage(QWidget):
                     f" ⚠ {len(violations)} violation(s)" if violations else ""
                 )
                 panel.update_info(
-                    f"Cam {cid} | {fps:.1f} FPS{conf_str}{viol_str}"
+                    f"Cam {cid} | 🎥 {vfps:.1f}fps | 🔍 {fps:.1f}fps"
+                    f"{conf_str}{viol_str}"
                 )
 
         # Log violations (all cameras)
@@ -491,7 +578,7 @@ class DetectionPage(QWidget):
                 break
 
     def _handle_telemetry(self, msg: Dict) -> None:
-        """FIX #10: populate right-side stats from MSG_TELEMETRY."""
+        """FIX #10 + v5: populate sidebar stats from MSG_TELEMETRY."""
         p = msg.get("payload", {})
         self._telem_fps  = p.get("detection_fps", self._telem_fps)
         self._telem_vram = p.get("gpu_vram_mb",   self._telem_vram)
@@ -507,7 +594,14 @@ class DetectionPage(QWidget):
         self._refresh_stats_labels()
 
     def _refresh_stats_labels(self) -> None:
-        self.health_det_fps_lbl.setText(f"Detection FPS: {self._telem_fps:.1f}")
+        # SMOOTH-3: video fps from the selected camera's rolling window
+        cid  = self._selected_cam_id
+        vfps = self._video_fps.get(cid, 0.0) if cid is not None else 0.0
+
+        self.health_video_fps_lbl.setText(f"🎥 Video FPS: {vfps:.1f}")
+        self.health_det_fps_lbl.setText(
+            f"🔍 Detection FPS: {self._telem_fps:.1f}"
+        )
         self.health_gpu_vram_lbl.setText(f"GPU VRAM: {self._telem_vram:.0f} MB")
         self.health_gpu_util_lbl.setText(f"GPU Util: {self._telem_util:.0f}%")
         color = "#ff4444" if self._telem_temp >= 80 else "#cccccc"

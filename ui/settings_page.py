@@ -540,6 +540,19 @@ class SettingsPage(QWidget):
             except Exception as e:
                 logger.warning(f"Could not send reload to detection worker: {e}")
 
+            # Also send a FORCE reload command to ensure detection worker
+            # always swaps the model immediately (useful if settings path
+            # was already same string but model file changed on disk).
+            try:
+                from ipc.messages import CTRL_RELOAD_MODEL, make_control as _mc
+                try:
+                    self.det_control_q.put_nowait(_mc("gui", CTRL_RELOAD_MODEL))
+                    logger.info("CTRL_RELOAD_MODEL (force) sent to detection worker")
+                except Exception:
+                    logger.debug("CTRL_RELOAD_MODEL send failed (non-fatal)")
+            except Exception:
+                pass
+
         logger.info(
             f"Settings saved – relay_type={SETTINGS.relay_type}  "
             f"model={SETTINGS.yolo_model}  "

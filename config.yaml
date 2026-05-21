@@ -26,15 +26,15 @@ cameras:
 detection:
   # YOLO model – place .pt file in models/ directory
   # Options: yolov8n.pt  yolov8s.pt  yolov8m.pt  yolov8l.pt  yolov8x.pt
-  model: "yolov8n.pt"
+  model: "PyreaserchYTYolo12.pt"
 
   # Detection confidence threshold (0.0–1.0)
-  confidence: 0.5
+  confidence: 0.2
 
   # Violation trigger mode:
   #   center  – person's centre point must enter zone (fewer false positives)
   #   overlap – person's bounding box must overlap zone (more sensitive)
-  violation_mode: "center"
+  violation_mode: "overlap"
 
   # Target capture framerate per camera (10–15 recommended)
   target_fps: 12
@@ -66,7 +66,7 @@ relay:
   eth_relay_ip: "192.168.1.200"
   eth_relay_port: 502
   eth_relay_device_id: 1
-  eth_relay_num_channels: 16
+  eth_relay_num_channels: 8
 
   # Shared timing
   activation_duration: 1.0

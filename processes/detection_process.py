@@ -61,10 +61,12 @@ MAX_SNAPSHOTS      = 10_000
 HEARTBEAT_EVERY    = 5.0
 TELEMETRY_EVERY    = 2.0
 OVERHEAT_FPS_CAP   = 6
-FPS_TARGET         = 12
+# Increase default detection target to be much faster (user-requested)
+# Note: guard may cap this to OVERHEAT_FPS_CAP if GPU overheats.
+FPS_TARGET         = 30
 
 # FIX LAG-3: this constant is now actually *used* inside _collect_batch().
-BATCH_COLLECT_TIMEOUT_S = 0.12    # 120 ms
+BATCH_COLLECT_TIMEOUT_S = 0.02    # 20 ms (lower collect wait for faster loop)
 
 
 def run_detection_process(

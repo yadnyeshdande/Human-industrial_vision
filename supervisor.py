@@ -60,7 +60,7 @@ def _build_camera_configs(cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
     from config.loader import ConfigManager, SETTINGS
     SETTINGS.load()
 
-    mgr     = ConfigManager()
+    mgr     = ConfigManager()   
     app_cfg = mgr.load()
 
     yaml_cams = {c["id"]: c for c in cfg.get("cameras", [])}
